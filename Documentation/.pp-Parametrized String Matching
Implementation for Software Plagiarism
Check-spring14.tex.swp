@@ -24,10 +24,12 @@ escapeinside={\%*}{*)},          % if you want to add a comment within your code
 }
 
 
-\title{\textbf{Parametrized String Matching Implementation for Software Plagiarism Check}}
+\title{\textbf{Projet Proposal for 	 \\ Parametrized String Matching Implementation for Software Plagiarism Check}}
 
 \author{
-		\vspace{ 2 mm}\\		
+		\vspace{ 2 mm}\\
+		Supervised By : \textbf{Prof. Srinivasaraghavan G}\\
+		\vspace {2mm}\\
 		\textbf{Team} \\	
 		amit.tomar \\
 		(MT2013008) \\
@@ -40,7 +42,7 @@ escapeinside={\%*}{*)},          % if you want to add a comment within your code
 		\vspace{ -2 mm}\\		
 		\textbf{@iiitb.org}}
 		
-\date{07 - Feb - 2014}
+\date{29 - March - 2014}
 
 \begin{document}
 \lstset{language=C} 
@@ -178,6 +180,47 @@ Following screen shots show the various UI screens :
       \caption{Decision Tree}
 \end{figure}
 
+\section{Project deliverables and estimated time}
+
+\begin{enumerate}
+  \item \textbf{Milestones}
+  \begin{enumerate}
+    \item \textbf{Requirement Specification} :  \\
+    Date of submission : 7 - Feb - 2014 \\ 
+    (Already submitted to Prof. Srinivasraghvan)\\
+    \item \textbf{Literature Survey} : \\
+Expected date of completion : 15 - April - 2014 \\ 
+Expected time : 40 Hours\\
+    \item \textbf{Building suffix tree data structure} :\\
+    Expected date of completion : 15 - May - 2014 \\ 
+    Expected time : 30 Hours\\
+    \item \textbf{Identifying duplicate code using suffix tree}: \\
+    Expected date of completion : 1 - June - 2014 \\ 
+    Expected time : 25 Hours\\
+    \item \textbf{Implementation of UI}: \\
+    Expected date of completion : 10 - June - 2014 \\ 
+    Expected time : 10 Hours\\
+    \item \textbf{Parameterized implementation for software plagiarism check}:\\
+    Expected date of completion : 1 - July - 2014 \\ 
+    Expected time : 40 Hours\\
+    \item \textbf{Integration of UI with parameterized string matching code}:\\
+    Expected date of completion : 15 - July - 2014 \\ 
+    Expected time : 20 Hours\\
+    \item \textbf{Testing}:\\
+    Expected date of completion : 31 - July - 2014 \\ 
+    Expected time : 20 Hours\\
+           
+  \end{enumerate}
+  \item \textbf{List of final deliverables}:
+    \begin{enumerate}
+  \item Requirement specification document.
+  \item Design document.
+  \item User manual.
+  \item Deployment manual.
+    \end{enumerate}
+
+\end{enumerate}
+
 
 \section{Hardware and Software requirements}
 
@@ -194,13 +237,92 @@ Following screen shots show the various UI screens :
     \end{tabular}
 \end{center}
 
+\section {Coding guidelines}	
+
+  \begin{enumerate}
+  
+\item \textbf{Class} \\
+All class names should begin with capital letter, with all subsequent words beginning with a capital letter 
+too.\\
+\textbf{eg.} \\
+class ThisIsAClassName{}\\  
+class Administration{}\\
+class FooClass {}\\
+
+\item \textbf{Function}\\
+All function names should begin with a small letter, with all subsequent words beginning with a capital  
+letter.\\
+\emph{eg.}\\
+void thisIsAFunction( void );\\
+int fooFunction ( string ) ;\\
+
+Names representing methods or functions must be verbs.
+eg.\\
+int getSystemVolume( void ) ;\\
+void setSytemContrast( int ) ;\\
+char findFirstCharacter( void ) ;\\
+
+\item \textbf{Variables}\\
+All primitive data type variables must begin with the first character of data type in small followed by the 
+name of variable starting with a capital letter. Subsequent words will have their first character capital.\\
+\textbf{eg.}\\
+dataType dThisIsAVariableName\\
+int          iSystemVolume; \\
+char       cAnAlphabet;\\
+float       fCurrentMonthSalary;\\
+long       lVolumeOfWater;\\
+double   dTotalTtax;\\
+string     sMyName;\\
+bool       bIsSet;\\
+
+Use of global variables should be avoided as far as possible.
+
+\item \textbf{Objects of class}
+All object names must begin with ''obj'' followed by the exact class name.\\
+\textbf{eg.} \\
+FooClass objFooClass;\\
+In   case   multiple   instances   of  a   class   are   to   be   used,   above   described   name   is   to   be   followed   by   some information about the object. All these subsequent words must begin with a capital letter. \\
+\textbf{eg.} \\
+Employee objEmployeeAmit;\\
+Employee objEmployeeHemant;\\
+Employee objEmployeeKaustubh;\\
+
+\item \textbf{Pointer types}\\ 
+If a variable is of pointer type, then its name should be preceded by ''ptr\_''\\
+\textbf{eg}.\\
+int * ptr\_iSalary;\\
+char * ptr\_cNewCharacter;\\
+FooClass * ptr\_objFooClassMemory;\\
+
+\item \textbf{Array type}
+All array names should be preceded by ''arr\_''\\
+\textbf{eg.}\\
+int arr\_iSalary [ 10 ];\\
+char arr\_cNewCharacter [ 200 ] ;\\
+FooClass arr\_objFooClassMemory [ 5 ] ;\\
+
+\item {\textbf{List type}}\\
+All list names should be preceded by ''lst\_''\\
+\textbf{eg.}\\
+list[int] lst\_iRollNumber;
+
+  \end{enumerate}
 
 \begin{thebibliography}{1}
 
-\bibitem {Peter Vamplew, Julian Dermoudy,}"An Anti-Plagiarism Editor for Software Development Courses", \emph{Proceeding
+\bibitem PPeter Vamplew, Julian Dermoudy, "An Anti-Plagiarism Editor for Software Development Courses", \emph{Proceeding
 ACE '05 Proceedings of the 7th Australasian conference on Computing education - Volume 42
 Pages 83-90 }, 2005.
+
+\bibitem EE.M. McCreight "A space-economical suffix-tree
+construction algorithm", J. ACM 23,2 (1976), pp. 262-272.
+
+\bibitem BBrenda S. Baker, "A Program for Identifying Duplicated Code, Computing Science and
+Statistics" 24 (1992), Interface Foundation of North America, pp. 49-57
+
+\bibitem BBrenda S. Baker, "Parameterized Duplication in Strings: Algorithms and an Application to Software Maintenance", SIAM Journal on Computing.
 
 \end{thebibliography}
 
 \end{document}
+
