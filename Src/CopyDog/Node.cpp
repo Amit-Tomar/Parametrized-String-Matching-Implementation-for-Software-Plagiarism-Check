@@ -28,7 +28,7 @@ void Node::addDescendentFileNumber(unsigned int fileNumber)
  *
  */
 
-void Node::trimAndAddSelfChild(unsigned int position, unsigned int fileNumber)
+void Node::trimAndAddSelfChild(unsigned int position, std::vector<unsigned int> inheritedFileNumberList)
 {
     if( position > suffix.length()-2 )
     {
@@ -49,7 +49,14 @@ void Node::trimAndAddSelfChild(unsigned int position, unsigned int fileNumber)
     std::cout << "SUFFIX: " << suffix << std::endl;
 
 
+    // @TBD Remove the filenumber data member, not required
     Node * newNode = new Node(temp,this,fileNumber);
+
+    for( int i = 0 ; i < inheritedFileNumberList.size() ; ++ i )
+    {
+        newNode->getDescendentList().push_back(inheritedFileNumberList[i]);
+    }
+
     addChild(newNode);
 }
 

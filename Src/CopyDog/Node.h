@@ -14,13 +14,14 @@ public:
     Node(string suffix = "\0", Node *parent = NULL , unsigned int fileNumber = -1);
     void addChild(Node*) ;
     void addDescendentFileNumber(unsigned int fileNumber);
-    void trimAndAddSelfChild(unsigned int,unsigned int);
+    void trimAndAddSelfChild(unsigned int position,std::vector<unsigned int> inheritedFileNumberList);
     unsigned int getSuffixLength();
     std::string getSuffix();
     void setSuffix(std::string);
     Match getMatchPosition(std::string);
     unsigned int totalChildren(){ return childList.size()  ;}
     std::vector<Node*> & getChildList() { return childList ;}
+    std::vector<unsigned int> & getDescendentList() { return descendentList ;}
 
 private:
 

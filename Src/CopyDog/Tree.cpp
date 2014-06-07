@@ -2,7 +2,7 @@
 
 Tree::Tree()
 {
-    fileAsString = "banana";
+    fileAsString = "Hello how are you my friends. Today is a very hot day.";
     rootNode = NULL;
 }
 
@@ -20,7 +20,7 @@ void Tree::createSuffixTree()
         //printTree();
     }
 
-    fileAsString = "papau" ;
+    fileAsString = "Very well player boys. my friend fun fun fun.";
     for( unsigned int i = 0 ; i < fileAsString.length() ; ++i )
     {
         std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
@@ -28,7 +28,7 @@ void Tree::createSuffixTree()
         //printTree();
     }
 
-    fileAsString = "pana" ;
+    fileAsString = "might have been better if Very well it was not htat good";
     for( unsigned int i =0 ; i < fileAsString.length() ; ++i )
     {
         std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
@@ -44,6 +44,8 @@ void Tree::insertSuffix(Node* nodeToInsertAt, std::string incomingSuffixToInsert
         std::cerr << "Null node" << std::endl;
         return;
     }
+
+    nodeToInsertAt->addDescendentFileNumber(fileNumber);
 
     Match objMatch;
 
@@ -69,45 +71,47 @@ void Tree::insertSuffix(Node* nodeToInsertAt, std::string incomingSuffixToInsert
         // Partial match
         else
         {
+            // Once partially matched, update the matched child node's descendent list
+            nodeToInsertAt->addDescendentFileNumber(fileNumber);
+
             if( eStringLarger == objMatch.lengthMatchType)
             {
-                nodeToInsertAt->addDescendentFileNumber(fileNumber);
                 // Chop-off the incoming string
                 incomingSuffixToInsert = incomingSuffixToInsert.substr(objMatch.position+1 );
 
                 // Suffix exhausted
                 if( objMatch.position == nodeToInsertAt->getChildList()[i]->getSuffixLength()-1 )
                 {
+                    nodeToInsertAt->getChildList()[i]->addDescendentFileNumber(fileNumber);
                     insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
                     return;
                 }
                 // Suffix not exhausted
                 else
                 {
-                    nodeToInsertAt->getChildList()[i]->trimAndAddSelfChild(objMatch.position, fileNumber);
+                    nodeToInsertAt->getChildList()[i]->trimAndAddSelfChild(objMatch.position, nodeToInsertAt->getChildList()[i]->getDescendentList());
+                    nodeToInsertAt->getChildList()[i]->addDescendentFileNumber(fileNumber);
                     insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
+
                     return;
                 }
             }
-            else if( eSuffixLarger == objMatch.lengthMatchType ) // Abc|DE
+            else if( eSuffixLarger == objMatch.lengthMatchType )
             {
-                nodeToInsertAt->addDescendentFileNumber(fileNumber);
-                // Chop-off the incoming string
-
                 // Chop-off the incomgng string
                 incomingSuffixToInsert = incomingSuffixToInsert.substr(objMatch.position+1 );
-                nodeToInsertAt->getChildList()[i]->trimAndAddSelfChild(objMatch.position, fileNumber);
+                nodeToInsertAt->getChildList()[i]->trimAndAddSelfChild(objMatch.position, nodeToInsertAt->getChildList()[i]->getDescendentList());
 
                 // IncomingString exhausted
                 if( objMatch.position == incomingSuffixToInsert.length()-1  )
                 {
-                    // @TBD File name updataion
-
+                    nodeToInsertAt->getChildList()[i]->addDescendentFileNumber(fileNumber);
                     return;
                 }
                 // IncomingString not exhausted
                 else
                 {
+                    nodeToInsertAt->getChildList()[i]->addDescendentFileNumber(fileNumber);
                     insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
                     return;
                 }
@@ -118,6 +122,7 @@ void Tree::insertSuffix(Node* nodeToInsertAt, std::string incomingSuffixToInsert
 
     Node * newNode = new Node(incomingSuffixToInsert,nodeToInsertAt,fileNumber);
     nodeToInsertAt->addChild(newNode);
+    newNode->getDescendentList().push_back(fileNumber);
 }
 
 void Tree::printTree()
@@ -138,7 +143,15 @@ void Tree::printTree()
         }
 
         // Print current node
-        std::cout << "--->" << bfsQueue[0]->getSuffix() << " " << std::endl ;
+        std::cout << "------>" << bfsQueue[0]->getSuffix() << std::endl ;
+        std::cout << "Descendents : [ " ;
+
+        for( int k = 0 ; k < bfsQueue[0]->getDescendentList().size() ; ++k )
+        {
+            std::cout << bfsQueue[0]->getDescendentList()[k] << " " ;
+        }
+
+        std::cout << "]" << std::endl;
 
         // Remove the first node from queue
         bfsQueue.erase(bfsQueue.begin());
