@@ -16,6 +16,8 @@ public:
     void addDescendentFileNumber(unsigned int fileNumber);
     void trimAndAddSelfChild(unsigned int,unsigned int);
     unsigned int getSuffixLength();
+    std::string getSuffix();
+    void setSuffix(std::string);
     Match getMatchPosition(std::string);
     unsigned int totalChildren(){ return childList.size()  ;}
     std::vector<Node*> & getChildList() { return childList ;}

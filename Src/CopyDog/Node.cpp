@@ -35,9 +35,19 @@ void Node::trimAndAddSelfChild(unsigned int position, unsigned int fileNumber)
         std::cerr << "Not a valid position in suffix" << std::endl;
     }
 
-    std::string temp = suffix.substr(position+1,suffix.length());
+    std::cout << "ORIGNIALSUFFIX: " << suffix << std::endl;
 
-    suffix = suffix.substr(0,position);   // Self Trim
+
+    std::string temp = suffix.substr(position+1);
+    std::cout << "SUBORIGNIALSUFFIX: " << suffix << std::endl;
+
+
+    std::cout << "TEMP: " << temp << std::endl;
+
+    suffix = suffix.substr(0,position+1);   // Self Trim
+
+    std::cout << "SUFFIX: " << suffix << std::endl;
+
 
     Node * newNode = new Node(temp,this,fileNumber);
     addChild(newNode);
@@ -48,17 +58,27 @@ unsigned int Node::getSuffixLength()
     return suffix.length();
 }
 
+std::string Node::getSuffix()
+{
+    return suffix;
+}
+
+void Node::setSuffix(string suffix)
+{
+        this->suffix = suffix;
+}
+
 /**
  * @brief  Returns the position at which match occurs.
  *         -2 : Complete match. -1 : No match at all.
  */
 Match Node::getMatchPosition(string matchingString)
 {
-
     Match objMatch;
 
     if( 0 == matchingString.compare(suffix) )
     {
+           std::cout << "__" << std::endl ;
         objMatch.matchingType = eFullMatch;
         objMatch.position = suffix.length()-1;
         objMatch.lengthMatchType = eStringSuffixSame;
@@ -69,6 +89,7 @@ Match Node::getMatchPosition(string matchingString)
 
     for( int i = 0 ; i < suffix.length() ; ++ i )
     {
+        //std::cout << "__" << suffix[i] << " " <<  matchingString[i]  << std::endl ;
         if( suffix[i] == matchingString[i] )
             ++ position;
         else
@@ -94,4 +115,3 @@ Match Node::getMatchPosition(string matchingString)
 
     return objMatch;
 }
-

@@ -2,7 +2,7 @@
 
 Tree::Tree()
 {
-    fileAsString = "Papau";
+    fileAsString = "banana";
     rootNode = NULL;
 }
 
@@ -17,6 +17,23 @@ void Tree::createSuffixTree()
     {
         std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
         insertSuffix(rootNode,suffix,1); // @TBD Pass File number properly
+        //printTree();
+    }
+
+    fileAsString = "papau" ;
+    for( unsigned int i = 1 ; i < fileAsString.length() ; ++i )
+    {
+        std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
+        insertSuffix(rootNode,suffix,2); // @TBD Pass File number properly
+        //printTree();
+    }
+
+    fileAsString = "pana" ;
+    for( unsigned int i = 1 ; i < fileAsString.length() ; ++i )
+    {
+        std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
+        insertSuffix(rootNode,suffix,3); // @TBD Pass File number properly
+        //printTree();
     }
 }
 
@@ -32,7 +49,9 @@ void Tree::insertSuffix(Node* nodeToInsertAt, std::string incomingSuffixToInsert
 
     for( unsigned int i = 0 ; i < nodeToInsertAt->totalChildren() ; ++ i )
     {
-        objMatch = nodeToInsertAt->getMatchPosition(incomingSuffixToInsert);
+        objMatch = nodeToInsertAt->getChildList()[i]->getMatchPosition(incomingSuffixToInsert);
+
+        std::cout << objMatch.position << std::endl ;
 
         // Total Match
         if( eFullMatch == objMatch.matchingType )
@@ -53,10 +72,11 @@ void Tree::insertSuffix(Node* nodeToInsertAt, std::string incomingSuffixToInsert
             if( eStringLarger == objMatch.lengthMatchType)
             {
                 nodeToInsertAt->addDescendentFileNumber(fileNumber);
+                // Chop-off the incoming string
                 incomingSuffixToInsert = incomingSuffixToInsert.substr(objMatch.position+1 );
 
                 // Suffix exhausted
-                if( objMatch.position == incomingSuffixToInsert.length()-1  )
+                if( objMatch.position == nodeToInsertAt->getChildList()[i]->getSuffixLength()-1 )
                 {
                     insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
                     return;
@@ -64,19 +84,40 @@ void Tree::insertSuffix(Node* nodeToInsertAt, std::string incomingSuffixToInsert
                 // Suffix not exhausted
                 else
                 {
-                    insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
                     nodeToInsertAt->getChildList()[i]->trimAndAddSelfChild(objMatch.position, fileNumber);
                     insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
                     return;
                 }
             }
-            else if( eSuffixLarger == objMatch.lengthMatchType )
+            else if( eSuffixLarger == objMatch.lengthMatchType ) // Abc|DE
             {
+                nodeToInsertAt->addDescendentFileNumber(fileNumber);
+                // Chop-off the incoming string
 
+                // Chop-off the incomgng string
+                incomingSuffixToInsert = incomingSuffixToInsert.substr(objMatch.position+1 );
+                nodeToInsertAt->getChildList()[i]->trimAndAddSelfChild(objMatch.position, fileNumber);
+
+                // IncomingString exhausted
+                if( objMatch.position == incomingSuffixToInsert.length()-1  )
+                {
+                    // @TBD File name updataion
+
+                    return;
+                }
+                // IncomingString not exhausted
+                else
+                {
+                    insertSuffix(nodeToInsertAt->getChildList()[i],incomingSuffixToInsert, fileNumber);
+                    return;
+                }
             }
             return;
         }
     }
+
+    Node * newNode = new Node(incomingSuffixToInsert,nodeToInsertAt,fileNumber);
+    nodeToInsertAt->addChild(newNode);
 }
 
 void Tree::printTree()
@@ -97,7 +138,7 @@ void Tree::printTree()
         }
 
         // Print current node
-        std::cout << bfsQueue[0] << " " ;
+        std::cout << "--->" << bfsQueue[0]->getSuffix() << " " << std::endl ;
 
         // Remove the first node from queue
         bfsQueue.erase(bfsQueue.begin());

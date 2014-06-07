@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     //w.show();
 
     Tree tree;
-    tree
-
+    tree.createSuffixTree();
+    tree.printTree();
     return a.exec();
 }
