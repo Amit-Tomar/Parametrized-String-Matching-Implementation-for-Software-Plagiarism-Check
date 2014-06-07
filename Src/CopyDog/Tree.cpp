@@ -21,7 +21,7 @@ void Tree::createSuffixTree()
     }
 
     fileAsString = "papau" ;
-    for( unsigned int i = 1 ; i < fileAsString.length() ; ++i )
+    for( unsigned int i = 0 ; i < fileAsString.length() ; ++i )
     {
         std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
         insertSuffix(rootNode,suffix,2); // @TBD Pass File number properly
@@ -29,7 +29,7 @@ void Tree::createSuffixTree()
     }
 
     fileAsString = "pana" ;
-    for( unsigned int i = 1 ; i < fileAsString.length() ; ++i )
+    for( unsigned int i =0 ; i < fileAsString.length() ; ++i )
     {
         std::string suffix = fileAsString.substr(fileAsString.length()-i-1);
         insertSuffix(rootNode,suffix,3); // @TBD Pass File number properly
