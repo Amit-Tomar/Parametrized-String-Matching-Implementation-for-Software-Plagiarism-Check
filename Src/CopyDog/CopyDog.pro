@@ -19,6 +19,7 @@ SOURCES += main.cpp\
 
 HEADERS  += MainWindow.h \
     Node.h \
-    Tree.h
+    Tree.h \
+    Match.h
 
 FORMS    += MainWindow.ui

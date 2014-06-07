@@ -410,7 +410,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/CopyDog1.0.0 || mkdir -p .tmp/CopyDog1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.ui .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.ui .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
 
 
 clean:compiler_clean 
@@ -801,7 +801,45 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabwidget.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qicon.h \
-		ui_MainWindow.h
+		ui_MainWindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QVariant \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QAction \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qaction.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qactiongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QApplication \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdesktopwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qguiapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qinputmethod.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QButtonGroup \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qbuttongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QHeaderView \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qheaderview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractscrollarea.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qframe.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qabstractitemmodel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qitemselectionmodel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemdelegate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyleoption.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractspinbox.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qvalidator.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qregularexpression.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qslider.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractslider.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyle.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qrubberband.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMenuBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenubar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenu.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QStatusBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstatusbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QToolBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtoolbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../Src/CopyDog/MainWindow.cpp
 
 Node.o: ../Src/CopyDog/Node.cpp ../Src/CopyDog/Node.h

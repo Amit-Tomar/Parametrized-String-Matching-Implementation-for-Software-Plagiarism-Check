@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include "Node.h"
+#include "Match.h"
 using namespace std;
 
 class Tree
@@ -13,7 +14,7 @@ public:
 
     Tree();
     void createSuffixTree();
-    void insertSuffix(Node* nodeToInsertAt, std::string suffix);
+    void insertSuffix(Node* nodeToInsertAt, std::string suffix, unsigned int fileNumber);
     void printTree();
 
 private:
