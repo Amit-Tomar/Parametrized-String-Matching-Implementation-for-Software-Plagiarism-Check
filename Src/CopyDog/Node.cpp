@@ -35,19 +35,9 @@ void Node::trimAndAddSelfChild(unsigned int position, std::vector<unsigned int> 
         std::cerr << "Not a valid position in suffix" << std::endl;
     }
 
-    std::cout << "ORIGNIALSUFFIX: " << suffix << std::endl;
-
-
     std::string temp = suffix.substr(position+1);
-    std::cout << "SUBORIGNIALSUFFIX: " << suffix << std::endl;
-
-
-    std::cout << "TEMP: " << temp << std::endl;
 
     suffix = suffix.substr(0,position+1);   // Self Trim
-
-    std::cout << "SUFFIX: " << suffix << std::endl;
-
 
     // @TBD Remove the filenumber data member, not required
     Node * newNode = new Node(temp,this,fileNumber);
@@ -85,7 +75,6 @@ Match Node::getMatchPosition(string matchingString)
 
     if( 0 == matchingString.compare(suffix) )
     {
-           std::cout << "__" << std::endl ;
         objMatch.matchingType = eFullMatch;
         objMatch.position = suffix.length()-1;
         objMatch.lengthMatchType = eStringSuffixSame;
@@ -96,7 +85,6 @@ Match Node::getMatchPosition(string matchingString)
 
     for( int i = 0 ; i < suffix.length() ; ++ i )
     {
-        //std::cout << "__" << suffix[i] << " " <<  matchingString[i]  << std::endl ;
         if( suffix[i] == matchingString[i] )
             ++ position;
         else
