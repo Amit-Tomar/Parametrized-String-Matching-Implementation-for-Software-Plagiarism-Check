@@ -18,7 +18,7 @@ CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++ -I../../Src/CopyDog -I/usr/include/python2.7 -I/home/aa/Qt5.2.1/5.2.1/gcc/include -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore -I. -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc/lib
-LIBS          = $(SUBLIBS) -lpython2.7 -lPythonQt -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lpython2.7 -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /home/aa/Qt5.2.1/5.2.1/gcc/bin/qmake
@@ -759,7 +759,12 @@ main.o: ../../Src/CopyDog/main.cpp /usr/include/python2.7/Python.h \
 		../../Src/CopyDog/Node.h \
 		../../Src/CopyDog/Match.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QTime \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatetime.h
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatetime.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QFileDialog \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qfiledialog.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdir.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfileinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../Src/CopyDog/main.cpp
 
 MainWindow.o: ../../Src/CopyDog/MainWindow.cpp ../../Src/CopyDog/MainWindow.h \

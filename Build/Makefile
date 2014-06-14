@@ -18,7 +18,7 @@ CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 INCPATH       = -I/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++ -I../Src/CopyDog -I/usr/include/python2.7 -I/home/aa/Qt5.2.1/5.2.1/gcc/include -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore -I. -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc/lib
-LIBS          = $(SUBLIBS) -lpython2.7 -lPythonQt -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lpython2.7 -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /home/aa/Qt5.2.1/5.2.1/gcc/bin/qmake
@@ -48,11 +48,15 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Src/CopyDog/main.cpp \
 		../Src/CopyDog/MainWindow.cpp \
 		../Src/CopyDog/Node.cpp \
-		../Src/CopyDog/Tree.cpp moc_MainWindow.cpp
+		../Src/CopyDog/Tree.cpp \
+		../Src/CopyDog/LanguageParser.cpp \
+		../Src/CopyDog/PythonParser.cpp moc_MainWindow.cpp
 OBJECTS       = main.o \
 		MainWindow.o \
 		Node.o \
 		Tree.o \
+		LanguageParser.o \
+		PythonParser.o \
 		moc_MainWindow.o
 DIST          = /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/spec_pre.prf \
 		/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/common/shell-unix.conf \
@@ -410,7 +414,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/CopyDog1.0.0 || mkdir -p .tmp/CopyDog1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.ui .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h ../Src/CopyDog/LanguageParser.h ../Src/CopyDog/PythonParser.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/PythonParser.cpp .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.ui .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
 
 
 clean:compiler_clean 
@@ -752,7 +756,12 @@ main.o: ../Src/CopyDog/main.cpp /usr/include/python2.7/Python.h \
 		../Src/CopyDog/Node.h \
 		../Src/CopyDog/Match.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QTime \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatetime.h
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatetime.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QFileDialog \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qfiledialog.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdir.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfileinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Src/CopyDog/main.cpp
 
 MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
@@ -867,7 +876,45 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabwidget.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qicon.h \
-		ui_MainWindow.h
+		ui_MainWindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QVariant \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QAction \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qaction.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qactiongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QApplication \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdesktopwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qguiapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qinputmethod.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QButtonGroup \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qbuttongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QHeaderView \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qheaderview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractscrollarea.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qframe.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qabstractitemmodel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qitemselectionmodel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemdelegate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyleoption.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractspinbox.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qvalidator.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qregularexpression.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qslider.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractslider.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyle.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qrubberband.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMenuBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenubar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenu.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QStatusBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstatusbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QToolBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtoolbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../Src/CopyDog/MainWindow.cpp
 
 Node.o: ../Src/CopyDog/Node.cpp ../Src/CopyDog/Node.h \
@@ -939,6 +986,13 @@ Tree.o: ../Src/CopyDog/Tree.cpp ../Src/CopyDog/Tree.h \
 		../Src/CopyDog/Node.h \
 		../Src/CopyDog/Match.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Tree.o ../Src/CopyDog/Tree.cpp
+
+LanguageParser.o: ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/LanguageParser.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LanguageParser.o ../Src/CopyDog/LanguageParser.cpp
+
+PythonParser.o: ../Src/CopyDog/PythonParser.cpp ../Src/CopyDog/PythonParser.h \
+		../Src/CopyDog/LanguageParser.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PythonParser.o ../Src/CopyDog/PythonParser.cpp
 
 moc_MainWindow.o: moc_MainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainWindow.o moc_MainWindow.cpp

@@ -8,9 +8,9 @@ class FirstParser(ast.NodeVisitor):
     def visit_Name(self, node):
         print 'Name:', node.id
 
-def multiply(sourceFile):
+def createSuffixCompatibleSource(sourceFile):
 
-    print 'The source code file is :', sourceFile
+    #print 'The source code file is :', sourceFile
 
     code = "def main(a,b,c):    i=10"
 

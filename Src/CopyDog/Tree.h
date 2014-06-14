@@ -15,7 +15,8 @@ class Tree
 public:
 
     Tree();
-    void createSuffixTree();
+
+    void createSuffixTree(std::string sourceCode);
     void insertSuffix(Node* nodeToInsertAt, std::string suffix, unsigned int fileNumber);
     void printTree();
 
@@ -23,6 +24,7 @@ private:
 
     Node * rootNode;
     std::string fileAsString;
+    unsigned int sourceFeomFileNumber;
 };
 
 

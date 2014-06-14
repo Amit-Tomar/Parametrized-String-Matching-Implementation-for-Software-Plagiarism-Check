@@ -10,7 +10,7 @@ class FirstParser(ast.NodeVisitor):
 
 def multiply(sourceFile):
 
-    print 'The source code file is :', sourceFile
+    #print 'The source code file is :', sourceFile
 
     code = "def main(a,b,c):    i=10"
 

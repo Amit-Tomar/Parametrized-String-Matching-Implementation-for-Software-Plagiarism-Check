@@ -15,16 +15,22 @@ TEMPLATE = app
 SOURCES += main.cpp\
         MainWindow.cpp \
     Node.cpp \
-    Tree.cpp
+    Tree.cpp \
+    LanguageParser.cpp \
+    PythonParser.cpp
 
 HEADERS  += MainWindow.h \
     Node.h \
     Tree.h \
-    Match.h
+    Match.h \
+    LanguageParser.h \
+    PythonParser.h
 
 INCLUDEPATH += /usr/include/python2.7 \
 
-LIBS += -lpython2.7 -lPythonQt
+LIBS += -lpython2.7
+
+#-lPythonQt
 
 FORMS    += MainWindow.ui
 
