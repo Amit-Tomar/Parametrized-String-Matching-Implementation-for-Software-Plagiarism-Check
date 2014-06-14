@@ -22,4 +22,11 @@ HEADERS  += MainWindow.h \
     Tree.h \
     Match.h
 
+INCLUDEPATH += /usr/include/python2.7 \
+
+LIBS += -lpython2.7 -lPythonQt
+
 FORMS    += MainWindow.ui
+
+OTHER_FILES += \
+    PythonParser.py

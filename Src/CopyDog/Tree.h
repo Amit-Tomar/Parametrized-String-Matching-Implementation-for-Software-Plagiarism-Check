@@ -1,6 +1,8 @@
 #ifndef TREE_H
 #define TREE_H
 
+#include "Python.h"
+
 #include <string>
 #include <vector>
 #include <iostream>
