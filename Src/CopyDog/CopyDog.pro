@@ -35,4 +35,5 @@ LIBS += -lpython2.7
 FORMS    += MainWindow.ui
 
 OTHER_FILES += \
-    PythonParser.py
+    PythonParser.py \
+    Unparse.py

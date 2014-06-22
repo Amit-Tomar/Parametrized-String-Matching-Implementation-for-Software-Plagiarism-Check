@@ -41,8 +41,8 @@ std::string PythonParser::createSuffixCompatibleSource(std::string inputSourceCo
             Py_DECREF(pArgs);
             if (pValue != NULL)
             {
-                //printf("Result of call: %s\n", PyString_AsString(pValue));
-                Py_DECREF(pValue);
+                // printf("Result of call: %s\n", PyString_AsString(pValue));
+                // Py_DECREF(pValue);
                 return PyString_AsString(pValue);
             }
             else

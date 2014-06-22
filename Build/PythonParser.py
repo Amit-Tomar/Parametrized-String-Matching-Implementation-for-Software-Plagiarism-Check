@@ -6,7 +6,7 @@ Created on Fri Jun 13 11:06:50 2014
 """
 
 import ast
-import unparse
+import Unparse
 import os
 
 class FirstParser(ast.NodeVisitor):
@@ -35,7 +35,7 @@ def createSuffixCompatibleSource(code ):
     filePtr = open("temp" , "w")
         
     #Unparsing the modified tree, which writes onto temp file
-    unparse.Unparser(tree, filePtr )
+    Unparse.Unparser(tree, filePtr )
         
     #Opening the temp file
     filePtr = open("temp", "r")

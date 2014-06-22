@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
+    //w.show();
 
     QString fileName = QFileDialog::getOpenFileName(NULL, ("Open File"), "",("Files (*.*)"));
     std::cout << fileName.toStdString() << std::endl ;
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
     Tree tree;
     tree.createSuffixTree(suffixCompatibleSource);
-    tree.printTree();
+    //tree.printTree();
 
     // --
 
@@ -51,7 +51,6 @@ int main(int argc, char *argv[])
     tree.printTree();
 
     std::cout << "-- Finished --" << std::endl ;
-    // do something..
     int nMilliseconds = myTimer.elapsed();
     std::cout << nMilliseconds << " Milli Seconds" <<  std::endl;
 
