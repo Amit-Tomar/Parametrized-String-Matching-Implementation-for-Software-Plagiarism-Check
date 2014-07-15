@@ -8,7 +8,6 @@
 #include <iostream>
 #include "Node.h"
 #include "Match.h"
-using namespace std;
 
 class Tree
 {
@@ -16,15 +15,16 @@ public:
 
     Tree();
 
-    void createSuffixTree(std::string sourceCode);
+    void updateSuffixTree(std::string sourceCode);
     void insertSuffix(Node* nodeToInsertAt, std::string suffix, unsigned int fileNumber);
     void printTree();
+    Node * getRootNode() { return rootNode; }
 
 private:
 
     Node * rootNode;
     std::string fileAsString;
-    unsigned int sourceFeomFileNumber;
+    unsigned int sourceFromFileNumber;
 };
 
 

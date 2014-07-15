@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui qml quick
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,18 +18,28 @@ SOURCES += main.cpp\
     Node.cpp \
     Tree.cpp \
     LanguageParser.cpp \
-    PythonParser.cpp
+    PythonParser.cpp \
+    FileBrowser.cpp \
+    PlagiarismDetails.cpp \
+    QuickViewHolder.cpp
 
 HEADERS  += MainWindow.h \
     Node.h \
     Tree.h \
     Match.h \
     LanguageParser.h \
-    PythonParser.h
+    PythonParser.h \
+    FileBrowser.h \
+    BrowsingTypes.h \
+    LanguageType.h \
+    PlagiarismDetails.h \
+    QuickViewHolder.h
 
 INCLUDEPATH += /usr/include/python2.7 \
 
 LIBS += -lpython2.7
+
+#RESOURCES += main.qml
 
 #-lPythonQt
 
@@ -36,4 +47,5 @@ FORMS    += MainWindow.ui
 
 OTHER_FILES += \
     PythonParser.py \
-    Unparse.py
+    Unparse.py \
+    main.qml

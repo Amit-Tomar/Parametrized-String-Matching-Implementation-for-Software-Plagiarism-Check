@@ -1,6 +1,6 @@
 #include "Node.h"
 
-Node::Node(string suffix, Node *parent , unsigned int fileNumber)
+Node::Node(std::string suffix, Node *parent , unsigned int fileNumber)
 {
     this->suffix = suffix ;
     this->parentPtr = parent;
@@ -60,7 +60,7 @@ std::string Node::getSuffix()
     return suffix;
 }
 
-void Node::setSuffix(string suffix)
+void Node::setSuffix(std::string suffix)
 {
         this->suffix = suffix;
 }
@@ -69,7 +69,7 @@ void Node::setSuffix(string suffix)
  * @brief  Returns the position at which match occurs.
  *         -2 : Complete match. -1 : No match at all.
  */
-Match Node::getMatchPosition(string matchingString)
+Match Node::getMatchPosition(std::string matchingString)
 {
     Match objMatch;
 

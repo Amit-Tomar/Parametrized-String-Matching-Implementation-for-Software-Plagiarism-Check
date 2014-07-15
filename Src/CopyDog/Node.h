@@ -6,13 +6,12 @@
 #include <iostream>
 #include <algorithm>
 #include "Match.h"
-using namespace std;
 
 class Node
 {
 public:
 
-    Node(string suffix = "\0", Node *parent = NULL , unsigned int fileNumber = -1);
+    Node(std::string suffix = "\0", Node *parent = NULL , unsigned int fileNumber = -1);
 
     void addChild(Node*) ;
     void addDescendentFileNumber(unsigned int fileNumber);
