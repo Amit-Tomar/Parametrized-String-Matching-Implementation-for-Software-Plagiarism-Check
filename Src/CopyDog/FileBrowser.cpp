@@ -34,6 +34,19 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
              getline( fileStream2, sourceCode, '\0');
              fileStream2.close();
 
+
+//             std::string tempString = "" ;
+//             unsigned int status = DOUBLE_QUOTE_ENDED;
+//             for( unsigned int i = 0 ; i < sourceCode.length() ; ++i )
+//             {
+//                if( '"' == sourceCode[i]  )
+//                {
+//                    while(  )
+//                }
+//             }
+
+//             std::cout << "CODE : " << sourceCode << std::endl ;
+
              PythonParser objPythonParser;
              std::string suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
 
@@ -92,8 +105,9 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
         std::cerr << "Invalid file browsing type" << std::endl ;
     }
 
-    //suffixTree.printTree();
+    // suffixTree.printTree();
+     plagiarsigmDetails.extractPlagiarismInformation();
+    // plagiarsigmDetails.printPlagiarismInformation();
 
-    plagiarsigmDetails.extractPlagiarismInformation();
-    //plagiarsigmDetails.printPlagiarismInformation();
+    std::cout << "Tree made" << std::endl ;
 }

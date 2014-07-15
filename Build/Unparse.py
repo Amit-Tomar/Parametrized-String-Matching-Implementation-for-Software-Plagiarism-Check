@@ -34,7 +34,7 @@ class Unparser:
     """Methods in this class recursively traverse an AST and
     output source code for the abstract syntax; original formatting
     is disregarded. """
-        
+
 
     def __init__(self, tree, file = sys.stdout):
         """Unparser(tree, file=sys.stdout) -> None.
@@ -45,7 +45,7 @@ class Unparser:
         self.dispatch(tree)
         self.f.write("")
         self.f.flush()
-      
+
 
     def fill(self, text = ""):
         "Indent a piece of text, according to the current indentation level"
@@ -70,7 +70,7 @@ class Unparser:
         if isinstance(tree, list):
             for t in tree:
                 self.dispatch(t)
-            return 
+            return
         meth = getattr(self, "_"+tree.__class__.__name__)
         meth(tree)
 

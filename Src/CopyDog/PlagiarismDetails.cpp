@@ -56,9 +56,11 @@ void PlagiarismDetails::extractPlagiarismInformation()
                 plagiarismCombination.erase(it);
             }
 
-            std::cout << "White: " << countWhite << " Length: " << it->second.length() << std::endl ;
+            //std::cout << "White: " << countWhite << " Length: " << it->second.length() << std::endl ;
         }
     }
+
+    //std::cout << "Info extreacted" << std::endl ;
 }
 
 void PlagiarismDetails::updatePlagiarismInformation(std::vector<unsigned int> plagiarisedFilesList, std::string commonCode)

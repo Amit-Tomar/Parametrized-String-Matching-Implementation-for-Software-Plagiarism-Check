@@ -9,7 +9,7 @@
 
 extern Tree suffixTree;
 
-#define MINIMUM_COPY_LENGTH 10
+#define MINIMUM_COPY_LENGTH 100
 #define MINIMUM_DEPTH_TO_CHECK 5
 
 class PlagiarismDetails
