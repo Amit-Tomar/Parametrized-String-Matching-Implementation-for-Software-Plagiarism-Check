@@ -106,7 +106,7 @@ def createSuffixCompatibleSource(code ):
     filePtr = open("temp" , "w")
 
     #Unparsing the modified tree, which writes onto temp file
-    unparse.Unparser(tree, filePtr )
+    Unparse.Unparser(tree, filePtr )
 
     #Opening the temp file
     filePtr = open("temp", "r")
@@ -152,41 +152,3 @@ def getPlainText(programCode, suffixCode):
         ptrChar = ptrChar+1
 
     return programCode[ptrChar:ptrChar+len(suffixCode)+10]
-
-
-
-
-
-# Calling
-
-c = """
-
-    def clear(        self           ):
-        '''
-        Clear the data in the heap - initialize to empty list
-        '''
-
-        self.data
-        self.data=[]
-
-    # asfdasdf
-
-
-    if __name__ == '__main__':
-        pass"""
-
-suffixCode = """P = P.get_top_child(P)
-                if (P == P):
-                    return P
-                elif (P.cmp_function(P.data[P], P.data[P]) == 1):
-                    (P.data[P], P.data[P]) = (P.data[P], P.data[P])"""
-
-
-
-s1 = parseAndStripWhiteSpaceComments(c)
-print s1
-
-s = getPlainText(s1, suffixCode)
-print "\n\n final result <--> \n",s
-
-
