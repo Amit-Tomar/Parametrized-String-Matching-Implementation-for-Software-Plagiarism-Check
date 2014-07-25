@@ -55,7 +55,7 @@ def parseAndStripWhiteSpaceComments(code):
     '''
     1. Vertical and horizontal extra spacing removed.
     2. # comments removed.
-    3. all \''' type comments is reduced to a single line \' comment
+    3. all \'\'\' type comments is reduced to a single line \' comment
 
     To make code comment free we need to remove \' *\' comment
     '''
@@ -126,7 +126,7 @@ def getPlainText(programCode, suffixCode):
  #   print suffixCode
 
     SourceCode = createSuffixCompatibleSource(programCode)
-    print " MODIFIED SOURCE CODE: \n ",SourceCode
+ #   print " MODIFIED SOURCE CODE: \n ",SourceCode
 
     loc = SourceCode.find(suffixCode)
 #    print "\n FOUND AT: Character No.", loc
@@ -136,7 +136,7 @@ def getPlainText(programCode, suffixCode):
     newLine = '\n'
     noOfLines = SourceCode.count(newLine,0,loc)
 
-    print noOfLines
+ #   print noOfLines
 
  #   print "len of suffix ",len(suffixCode)
     count = 0

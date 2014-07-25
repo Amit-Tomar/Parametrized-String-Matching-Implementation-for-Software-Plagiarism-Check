@@ -11,11 +11,6 @@
 #include <PythonParser.h>
 #include <PlagiarismDetails.h>
 
-#define DOUBLE_QUOTE_STARTED 4
-#define SINGLE_QUOTE_FOUND 3
-#define DOUBLE_QUOTE_ENDED 2
-#define HASH_FOUND 1
-
 extern Tree suffixTree;
 
 class FileBrowser
@@ -24,10 +19,12 @@ public:
     FileBrowser();
     void browseFile(BrowsingType,LanguageType=ePython);
     PlagiarismDetails getPlagiarismDetails() { return plagiarsigmDetails; }
+    std::vector <std::string> getFileList() { return fileList; }
 
 private:
 
     PlagiarismDetails plagiarsigmDetails;
+    std::vector <std::string> fileList;
 };
 
 #endif // FILEBROWSER_H

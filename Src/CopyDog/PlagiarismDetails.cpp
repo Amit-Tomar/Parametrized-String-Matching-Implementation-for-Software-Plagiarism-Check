@@ -1,10 +1,16 @@
 #include "PlagiarismDetails.h"
 
+int MINIMUM_COPY_LENGTH = 200;
+
 PlagiarismDetails::PlagiarismDetails()
 {
 
 }
 
+/**
+ * @brief  Extracts the plagiarism information from the Suffox tree and stores it in a
+ *         new data structure (Map with files copying as key and copied code as value)
+ */
 void PlagiarismDetails::extractPlagiarismInformation()
 {
     std::vector<Node*> bfsQueue ;
@@ -25,6 +31,7 @@ void PlagiarismDetails::extractPlagiarismInformation()
         unsigned int newSuffixLength = bfsQueue[0]->getSuffix().length();
         unsigned int existingSuffixLength  = plagiarismCombination[bfsQueue[0]->getDescendentList()].length();
 
+        // Push into DS only if length is more than the length of existing suffix
         if( newSuffixLength > MINIMUM_COPY_LENGTH && newSuffixLength > existingSuffixLength)
             updatePlagiarismInformation( bfsQueue[0]->getDescendentList(), bfsQueue[0]->getSuffix());
 
@@ -32,45 +39,24 @@ void PlagiarismDetails::extractPlagiarismInformation()
         bfsQueue.erase(bfsQueue.begin());
     }
 
-    // Remove entries with empty copy strings or just one file
-
-    for(std::map<std::vector<unsigned int>, std::string>::iterator it = plagiarismCombination.begin(); it != plagiarismCombination.end(); ++it)
-    {
-
-        if( it->first.size() < 2 || it->second.empty() )
-        {
-            plagiarismCombination.erase(it);
-        }
-
-        else
-        {
-            unsigned int countWhite = 0 ;
-            for( unsigned int i = 0 ; i < it->second.length() ; ++i )
-            {
-                if( it->second[i] == ' ' )
-                    ++countWhite ;
-            }
-
-            if( countWhite == it->second.length() )
-            {
-                plagiarismCombination.erase(it);
-            }
-
-            //std::cout << "White: " << countWhite << " Length: " << it->second.length() << std::endl ;
-        }
-    }
-
-    //std::cout << "Info extreacted" << std::endl ;
+    std::cout << "Info extracted" << std::endl ;
 }
 
+/**
+ * @brief  Add/Updates the plagiarsim info the DS.
+ */
 void PlagiarismDetails::updatePlagiarismInformation(std::vector<unsigned int> plagiarisedFilesList, std::string commonCode)
 {
     std::sort(plagiarisedFilesList.begin(), plagiarisedFilesList.end());
     plagiarismCombination[ plagiarisedFilesList ] = commonCode ;
 }
 
+/**
+ * @brief  Prints the plagiarism information on console. Enable the debug flag for printign to work.
+ */
 void PlagiarismDetails::printPlagiarismInformation()
 {
+#ifdef DEBUG_PLAGIARISM_DETAILS
     std::cout << "\n\n---- Plagiarism Information ----\n\n" << std::endl ;
 
     for(std::map<std::vector<unsigned int>, std::string>::iterator it = plagiarismCombination.begin(); it != plagiarismCombination.end(); ++it)
@@ -85,4 +71,5 @@ void PlagiarismDetails::printPlagiarismInformation()
         std::cout << "\n\nCopied Code : " << std::endl ;
         std::cout << it->second << std::endl;
     }
+#endif
 }

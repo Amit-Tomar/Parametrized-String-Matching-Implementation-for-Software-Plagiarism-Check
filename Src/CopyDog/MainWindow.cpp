@@ -1,46 +1,48 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
-    ui->setupUi(this);
 
-    ui->selectAllFiles->setChecked( true );
-    connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(openFileBrowser()));
 }
 
-void MainWindow::openFileBrowser(unsigned int choice)
+/**
+ * @brief  Based on the selection in the UI, opens up file browser.
+ *         Then constructs a Suffix tree from these files.
+ */
+void MainWindow::openFileBrowser(unsigned int languageChoice, unsigned int charactersToMatch, unsigned int fileSelectionChoice)
 {
-    /*if( ui->selectAllFiles->isChecked() )
+    MINIMUM_COPY_LENGTH = charactersToMatch;
+    selectedLanguageForPlagiarism = languageChoice;
+
+    if( 0 == languageChoice && 0 == fileSelectionChoice )
     {
         fileBrowser.browseFile(eSelectAllFiles, ePython);
     }
 
-    else if ( ui->selectFilesManual->isChecked() )
+    else if( 0 == languageChoice && 1 == fileSelectionChoice )
     {
         fileBrowser.browseFile(eSelectFilesManually, ePython);
     }
 
-    else if (ui->decompressSelect)
+    else if ( 1 == languageChoice && 0 == fileSelectionChoice )
     {
-        fileBrowser.browseFile(eDecompressAndSelectAll, ePython);
-    }*/
-
-    if( 1 == choice )
-    {
-        fileBrowser.browseFile(eSelectAllFiles, ePython);
+        fileBrowser.browseFile(eSelectAllFiles, eCPP);
     }
 
-    else if ( 2 == choice )
+    else if ( 1 == languageChoice && 0 == fileSelectionChoice )
     {
-        fileBrowser.browseFile(eSelectFilesManually, ePython);
+        fileBrowser.browseFile(eSelectFilesManually, eCPP);
     }
 
-    else if ( 3 == choice )
+    else if ( 2 == languageChoice && 0 == fileSelectionChoice )
     {
-        fileBrowser.browseFile(eSelectFilesManually, ePython);
+        fileBrowser.browseFile(eSelectAllFiles, eC);
+    }
+
+    else if ( 2 == languageChoice && 1 == fileSelectionChoice )
+    {
+        fileBrowser.browseFile(eSelectFilesManually, eC);
     }
 
     plagDetails = fileBrowser.getPlagiarismDetails().getPlagiarismCombination();
@@ -51,44 +53,140 @@ void MainWindow::openFileBrowser(unsigned int choice)
         copiedFileslist = "" ;
         sourceCode = "" ;
 
+        // If there is only file in the node, ignore it.
+        if( it->first.size() < 2 )
+            continue;
+
+        std::string completeFilePath;
+
         for( int i = 0 ; i < it->first.size() ; ++ i )
         {
-            copiedFileslist = copiedFileslist + QString::number(it->first[i]).toStdString() + " " ;
+            completeFilePath = fileBrowser.getFileList()[it->first[i]-1];
+            std::string onlyFileName ;
+
+            // Remove only the filename from the complete file path
+            for ( int i = completeFilePath.length()-1 ; i >= 0 ; --i )
+            {
+                if( '/' == completeFilePath[i] )
+                    break;
+                onlyFileName +=  completeFilePath[i] ;
+            }
+
+            std::string temp = onlyFileName;
+            // Reverse the obtained filename to get correct file name
+            for ( int i = onlyFileName.length()-1 , j = 0 ; i >=0 ; --i, ++j )
+            {
+                onlyFileName[j] = temp[i] ;
+            }
+
+            copiedFileslist = copiedFileslist + onlyFileName + "\n" ;
         }
 
         sourceCode = it->second ;
 
-        // Call qml function to update list
+        std::fstream fileStream2(completeFilePath.c_str(), std::fstream::in );
+        std::string originalSourceCode;
+        getline( fileStream2, originalSourceCode, '\0');
+        fileStream2.close();
 
-        QMetaObject::invokeMethod(viewHolder.getView(), "appendPlagiarismInfo",
-                Q_ARG(QVariant, copiedFileslist.c_str()),
-                Q_ARG(QVariant, sourceCode.c_str()));
+        // In case of Python, convert the P-Code back to normal source code before displaying it.
+        if( 0 == languageChoice )
+        {
+            PythonParser objPythonParser;
+            sourceCode = objPythonParser.convertPCodeToSource(originalSourceCode, sourceCode);
+        }
 
+        // Only if there's a non-space, pass this inofrmation to UI
+        if(sourceCode.find_first_not_of(' ') != std::string::npos )
+        {
+            // Call qml function to update list
+            QMetaObject::invokeMethod(viewHolder.getView(), "appendPlagiarismInfo",
+                    Q_ARG(QVariant, copiedFileslist.c_str()),
+                    Q_ARG(QVariant, sourceCode.c_str()));
+        }
     }
+}
+
+/**
+ * @brief  Exports the plagiarsim information in the current folder.
+ *         Exits the application then.
+ */
+void MainWindow::exportPlagiarismInformation()
+{
+    std::string copiedFileslist, sourceCode ;
+    std::time_t result = std::time(NULL);
+    std::string timeStamp = std::asctime(std::localtime(&result));
+
+    std::string exportFilePath = "CopyDogPlagiarismInformation_" ;
+    exportFilePath += timeStamp ;
+
+    FILE * fileWritePointer = fopen ( exportFilePath.c_str(), "w" );
+
+    if( NULL == fileWritePointer )
+    {
+        puts("Error : Export file could not be opened for reading.");
+        return ;
+    }
+
+    for(std::map<std::vector<unsigned int>, std::string>::iterator it = plagDetails.begin(); it != plagDetails.end(); ++it)
+    {
+        copiedFileslist = "" ;
+        sourceCode = "" ;
+
+        // If there is only file in the node, ignore it.
+        if( it->first.size() < 2 )
+            continue;
+
+        std::string completeFilePath;
+
+        for( int i = 0 ; i < it->first.size() ; ++ i )
+        {
+            completeFilePath = fileBrowser.getFileList()[it->first[i]-1];
+            std::string onlyFileName ;
+
+            // Remove only the filename from the complete file path
+            for ( int i = completeFilePath.length()-1 ; i >= 0 ; --i )
+            {
+                if( '/' == completeFilePath[i] )
+                    break;
+                onlyFileName +=  completeFilePath[i] ;
+            }
+
+            std::string temp = onlyFileName;
+            // Reverse the obtained filename to get correct file name
+            for ( int i = onlyFileName.length()-1 , j = 0 ; i >=0 ; --i, ++j )
+            {
+                onlyFileName[j] = temp[i] ;
+            }
+
+            copiedFileslist = copiedFileslist + onlyFileName + "\n" ;
+        }
+
+        sourceCode = it->second ;
+
+        std::fstream fileStream2(completeFilePath.c_str(), std::fstream::in );
+        std::string originalSourceCode;
+        getline( fileStream2, originalSourceCode, '\0');
+        fileStream2.close();
+
+        // In case of Python, convert the P-Code back to normal source code before displaying it.
+        if( 0 == selectedLanguageForPlagiarism )
+        {
+            PythonParser objPythonParser;
+            sourceCode = objPythonParser.convertPCodeToSource(originalSourceCode, sourceCode);
+        }
+
+        // Only if there's a non-space, pass this information to UI
+        if(sourceCode.find_first_not_of(' ') != std::string::npos )
+        {
+            fprintf( fileWritePointer, "%s\n%s\n\n------------------------\n\n" , copiedFileslist.c_str(), sourceCode.c_str() );
+        }
+    }
+
+    fclose(fileWritePointer);
+    exit(0);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
-}
-
-void MainWindow::on_selectAllFiles_clicked()
-{
-    ui->selectAllFiles->setChecked( true );
-    ui->decompressSelect->setChecked( false );
-    ui->selectFilesManual->setChecked( false );
-}
-
-void MainWindow::on_decompressSelect_clicked()
-{
-    ui->decompressSelect->setChecked( true );
-    ui->selectFilesManual->setChecked( false );
-    ui->selectAllFiles->setChecked( false );
-}
-
-void MainWindow::on_selectFilesManual_clicked()
-{
-    ui->selectFilesManual->setChecked( true );
-    ui->decompressSelect->setChecked( false );
-    ui->selectAllFiles->setChecked( false );
 }

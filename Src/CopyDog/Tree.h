@@ -9,6 +9,8 @@
 #include "Node.h"
 #include "Match.h"
 
+//#define TREE_DEBUG_MODE
+
 class Tree
 {
 public:

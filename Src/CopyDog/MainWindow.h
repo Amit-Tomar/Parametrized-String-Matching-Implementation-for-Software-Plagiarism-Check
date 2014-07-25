@@ -7,12 +7,10 @@
 #include <QQuickView>
 #include <QuickViewHolder.h>
 #include <QQuickItem>
+#include <ctime>
 
 extern QuickViewHolder viewHolder;
-
-namespace Ui {
-class MainWindow;
-}
+extern int MINIMUM_COPY_LENGTH;
 
 class MainWindow : public QMainWindow
 {
@@ -23,17 +21,13 @@ public:
     ~MainWindow();
 
 public slots:
-    void openFileBrowser(unsigned int = 0);
-
-private slots:
-    void on_selectAllFiles_clicked();
-    void on_decompressSelect_clicked();
-    void on_selectFilesManual_clicked();
+    void openFileBrowser(unsigned int, unsigned int, unsigned int);
+    void exportPlagiarismInformation();
 
 private:
-    Ui::MainWindow *ui;
     FileBrowser fileBrowser;
     std::map <std::vector<unsigned int>, std::string> plagDetails ;
+    unsigned int selectedLanguageForPlagiarism;
 };
 
 #endif // MAINWINDOW_H

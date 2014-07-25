@@ -2,8 +2,13 @@
 
 FileBrowser::FileBrowser()
 {
+
 }
 
+/**
+ * @brief  Based on the parameters, opens up file browser
+ *         capable of handling files of particular type and by differnt browsing modes.
+ */
 void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
 {
     std::string browsingRegExp;
@@ -28,31 +33,24 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
          for( int i = 0 ; i < txtFilesAndDirectories.length() ; ++ i )
          {
              fileName = dir.toStdString()+ "/"  +(txtFilesAndDirectories[i].toStdString()) ;
+             fileList.push_back(fileName);
 
              std::fstream fileStream2(fileName.c_str(), std::fstream::in );
              std::string sourceCode;
              getline( fileStream2, sourceCode, '\0');
              fileStream2.close();
 
+             std::string suffixCompatibleSource = sourceCode;
 
-//             std::string tempString = "" ;
-//             unsigned int status = DOUBLE_QUOTE_ENDED;
-//             for( unsigned int i = 0 ; i < sourceCode.length() ; ++i )
-//             {
-//                if( '"' == sourceCode[i]  )
-//                {
-//                    while(  )
-//                }
-//             }
-
-//             std::cout << "CODE : " << sourceCode << std::endl ;
-
-             PythonParser objPythonParser;
-             std::string suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
+             if( ePython == language )
+             {
+                 PythonParser objPythonParser;
+                 suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
+             }
 
              if(suffixCompatibleSource.empty())
              {
-                std::cerr <<  "Incompatible Python file found, check for PYTHON syntax errors : " << fileName << std::endl ;
+                std::cerr <<  "Incompatible Python file found, check for PYTHON syntax errors : " << fileName << "\n\n" << std::endl ;
              }
 
              else
@@ -75,17 +73,24 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
             std::cout << strlist[i].toStdString() << std::endl ;
 
             fileName = strlist[i].toStdString() ;
+            fileList.push_back(fileName);
+
             std::fstream fileStream2(fileName.c_str(), std::fstream::in );
             std::string sourceCode;
             getline( fileStream2, sourceCode, '\0');
             fileStream2.close();
 
-            PythonParser objPythonParser;
-            std::string suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
+            std::string suffixCompatibleSource = sourceCode;
+
+            if( ePython == language )
+            {
+                PythonParser objPythonParser;
+                suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
+            }
 
             if(suffixCompatibleSource.empty())
             {
-               std::cerr <<  "Incompatible Python file found, check for PYTHON syntax errors : " << fileName << std::endl ;
+               std::cerr <<  "Incompatible Python file found, check for PYTHON syntax errors : " << fileName << "\n\n" <<  std::endl ;
             }
 
             else
@@ -105,9 +110,14 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
         std::cerr << "Invalid file browsing type" << std::endl ;
     }
 
-    // suffixTree.printTree();
+     suffixTree.printTree();
      plagiarsigmDetails.extractPlagiarismInformation();
-    // plagiarsigmDetails.printPlagiarismInformation();
+     plagiarsigmDetails.printPlagiarismInformation();
 
-    std::cout << "Tree made" << std::endl ;
+    std::cout << "Suffix Tree made and information extracted" << std::endl ;
+
+    for( int i =0 ; i < fileList.size() ; ++ i)
+    {
+        std::cout << fileList[i] << "\n" << std::endl ;
+    }
 }

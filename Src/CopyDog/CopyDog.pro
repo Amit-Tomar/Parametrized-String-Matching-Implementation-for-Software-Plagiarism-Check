@@ -6,22 +6,22 @@
 
 QT       += core gui qml quick
 
-
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = CopyDog
+
 TEMPLATE = app
 
 
 SOURCES += main.cpp\
         MainWindow.cpp \
-    Node.cpp \
-    Tree.cpp \
-    LanguageParser.cpp \
-    PythonParser.cpp \
-    FileBrowser.cpp \
-    PlagiarismDetails.cpp \
-    QuickViewHolder.cpp
+        Node.cpp \
+        Tree.cpp \
+        LanguageParser.cpp \
+        PythonParser.cpp \
+        FileBrowser.cpp \
+        PlagiarismDetails.cpp \
+        QuickViewHolder.cpp
 
 HEADERS  += MainWindow.h \
     Node.h \
@@ -43,7 +43,7 @@ LIBS += -lpython2.7
 
 #-lPythonQt
 
-FORMS    += MainWindow.ui
+FORMS    +=
 
 OTHER_FILES += \
     PythonParser.py \

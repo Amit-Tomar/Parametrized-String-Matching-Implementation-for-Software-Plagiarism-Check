@@ -2,12 +2,42 @@ import QtQuick 2.0
 
 Image
 {
-    objectName: "button"
     source: "CopyDog.png"
 
     function appendPlagiarismInfo(filesList, code)
     {
         plagiarismModel.append( { plagiarismData : filesList, plagiarismCode : code })
+    }
+
+    Rectangle
+    {
+        id : exportButton
+        width : 150
+        height: width /4
+        opacity: screen2.opacity
+        z: screen2.z + 1
+
+        anchors { top : parent.top; right: parent.right ; topMargin : 10 ; rightMargin : 10 }
+
+        Text
+        {
+            id: exportButtonText
+            text: qsTr("Export and Exit")
+            anchors.centerIn: parent
+            font.pixelSize:18
+        }
+
+        MouseArea
+        {
+            id: exportMouse
+            anchors.fill: parent
+            onClicked:
+            {
+                exportButtonText.text = "Exporting.."
+                exportMouse.enabled = false
+                mainWindow.exportPlagiarismInformation()
+            }
+        }
     }
 
     Item
@@ -21,7 +51,7 @@ Image
             anchors.fill: parent
             onClicked:
             {
-                mainWindow.openFileBrowser(1)
+                mainWindow.openFileBrowser(languageSelection.selected, parseInt(sliderBarText.text), 0)
                 screen2.opacity = 1
                 screen2.z = 10
             }
@@ -39,7 +69,7 @@ Image
             anchors.fill: parent
             onClicked:
             {
-                mainWindow.openFileBrowser(2)
+                mainWindow.openFileBrowser(languageSelection.selected, parseInt(sliderBarText.text), 1)
                 screen2.opacity = 1
                 screen2.z = 10
             }
@@ -55,7 +85,98 @@ Image
         MouseArea
         {
             anchors.fill: parent
-            //onClicked: mainWindow.openFileBrowser(3)
+            //onClicked: mainWindow.openFileBrowser(languageSelection.selected)
+        }
+    }
+
+    Column
+    {
+        id: languageSelection
+        x: 35
+        y: 150
+        spacing : 60
+        property int selected : 0
+
+        Repeater
+        {
+            model: 3
+            Image
+            {
+                source: languageSelection.selected == index ? "radioChecked.png" :  "radioUnchecked.png"
+                smooth: true
+                scale: .85
+
+
+                Text
+                {
+                    x: 35
+                    y: 8
+                    color: "#dd462a"
+                    text: if( 0 == index ) "Python"
+                          else if ( 1 == index) "C++"
+                          else if ( 2 == index) "C"
+                    font.pixelSize: 16
+                }
+
+                MouseArea
+                {
+                    anchors.fill: parent
+                    onClicked: languageSelection.selected = index
+                }
+            }
+        }
+    }
+
+    Text
+    {
+        text: "     Select\n  Language"
+        color: "#dd462a"
+        font.pixelSize: 16
+        anchors{ top : languageSelection.bottom ; topMargin: 35; horizontalCenter: languageSelection.horizontalCenter }
+    }
+
+
+    Rectangle
+    {
+        id: bar
+        width: 5
+        height: parent.height * .50
+        radius: 15
+        color: "#d7d0b4"
+        anchors { right: parent.right; top: parent.top ; topMargin: parent.height * .10 ; rightMargin: parent.width * .10  }
+
+        Image
+        {
+            x: - width * .45
+            y: bar.height - height / 2 - 28
+            source: "slider.png"
+
+            Text
+            {
+                id: sliderBarText
+                text: parseInt((( 1000 - ((parent.y + 2) * 3000) / 913 ) + 10)*1000/1010) + 1
+                color: "white"
+                anchors.centerIn: parent
+            }
+
+            MouseArea
+            {
+                id: dragMouse
+                anchors.fill: parent
+                drag.target: parent
+                drag.axis: Drag.YAxis
+                drag.minimumY: -2
+                drag.maximumY: bar.height - parent.height / 2
+            }
+        }
+
+        Text
+        {
+            x: -40
+            y: 340
+            color: "#dd462a"
+            text: "Characters\n  to Match"
+            font.pixelSize: 16
         }
     }
 

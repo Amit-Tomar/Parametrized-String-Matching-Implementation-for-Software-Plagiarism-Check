@@ -9,7 +9,6 @@
 
 extern Tree suffixTree;
 
-#define MINIMUM_COPY_LENGTH 100
 #define MINIMUM_DEPTH_TO_CHECK 5
 
 class PlagiarismDetails
@@ -18,6 +17,7 @@ public:
     PlagiarismDetails();
     void extractPlagiarismInformation();
     void printPlagiarismInformation();
+    bool comparePlagirismInformation(std::vector<unsigned int>, std::string,std::vector<unsigned int>, std::string);
     std::map <std::vector<unsigned int>, std::string> getPlagiarismCombination() { return plagiarismCombination ; }
 
 private:

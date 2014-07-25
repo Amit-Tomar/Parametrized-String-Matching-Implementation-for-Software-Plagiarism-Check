@@ -15,7 +15,7 @@ CXX           = g++
 DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_QML_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++ -I../Src/CopyDog -I/usr/include/python2.7 -I/home/aa/Qt5.2.1/5.2.1/gcc/include -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtNetwork -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore -I. -I. -I.
+INCPATH       = -I/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++ -I../Src/CopyDog -I/usr/include/python2.7 -I/home/aa/Qt5.2.1/5.2.1/gcc/include -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtNetwork -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc/lib
 LIBS          = $(SUBLIBS) -lpython2.7 -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Quick -lQt5Qml -lQt5Widgets -lQt5Network -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -197,7 +197,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_MainWindow.h $(OBJECTS)  
+$(TARGET):  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Src/CopyDog/CopyDog.pro /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++/qmake.conf /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/spec_pre.prf \
@@ -426,7 +426,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/CopyDog1.0.0 || mkdir -p .tmp/CopyDog1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h ../Src/CopyDog/LanguageParser.h ../Src/CopyDog/PythonParser.h ../Src/CopyDog/FileBrowser.h ../Src/CopyDog/BrowsingTypes.h ../Src/CopyDog/LanguageType.h ../Src/CopyDog/PlagiarismDetails.h ../Src/CopyDog/QuickViewHolder.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/PythonParser.cpp ../Src/CopyDog/FileBrowser.cpp ../Src/CopyDog/PlagiarismDetails.cpp ../Src/CopyDog/QuickViewHolder.cpp .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.ui .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h ../Src/CopyDog/LanguageParser.h ../Src/CopyDog/PythonParser.h ../Src/CopyDog/FileBrowser.h ../Src/CopyDog/BrowsingTypes.h ../Src/CopyDog/LanguageType.h ../Src/CopyDog/PlagiarismDetails.h ../Src/CopyDog/QuickViewHolder.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/PythonParser.cpp ../Src/CopyDog/FileBrowser.cpp ../Src/CopyDog/PlagiarismDetails.cpp ../Src/CopyDog/QuickViewHolder.cpp .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
 
 
 clean:compiler_clean 
@@ -676,19 +676,15 @@ moc_MainWindow.cpp: /home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QObject \
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_MainWindow.h
+compiler_uic_make_all:
 compiler_uic_clean:
-	-$(DEL_FILE) ui_MainWindow.h
-ui_MainWindow.h: ../Src/CopyDog/MainWindow.ui
-	/home/aa/Qt5.2.1/5.2.1/gcc/bin/uic ../Src/CopyDog/MainWindow.ui -o ui_MainWindow.h
-
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_moc_header_clean 
 
 ####### Compile
 
@@ -1146,7 +1142,55 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qaccessible.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
-		ui_MainWindow.h
+		ui_MainWindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QVariant \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QAction \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qaction.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qactiongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QApplication \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdesktopwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qguiapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qinputmethod.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QButtonGroup \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qbuttongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QCheckBox \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qcheckbox.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractbutton.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QHeaderView \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qheaderview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractscrollarea.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qframe.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qabstractitemmodel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qitemselectionmodel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemdelegate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyleoption.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractspinbox.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qvalidator.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qregularexpression.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qslider.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractslider.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyle.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qrubberband.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QLabel \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qlabel.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMenuBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenubar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenu.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QPushButton \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qpushbutton.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QStatusBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstatusbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QToolBar \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtoolbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QVBoxLayout \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qboxlayout.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qlayout.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qlayoutitem.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qgridlayout.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../Src/CopyDog/MainWindow.cpp
 
 Node.o: ../Src/CopyDog/Node.cpp ../Src/CopyDog/Node.h \
