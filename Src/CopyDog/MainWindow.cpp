@@ -103,6 +103,9 @@ void MainWindow::openFileBrowser(unsigned int languageChoice, unsigned int chara
             QMetaObject::invokeMethod(viewHolder.getView(), "appendPlagiarismInfo",
                     Q_ARG(QVariant, copiedFileslist.c_str()),
                     Q_ARG(QVariant, sourceCode.c_str()));
+
+            contentToExport += "\n\n--------------------------------\n\n" + copiedFileslist + "\n\n" + sourceCode;
+
         }
     }
 }
@@ -128,60 +131,62 @@ void MainWindow::exportPlagiarismInformation()
         return ;
     }
 
-    for(std::map<std::vector<unsigned int>, std::string>::iterator it = plagDetails.begin(); it != plagDetails.end(); ++it)
-    {
-        copiedFileslist = "" ;
-        sourceCode = "" ;
+    fprintf( fileWritePointer, "%s" , contentToExport.c_str() );
 
-        // If there is only file in the node, ignore it.
-        if( it->first.size() < 2 )
-            continue;
+//    for(std::map<std::vector<unsigned int>, std::string>::iterator it = plagDetails.begin(); it != plagDetails.end(); ++it)
+//    {
+//        copiedFileslist = "" ;
+//        sourceCode = "" ;
 
-        std::string completeFilePath;
+//        // If there is only file in the node, ignore it.
+//        if( it->first.size() < 2 )
+//            continue;
 
-        for( int i = 0 ; i < it->first.size() ; ++ i )
-        {
-            completeFilePath = fileBrowser.getFileList()[it->first[i]-1];
-            std::string onlyFileName ;
+//        std::string completeFilePath;
 
-            // Remove only the filename from the complete file path
-            for ( int i = completeFilePath.length()-1 ; i >= 0 ; --i )
-            {
-                if( '/' == completeFilePath[i] )
-                    break;
-                onlyFileName +=  completeFilePath[i] ;
-            }
+//        for( int i = 0 ; i < it->first.size() ; ++ i )
+//        {
+//            completeFilePath = fileBrowser.getFileList()[it->first[i]-1];
+//            std::string onlyFileName ;
 
-            std::string temp = onlyFileName;
-            // Reverse the obtained filename to get correct file name
-            for ( int i = onlyFileName.length()-1 , j = 0 ; i >=0 ; --i, ++j )
-            {
-                onlyFileName[j] = temp[i] ;
-            }
+//            // Remove only the filename from the complete file path
+//            for ( int i = completeFilePath.length()-1 ; i >= 0 ; --i )
+//            {
+//                if( '/' == completeFilePath[i] )
+//                    break;
+//                onlyFileName +=  completeFilePath[i] ;
+//            }
 
-            copiedFileslist = copiedFileslist + onlyFileName + "\n" ;
-        }
+//            std::string temp = onlyFileName;
+//            // Reverse the obtained filename to get correct file name
+//            for ( int i = onlyFileName.length()-1 , j = 0 ; i >=0 ; --i, ++j )
+//            {
+//                onlyFileName[j] = temp[i] ;
+//            }
 
-        sourceCode = it->second ;
+//            copiedFileslist = copiedFileslist + onlyFileName + "\n" ;
+//        }
 
-        std::fstream fileStream2(completeFilePath.c_str(), std::fstream::in );
-        std::string originalSourceCode;
-        getline( fileStream2, originalSourceCode, '\0');
-        fileStream2.close();
+//        sourceCode = it->second ;
 
-        // In case of Python, convert the P-Code back to normal source code before displaying it.
-        if( 0 == selectedLanguageForPlagiarism )
-        {
-            PythonParser objPythonParser;
-            sourceCode = objPythonParser.convertPCodeToSource(originalSourceCode, sourceCode);
-        }
+//        std::fstream fileStream2(completeFilePath.c_str(), std::fstream::in );
+//        std::string originalSourceCode;
+//        getline( fileStream2, originalSourceCode, '\0');
+//        fileStream2.close();
 
-        // Only if there's a non-space, pass this information to UI
-        if(sourceCode.find_first_not_of(' ') != std::string::npos )
-        {
-            fprintf( fileWritePointer, "%s\n%s\n\n------------------------\n\n" , copiedFileslist.c_str(), sourceCode.c_str() );
-        }
-    }
+//        // In case of Python, convert the P-Code back to normal source code before displaying it.
+//        if( 0 == selectedLanguageForPlagiarism )
+//        {
+//            PythonParser objPythonParser;
+//            sourceCode = objPythonParser.convertPCodeToSource(originalSourceCode, sourceCode);
+//        }
+
+//        // Only if there's a non-space, pass this information to UI
+//        if(sourceCode.find_first_not_of(' ') != std::string::npos )
+//        {
+//            fprintf( fileWritePointer, "%s\n%s\n\n------------------------\n\n" , copiedFileslist.c_str(), sourceCode.c_str() );
+//        }
+//    }
 
     fclose(fileWritePointer);
     exit(0);

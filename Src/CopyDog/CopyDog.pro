@@ -39,8 +39,6 @@ INCLUDEPATH += /usr/include/python2.7 \
 
 LIBS += -lpython2.7
 
-#RESOURCES += main.qml
-
 #-lPythonQt
 
 FORMS    +=

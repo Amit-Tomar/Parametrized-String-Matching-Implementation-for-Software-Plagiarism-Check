@@ -13,6 +13,7 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
 {
     std::string browsingRegExp;
 
+    // Search for only these file extensions when searching automatically in a selected folder.
     if( ePython == language )
         browsingRegExp = "*.py";
     else if( eC == language )
@@ -22,6 +23,7 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
 
     std::string fileName ;
 
+    // Opens up a Folder browser, selects all with above selected extension in that folder.
     if( eSelectAllFiles == browsingType )
     {
          QString dir = QFileDialog::getExistingDirectory(NULL, QObject::tr("Open Directory"), "./", QFileDialog::ShowDirsOnly);
@@ -42,6 +44,7 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
 
              std::string suffixCompatibleSource = sourceCode;
 
+             // In case of Python, convert to the P-Code
              if( ePython == language )
              {
                  PythonParser objPythonParser;
@@ -60,6 +63,7 @@ void FileBrowser::browseFile(BrowsingType browsingType, LanguageType language)
          }
     }
 
+    // Opens up a file browser, sallows to select all files in the folder manually.
     else if( eSelectFilesManually == browsingType )
     {
         QFileDialog* fileDialog = new QFileDialog(NULL);

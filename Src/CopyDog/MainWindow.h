@@ -26,6 +26,7 @@ public slots:
 
 private:
     FileBrowser fileBrowser;
+    std::string contentToExport;
     std::map <std::vector<unsigned int>, std::string> plagDetails ;
     unsigned int selectedLanguageForPlagiarism;
 };
