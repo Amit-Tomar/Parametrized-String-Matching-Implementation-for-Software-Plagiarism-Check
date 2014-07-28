@@ -12,13 +12,13 @@ MAKEFILE      = Makefile
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_NO_DEBUG -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_NO_DEBUG -DQT_QUICK_LIB -DQT_QML_LIB -DQT_WIDGETS_LIB -DQT_NETWORK_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
 CXXFLAGS      = -pipe -O2 -Wall -W -D_REENTRANT -fPIE $(DEFINES)
-INCPATH       = -I/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++ -I../Src/CopyDog -I/usr/include/python2.7 -I/home/aa/Qt5.2.1/5.2.1/gcc/include -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore -I. -I. -I.
+INCPATH       = -I/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++ -I../Src/CopyDog -I/usr/include/python2.7 -I/home/aa/Qt5.2.1/5.2.1/gcc/include -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtNetwork -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui -I/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore -I. -I.
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc -Wl,-rpath,/home/aa/Qt5.2.1/5.2.1/gcc/lib
-LIBS          = $(SUBLIBS) -lpython2.7 -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -lpython2.7 -L/home/aa/Qt5.2.1/5.2.1/gcc/lib -lQt5Quick -lQt5Qml -lQt5Widgets -lQt5Network -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 QMAKE         = /home/aa/Qt5.2.1/5.2.1/gcc/bin/qmake
@@ -50,13 +50,19 @@ SOURCES       = ../Src/CopyDog/main.cpp \
 		../Src/CopyDog/Node.cpp \
 		../Src/CopyDog/Tree.cpp \
 		../Src/CopyDog/LanguageParser.cpp \
-		../Src/CopyDog/PythonParser.cpp moc_MainWindow.cpp
+		../Src/CopyDog/PythonParser.cpp \
+		../Src/CopyDog/FileBrowser.cpp \
+		../Src/CopyDog/PlagiarismDetails.cpp \
+		../Src/CopyDog/QuickViewHolder.cpp moc_MainWindow.cpp
 OBJECTS       = main.o \
 		MainWindow.o \
 		Node.o \
 		Tree.o \
 		LanguageParser.o \
 		PythonParser.o \
+		FileBrowser.o \
+		PlagiarismDetails.o \
+		QuickViewHolder.o \
 		moc_MainWindow.o
 DIST          = /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/spec_pre.prf \
 		/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/common/shell-unix.conf \
@@ -191,7 +197,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_MainWindow.h $(OBJECTS)  
+$(TARGET):  $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Src/CopyDog/CopyDog.pro /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g++/qmake.conf /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/spec_pre.prf \
@@ -297,9 +303,12 @@ Makefile: ../Src/CopyDog/CopyDog.pro /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g+
 		/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/yacc.prf \
 		/home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/lex.prf \
 		../Src/CopyDog/CopyDog.pro \
-		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Widgets.prl \
+		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Quick.prl \
+		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Qml.prl \
+		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Network.prl \
+		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Core.prl \
 		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Gui.prl \
-		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Core.prl
+		/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Widgets.prl
 	$(QMAKE) -spec linux-g++ -o Makefile ../Src/CopyDog/CopyDog.pro
 /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/spec_pre.prf:
 /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/common/shell-unix.conf:
@@ -404,9 +413,12 @@ Makefile: ../Src/CopyDog/CopyDog.pro /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/linux-g+
 /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/yacc.prf:
 /home/aa/Qt5.2.1/5.2.1/gcc/mkspecs/features/lex.prf:
 ../Src/CopyDog/CopyDog.pro:
-/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Widgets.prl:
-/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Gui.prl:
+/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Quick.prl:
+/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Qml.prl:
+/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Network.prl:
 /home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Core.prl:
+/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Gui.prl:
+/home/aa/Qt5.2.1/5.2.1/gcc/lib/libQt5Widgets.prl:
 qmake: FORCE
 	@$(QMAKE) -spec linux-g++ -o Makefile ../Src/CopyDog/CopyDog.pro
 
@@ -414,7 +426,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/CopyDog1.0.0 || mkdir -p .tmp/CopyDog1.0.0
-	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h ../Src/CopyDog/LanguageParser.h ../Src/CopyDog/PythonParser.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/PythonParser.cpp .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.ui .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
+	$(COPY_FILE) --parents $(SOURCES) $(DIST) .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/MainWindow.h ../Src/CopyDog/Node.h ../Src/CopyDog/Tree.h ../Src/CopyDog/Match.h ../Src/CopyDog/LanguageParser.h ../Src/CopyDog/PythonParser.h ../Src/CopyDog/FileBrowser.h ../Src/CopyDog/BrowsingTypes.h ../Src/CopyDog/LanguageType.h ../Src/CopyDog/PlagiarismDetails.h ../Src/CopyDog/QuickViewHolder.h .tmp/CopyDog1.0.0/ && $(COPY_FILE) --parents ../Src/CopyDog/main.cpp ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/Node.cpp ../Src/CopyDog/Tree.cpp ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/PythonParser.cpp ../Src/CopyDog/FileBrowser.cpp ../Src/CopyDog/PlagiarismDetails.cpp ../Src/CopyDog/QuickViewHolder.cpp .tmp/CopyDog1.0.0/ && (cd `dirname .tmp/CopyDog1.0.0` && $(TAR) CopyDog1.0.0.tar CopyDog1.0.0 && $(COMPRESS) CopyDog1.0.0.tar) && $(MOVE) `dirname .tmp/CopyDog1.0.0`/CopyDog1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/CopyDog1.0.0
 
 
 clean:compiler_clean 
@@ -440,10 +452,10 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: moc_MainWindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_MainWindow.cpp
-moc_MainWindow.cpp: /home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmainwindow.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+moc_MainWindow.cpp: /home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QObject \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobal.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qconfig.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfeatures.h \
@@ -480,11 +492,7 @@ moc_MainWindow.cpp: /home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypeinfo.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypetraits.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsysinfo.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs_impl.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstring.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qchar.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbytearray.h \
@@ -501,6 +509,11 @@ moc_MainWindow.cpp: /home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontainerfwd.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qisenum.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmainwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmargins.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrect.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsize.h \
@@ -551,24 +564,127 @@ moc_MainWindow.cpp: /home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabwidget.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qicon.h \
+		../Src/CopyDog/FileBrowser.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QFileDialog \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qfiledialog.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdir.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfileinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h \
+		../Src/CopyDog/BrowsingTypes.h \
+		../Src/CopyDog/LanguageType.h \
+		../Src/CopyDog/Tree.h \
+		/usr/include/python2.7/Python.h \
+		/usr/include/python2.7/patchlevel.h \
+		/usr/include/python2.7/pyconfig.h \
+		/usr/include/python2.7/pymacconfig.h \
+		/usr/include/python2.7/pyport.h \
+		/usr/include/python2.7/pymath.h \
+		/usr/include/python2.7/pymem.h \
+		/usr/include/python2.7/object.h \
+		/usr/include/python2.7/objimpl.h \
+		/usr/include/python2.7/pydebug.h \
+		/usr/include/python2.7/unicodeobject.h \
+		/usr/include/python2.7/intobject.h \
+		/usr/include/python2.7/boolobject.h \
+		/usr/include/python2.7/longobject.h \
+		/usr/include/python2.7/floatobject.h \
+		/usr/include/python2.7/complexobject.h \
+		/usr/include/python2.7/rangeobject.h \
+		/usr/include/python2.7/stringobject.h \
+		/usr/include/python2.7/memoryobject.h \
+		/usr/include/python2.7/bufferobject.h \
+		/usr/include/python2.7/bytesobject.h \
+		/usr/include/python2.7/bytearrayobject.h \
+		/usr/include/python2.7/tupleobject.h \
+		/usr/include/python2.7/listobject.h \
+		/usr/include/python2.7/dictobject.h \
+		/usr/include/python2.7/enumobject.h \
+		/usr/include/python2.7/setobject.h \
+		/usr/include/python2.7/methodobject.h \
+		/usr/include/python2.7/moduleobject.h \
+		/usr/include/python2.7/funcobject.h \
+		/usr/include/python2.7/classobject.h \
+		/usr/include/python2.7/fileobject.h \
+		/usr/include/python2.7/cobject.h \
+		/usr/include/python2.7/pycapsule.h \
+		/usr/include/python2.7/traceback.h \
+		/usr/include/python2.7/sliceobject.h \
+		/usr/include/python2.7/cellobject.h \
+		/usr/include/python2.7/iterobject.h \
+		/usr/include/python2.7/genobject.h \
+		/usr/include/python2.7/descrobject.h \
+		/usr/include/python2.7/warnings.h \
+		/usr/include/python2.7/weakrefobject.h \
+		/usr/include/python2.7/codecs.h \
+		/usr/include/python2.7/pyerrors.h \
+		/usr/include/python2.7/pystate.h \
+		/usr/include/python2.7/pyarena.h \
+		/usr/include/python2.7/modsupport.h \
+		/usr/include/python2.7/pythonrun.h \
+		/usr/include/python2.7/ceval.h \
+		/usr/include/python2.7/sysmodule.h \
+		/usr/include/python2.7/intrcheck.h \
+		/usr/include/python2.7/import.h \
+		/usr/include/python2.7/abstract.h \
+		/usr/include/python2.7/compile.h \
+		/usr/include/python2.7/code.h \
+		/usr/include/python2.7/eval.h \
+		/usr/include/python2.7/pyctype.h \
+		/usr/include/python2.7/pystrtod.h \
+		/usr/include/python2.7/pystrcmp.h \
+		/usr/include/python2.7/dtoa.h \
+		/usr/include/python2.7/pyfpe.h \
+		../Src/CopyDog/Node.h \
+		../Src/CopyDog/Match.h \
+		../Src/CopyDog/PythonParser.h \
+		../Src/CopyDog/LanguageParser.h \
+		../Src/CopyDog/PlagiarismDetails.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickView \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qtquickglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopengl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qt_windows.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopengles2ext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopenglext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QEvent \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QMargins \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QRect \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qsurface.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qsurfaceformat.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmldebug.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qtqmlglobal.h \
+		../Src/CopyDog/QuickViewHolder.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickItem \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickitem.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqml.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlprivate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlparserstatus.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmllist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmetaobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlcomponent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlerror.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qjsvalue.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QList \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qaccessible.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
 		../Src/CopyDog/MainWindow.h
 	/home/aa/Qt5.2.1/5.2.1/gcc/bin/moc $(DEFINES) $(INCPATH) ../Src/CopyDog/MainWindow.h -o moc_MainWindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_MainWindow.h
+compiler_uic_make_all:
 compiler_uic_clean:
-	-$(DEL_FILE) ui_MainWindow.h
-ui_MainWindow.h: ../Src/CopyDog/MainWindow.ui
-	/home/aa/Qt5.2.1/5.2.1/gcc/bin/uic ../Src/CopyDog/MainWindow.ui -o ui_MainWindow.h
-
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_moc_header_clean 
 
 ####### Compile
 
@@ -634,10 +750,10 @@ main.o: ../Src/CopyDog/main.cpp /usr/include/python2.7/Python.h \
 		/usr/include/python2.7/dtoa.h \
 		/usr/include/python2.7/pyfpe.h \
 		../Src/CopyDog/MainWindow.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmainwindow.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QObject \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobal.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qconfig.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfeatures.h \
@@ -674,11 +790,7 @@ main.o: ../Src/CopyDog/main.cpp /usr/include/python2.7/Python.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypeinfo.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypetraits.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsysinfo.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs_impl.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstring.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qchar.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbytearray.h \
@@ -695,6 +807,11 @@ main.o: ../Src/CopyDog/main.cpp /usr/include/python2.7/Python.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontainerfwd.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qisenum.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmainwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmargins.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrect.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsize.h \
@@ -745,30 +862,71 @@ main.o: ../Src/CopyDog/main.cpp /usr/include/python2.7/Python.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabwidget.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qicon.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QApplication \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qapplication.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdesktopwidget.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qguiapplication.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qinputmethod.h \
-		../Src/CopyDog/Tree.h \
-		../Src/CopyDog/Node.h \
-		../Src/CopyDog/Match.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QTime \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatetime.h \
+		../Src/CopyDog/FileBrowser.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QFileDialog \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qfiledialog.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdir.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfileinfo.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h \
+		../Src/CopyDog/BrowsingTypes.h \
+		../Src/CopyDog/LanguageType.h \
+		../Src/CopyDog/Tree.h \
+		../Src/CopyDog/Node.h \
+		../Src/CopyDog/Match.h \
+		../Src/CopyDog/PythonParser.h \
+		../Src/CopyDog/LanguageParser.h \
+		../Src/CopyDog/PlagiarismDetails.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickView \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qtquickglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopengl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qt_windows.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopengles2ext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopenglext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QEvent \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QMargins \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QRect \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qsurface.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qsurfaceformat.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmldebug.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qtqmlglobal.h \
+		../Src/CopyDog/QuickViewHolder.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickItem \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickitem.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqml.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlprivate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlparserstatus.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmllist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmetaobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlcomponent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlerror.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qjsvalue.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QList \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qaccessible.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QApplication \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdesktopwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qguiapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qinputmethod.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QTime \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatetime.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/QQmlContext \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlcontext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/QQmlEngine \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlengine.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qjsengine.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Src/CopyDog/main.cpp
 
 MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmainwindow.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QObject \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobal.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qconfig.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfeatures.h \
@@ -805,11 +963,7 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypeinfo.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypetraits.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsysinfo.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs_impl.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstring.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qchar.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbytearray.h \
@@ -826,6 +980,11 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontainerfwd.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qisenum.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMainWindow \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmainwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmargins.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrect.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsize.h \
@@ -876,6 +1035,113 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabwidget.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qicon.h \
+		../Src/CopyDog/FileBrowser.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QFileDialog \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qfiledialog.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdir.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfileinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h \
+		../Src/CopyDog/BrowsingTypes.h \
+		../Src/CopyDog/LanguageType.h \
+		../Src/CopyDog/Tree.h \
+		/usr/include/python2.7/Python.h \
+		/usr/include/python2.7/patchlevel.h \
+		/usr/include/python2.7/pyconfig.h \
+		/usr/include/python2.7/pymacconfig.h \
+		/usr/include/python2.7/pyport.h \
+		/usr/include/python2.7/pymath.h \
+		/usr/include/python2.7/pymem.h \
+		/usr/include/python2.7/object.h \
+		/usr/include/python2.7/objimpl.h \
+		/usr/include/python2.7/pydebug.h \
+		/usr/include/python2.7/unicodeobject.h \
+		/usr/include/python2.7/intobject.h \
+		/usr/include/python2.7/boolobject.h \
+		/usr/include/python2.7/longobject.h \
+		/usr/include/python2.7/floatobject.h \
+		/usr/include/python2.7/complexobject.h \
+		/usr/include/python2.7/rangeobject.h \
+		/usr/include/python2.7/stringobject.h \
+		/usr/include/python2.7/memoryobject.h \
+		/usr/include/python2.7/bufferobject.h \
+		/usr/include/python2.7/bytesobject.h \
+		/usr/include/python2.7/bytearrayobject.h \
+		/usr/include/python2.7/tupleobject.h \
+		/usr/include/python2.7/listobject.h \
+		/usr/include/python2.7/dictobject.h \
+		/usr/include/python2.7/enumobject.h \
+		/usr/include/python2.7/setobject.h \
+		/usr/include/python2.7/methodobject.h \
+		/usr/include/python2.7/moduleobject.h \
+		/usr/include/python2.7/funcobject.h \
+		/usr/include/python2.7/classobject.h \
+		/usr/include/python2.7/fileobject.h \
+		/usr/include/python2.7/cobject.h \
+		/usr/include/python2.7/pycapsule.h \
+		/usr/include/python2.7/traceback.h \
+		/usr/include/python2.7/sliceobject.h \
+		/usr/include/python2.7/cellobject.h \
+		/usr/include/python2.7/iterobject.h \
+		/usr/include/python2.7/genobject.h \
+		/usr/include/python2.7/descrobject.h \
+		/usr/include/python2.7/warnings.h \
+		/usr/include/python2.7/weakrefobject.h \
+		/usr/include/python2.7/codecs.h \
+		/usr/include/python2.7/pyerrors.h \
+		/usr/include/python2.7/pystate.h \
+		/usr/include/python2.7/pyarena.h \
+		/usr/include/python2.7/modsupport.h \
+		/usr/include/python2.7/pythonrun.h \
+		/usr/include/python2.7/ceval.h \
+		/usr/include/python2.7/sysmodule.h \
+		/usr/include/python2.7/intrcheck.h \
+		/usr/include/python2.7/import.h \
+		/usr/include/python2.7/abstract.h \
+		/usr/include/python2.7/compile.h \
+		/usr/include/python2.7/code.h \
+		/usr/include/python2.7/eval.h \
+		/usr/include/python2.7/pyctype.h \
+		/usr/include/python2.7/pystrtod.h \
+		/usr/include/python2.7/pystrcmp.h \
+		/usr/include/python2.7/dtoa.h \
+		/usr/include/python2.7/pyfpe.h \
+		../Src/CopyDog/Node.h \
+		../Src/CopyDog/Match.h \
+		../Src/CopyDog/PythonParser.h \
+		../Src/CopyDog/LanguageParser.h \
+		../Src/CopyDog/PlagiarismDetails.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickView \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickview.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qtquickglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopengl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qt_windows.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopengles2ext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qopenglext.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindow.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QEvent \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QMargins \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QRect \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qsurface.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qsurfaceformat.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmldebug.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qtqmlglobal.h \
+		../Src/CopyDog/QuickViewHolder.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickItem \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickitem.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqml.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlprivate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlparserstatus.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmllist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmetaobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlcomponent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlerror.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qjsvalue.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QList \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qaccessible.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
 		ui_MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QVariant \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QAction \
@@ -883,13 +1149,14 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qactiongroup.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QApplication \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qapplication.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
-		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdesktopwidget.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qguiapplication.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qinputmethod.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QButtonGroup \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qbuttongroup.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QCheckBox \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qcheckbox.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractbutton.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QHeaderView \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qheaderview.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qabstractitemview.h \
@@ -907,13 +1174,22 @@ MainWindow.o: ../Src/CopyDog/MainWindow.cpp ../Src/CopyDog/MainWindow.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstyle.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtabbar.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qrubberband.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QLabel \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qlabel.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QMenuBar \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenubar.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qmenu.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QPushButton \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qpushbutton.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QStatusBar \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qstatusbar.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QToolBar \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qtoolbar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QVBoxLayout \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qboxlayout.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qlayout.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qlayoutitem.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qgridlayout.h \
 		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../Src/CopyDog/MainWindow.cpp
 
@@ -991,8 +1267,433 @@ LanguageParser.o: ../Src/CopyDog/LanguageParser.cpp ../Src/CopyDog/LanguageParse
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LanguageParser.o ../Src/CopyDog/LanguageParser.cpp
 
 PythonParser.o: ../Src/CopyDog/PythonParser.cpp ../Src/CopyDog/PythonParser.h \
+		/usr/include/python2.7/Python.h \
+		/usr/include/python2.7/patchlevel.h \
+		/usr/include/python2.7/pyconfig.h \
+		/usr/include/python2.7/pymacconfig.h \
+		/usr/include/python2.7/pyport.h \
+		/usr/include/python2.7/pymath.h \
+		/usr/include/python2.7/pymem.h \
+		/usr/include/python2.7/object.h \
+		/usr/include/python2.7/objimpl.h \
+		/usr/include/python2.7/pydebug.h \
+		/usr/include/python2.7/unicodeobject.h \
+		/usr/include/python2.7/intobject.h \
+		/usr/include/python2.7/boolobject.h \
+		/usr/include/python2.7/longobject.h \
+		/usr/include/python2.7/floatobject.h \
+		/usr/include/python2.7/complexobject.h \
+		/usr/include/python2.7/rangeobject.h \
+		/usr/include/python2.7/stringobject.h \
+		/usr/include/python2.7/memoryobject.h \
+		/usr/include/python2.7/bufferobject.h \
+		/usr/include/python2.7/bytesobject.h \
+		/usr/include/python2.7/bytearrayobject.h \
+		/usr/include/python2.7/tupleobject.h \
+		/usr/include/python2.7/listobject.h \
+		/usr/include/python2.7/dictobject.h \
+		/usr/include/python2.7/enumobject.h \
+		/usr/include/python2.7/setobject.h \
+		/usr/include/python2.7/methodobject.h \
+		/usr/include/python2.7/moduleobject.h \
+		/usr/include/python2.7/funcobject.h \
+		/usr/include/python2.7/classobject.h \
+		/usr/include/python2.7/fileobject.h \
+		/usr/include/python2.7/cobject.h \
+		/usr/include/python2.7/pycapsule.h \
+		/usr/include/python2.7/traceback.h \
+		/usr/include/python2.7/sliceobject.h \
+		/usr/include/python2.7/cellobject.h \
+		/usr/include/python2.7/iterobject.h \
+		/usr/include/python2.7/genobject.h \
+		/usr/include/python2.7/descrobject.h \
+		/usr/include/python2.7/warnings.h \
+		/usr/include/python2.7/weakrefobject.h \
+		/usr/include/python2.7/codecs.h \
+		/usr/include/python2.7/pyerrors.h \
+		/usr/include/python2.7/pystate.h \
+		/usr/include/python2.7/pyarena.h \
+		/usr/include/python2.7/modsupport.h \
+		/usr/include/python2.7/pythonrun.h \
+		/usr/include/python2.7/ceval.h \
+		/usr/include/python2.7/sysmodule.h \
+		/usr/include/python2.7/intrcheck.h \
+		/usr/include/python2.7/import.h \
+		/usr/include/python2.7/abstract.h \
+		/usr/include/python2.7/compile.h \
+		/usr/include/python2.7/code.h \
+		/usr/include/python2.7/eval.h \
+		/usr/include/python2.7/pyctype.h \
+		/usr/include/python2.7/pystrtod.h \
+		/usr/include/python2.7/pystrcmp.h \
+		/usr/include/python2.7/dtoa.h \
+		/usr/include/python2.7/pyfpe.h \
 		../Src/CopyDog/LanguageParser.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PythonParser.o ../Src/CopyDog/PythonParser.cpp
+
+FileBrowser.o: ../Src/CopyDog/FileBrowser.cpp ../Src/CopyDog/FileBrowser.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/QFileDialog \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qfiledialog.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdir.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstring.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qchar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qconfig.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfeatures.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsystemdetection.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qprocessordetection.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcompilerdetection.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobalstatic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbasicatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_bootstrap.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qgenericatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_msvc.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_integrity.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qoldbasicatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_vxworks.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_power.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_alpha.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_armv7.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_armv6.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_armv5.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_bfin.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_ia64.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_mips.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_s390.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_sh4a.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_sparc.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_x86.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_cxx11.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_gcc.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_unix.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmutex.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qlogging.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qflags.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypeinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypetraits.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsysinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbytearray.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrefcount.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qarraydata.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstringbuilder.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfileinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfile.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfiledevice.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qiodevice.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qlist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qalgorithms.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qiterator.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreevent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qscopedpointer.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmetatype.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qvarlengtharray.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontainerfwd.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qisenum.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qshareddata.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstringlist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatastream.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qpair.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qregexp.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstringmatcher.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qurl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qurlquery.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qdialog.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qwidget.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmargins.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrect.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsize.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qpoint.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qpaintdevice.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qpalette.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qcolor.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qrgb.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qbrush.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qvector.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qmatrix.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qpolygon.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qregion.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qline.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtransform.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qpainterpath.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qimage.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qpixmap.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsharedpointer.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsharedpointer_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qhash.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qfont.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qfontmetrics.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qfontinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtWidgets/qsizepolicy.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qcursor.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qkeysequence.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qevent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qvariant.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmap.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdebug.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtextstream.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qlocale.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qset.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontiguouscache.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qvector2d.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
+		../Src/CopyDog/BrowsingTypes.h \
+		../Src/CopyDog/LanguageType.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QObject \
+		../Src/CopyDog/Tree.h \
+		/usr/include/python2.7/Python.h \
+		/usr/include/python2.7/patchlevel.h \
+		/usr/include/python2.7/pyconfig.h \
+		/usr/include/python2.7/pymacconfig.h \
+		/usr/include/python2.7/pyport.h \
+		/usr/include/python2.7/pymath.h \
+		/usr/include/python2.7/pymem.h \
+		/usr/include/python2.7/object.h \
+		/usr/include/python2.7/objimpl.h \
+		/usr/include/python2.7/pydebug.h \
+		/usr/include/python2.7/unicodeobject.h \
+		/usr/include/python2.7/intobject.h \
+		/usr/include/python2.7/boolobject.h \
+		/usr/include/python2.7/longobject.h \
+		/usr/include/python2.7/floatobject.h \
+		/usr/include/python2.7/complexobject.h \
+		/usr/include/python2.7/rangeobject.h \
+		/usr/include/python2.7/stringobject.h \
+		/usr/include/python2.7/memoryobject.h \
+		/usr/include/python2.7/bufferobject.h \
+		/usr/include/python2.7/bytesobject.h \
+		/usr/include/python2.7/bytearrayobject.h \
+		/usr/include/python2.7/tupleobject.h \
+		/usr/include/python2.7/listobject.h \
+		/usr/include/python2.7/dictobject.h \
+		/usr/include/python2.7/enumobject.h \
+		/usr/include/python2.7/setobject.h \
+		/usr/include/python2.7/methodobject.h \
+		/usr/include/python2.7/moduleobject.h \
+		/usr/include/python2.7/funcobject.h \
+		/usr/include/python2.7/classobject.h \
+		/usr/include/python2.7/fileobject.h \
+		/usr/include/python2.7/cobject.h \
+		/usr/include/python2.7/pycapsule.h \
+		/usr/include/python2.7/traceback.h \
+		/usr/include/python2.7/sliceobject.h \
+		/usr/include/python2.7/cellobject.h \
+		/usr/include/python2.7/iterobject.h \
+		/usr/include/python2.7/genobject.h \
+		/usr/include/python2.7/descrobject.h \
+		/usr/include/python2.7/warnings.h \
+		/usr/include/python2.7/weakrefobject.h \
+		/usr/include/python2.7/codecs.h \
+		/usr/include/python2.7/pyerrors.h \
+		/usr/include/python2.7/pystate.h \
+		/usr/include/python2.7/pyarena.h \
+		/usr/include/python2.7/modsupport.h \
+		/usr/include/python2.7/pythonrun.h \
+		/usr/include/python2.7/ceval.h \
+		/usr/include/python2.7/sysmodule.h \
+		/usr/include/python2.7/intrcheck.h \
+		/usr/include/python2.7/import.h \
+		/usr/include/python2.7/abstract.h \
+		/usr/include/python2.7/compile.h \
+		/usr/include/python2.7/code.h \
+		/usr/include/python2.7/eval.h \
+		/usr/include/python2.7/pyctype.h \
+		/usr/include/python2.7/pystrtod.h \
+		/usr/include/python2.7/pystrcmp.h \
+		/usr/include/python2.7/dtoa.h \
+		/usr/include/python2.7/pyfpe.h \
+		../Src/CopyDog/Node.h \
+		../Src/CopyDog/Match.h \
+		../Src/CopyDog/PythonParser.h \
+		../Src/CopyDog/LanguageParser.h \
+		../Src/CopyDog/PlagiarismDetails.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o FileBrowser.o ../Src/CopyDog/FileBrowser.cpp
+
+PlagiarismDetails.o: ../Src/CopyDog/PlagiarismDetails.cpp ../Src/CopyDog/PlagiarismDetails.h \
+		../Src/CopyDog/Tree.h \
+		/usr/include/python2.7/Python.h \
+		/usr/include/python2.7/patchlevel.h \
+		/usr/include/python2.7/pyconfig.h \
+		/usr/include/python2.7/pymacconfig.h \
+		/usr/include/python2.7/pyport.h \
+		/usr/include/python2.7/pymath.h \
+		/usr/include/python2.7/pymem.h \
+		/usr/include/python2.7/object.h \
+		/usr/include/python2.7/objimpl.h \
+		/usr/include/python2.7/pydebug.h \
+		/usr/include/python2.7/unicodeobject.h \
+		/usr/include/python2.7/intobject.h \
+		/usr/include/python2.7/boolobject.h \
+		/usr/include/python2.7/longobject.h \
+		/usr/include/python2.7/floatobject.h \
+		/usr/include/python2.7/complexobject.h \
+		/usr/include/python2.7/rangeobject.h \
+		/usr/include/python2.7/stringobject.h \
+		/usr/include/python2.7/memoryobject.h \
+		/usr/include/python2.7/bufferobject.h \
+		/usr/include/python2.7/bytesobject.h \
+		/usr/include/python2.7/bytearrayobject.h \
+		/usr/include/python2.7/tupleobject.h \
+		/usr/include/python2.7/listobject.h \
+		/usr/include/python2.7/dictobject.h \
+		/usr/include/python2.7/enumobject.h \
+		/usr/include/python2.7/setobject.h \
+		/usr/include/python2.7/methodobject.h \
+		/usr/include/python2.7/moduleobject.h \
+		/usr/include/python2.7/funcobject.h \
+		/usr/include/python2.7/classobject.h \
+		/usr/include/python2.7/fileobject.h \
+		/usr/include/python2.7/cobject.h \
+		/usr/include/python2.7/pycapsule.h \
+		/usr/include/python2.7/traceback.h \
+		/usr/include/python2.7/sliceobject.h \
+		/usr/include/python2.7/cellobject.h \
+		/usr/include/python2.7/iterobject.h \
+		/usr/include/python2.7/genobject.h \
+		/usr/include/python2.7/descrobject.h \
+		/usr/include/python2.7/warnings.h \
+		/usr/include/python2.7/weakrefobject.h \
+		/usr/include/python2.7/codecs.h \
+		/usr/include/python2.7/pyerrors.h \
+		/usr/include/python2.7/pystate.h \
+		/usr/include/python2.7/pyarena.h \
+		/usr/include/python2.7/modsupport.h \
+		/usr/include/python2.7/pythonrun.h \
+		/usr/include/python2.7/ceval.h \
+		/usr/include/python2.7/sysmodule.h \
+		/usr/include/python2.7/intrcheck.h \
+		/usr/include/python2.7/import.h \
+		/usr/include/python2.7/abstract.h \
+		/usr/include/python2.7/compile.h \
+		/usr/include/python2.7/code.h \
+		/usr/include/python2.7/eval.h \
+		/usr/include/python2.7/pyctype.h \
+		/usr/include/python2.7/pystrtod.h \
+		/usr/include/python2.7/pystrcmp.h \
+		/usr/include/python2.7/dtoa.h \
+		/usr/include/python2.7/pyfpe.h \
+		../Src/CopyDog/Node.h \
+		../Src/CopyDog/Match.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o PlagiarismDetails.o ../Src/CopyDog/PlagiarismDetails.cpp
+
+QuickViewHolder.o: ../Src/CopyDog/QuickViewHolder.cpp ../Src/CopyDog/QuickViewHolder.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/QQuickItem \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qquickitem.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQuick/qtquickglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qconfig.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfeatures.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsystemdetection.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qprocessordetection.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcompilerdetection.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qglobalstatic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbasicatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_bootstrap.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qgenericatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_msvc.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_integrity.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qoldbasicatomic.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_vxworks.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_power.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_alpha.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_armv7.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_armv6.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_armv5.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_bfin.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_ia64.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_mips.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_s390.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_sh4a.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_sparc.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_x86.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_cxx11.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_gcc.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qatomic_unix.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmutex.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qlogging.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qflags.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypeinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtypetraits.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsysinfo.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqml.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlprivate.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qtqmlglobal.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qvariant.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qbytearray.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrefcount.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qnamespace.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qarraydata.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstring.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qchar.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstringbuilder.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qlist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qalgorithms.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qiterator.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmetatype.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qvarlengtharray.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontainerfwd.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qisenum.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobjectdefs_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmap.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qpair.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdebug.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qhash.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qtextstream.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qiodevice.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreevent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qscopedpointer.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qobject_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qlocale.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qshareddata.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qvector.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qpoint.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qset.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcontiguouscache.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstringlist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qdatastream.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qregexp.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qstringmatcher.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qurl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qurlquery.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlparserstatus.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlpropertyvaluesource.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmllist.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qmetaobject.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlcomponent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qqmlerror.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtQml/qjsvalue.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QObject \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/QList \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qevent.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qwindowdefs_win.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qregion.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qrect.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsize.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qkeysequence.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfile.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qfiledevice.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qvector2d.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qtouchdevice.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qfont.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsharedpointer.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qsharedpointer_impl.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qaccessible.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qcoreapplication.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtCore/qeventloop.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qcolor.h \
+		/home/aa/Qt5.2.1/5.2.1/gcc/include/QtGui/qrgb.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QuickViewHolder.o ../Src/CopyDog/QuickViewHolder.cpp
 
 moc_MainWindow.o: moc_MainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainWindow.o moc_MainWindow.cpp

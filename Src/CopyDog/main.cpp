@@ -7,53 +7,28 @@
 #include <QTime>
 #include <QFileDialog>
 #include <fstream>
+#include <QtQuick/QQuickView>
+#include <QtQml/QQmlContext>
+#include <QuickViewHolder.h>
+#include <QQmlEngine>
+
+Tree suffixTree;
+QuickViewHolder viewHolder;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     MainWindow w;
-    w.show();
 
-    QString fileName = QFileDialog::getOpenFileName(NULL, ("Open File"), "",("Files (*.*)"));
-    std::cout << fileName.toStdString() << std::endl ;
+    QQuickView view;
+    view.setResizeMode(QQuickView::SizeRootObjectToView);
+    view.setSource(QUrl("main.qml"));
 
-    QTime myTimer;
-    myTimer.start();
+    QQmlContext *ctxt = view.rootContext();
+    ctxt->setContextProperty("mainWindow", &w );
 
-    fstream fileStream(fileName.toStdString().c_str(), fstream::in );
-    string sourceCode;
-    getline( fileStream, sourceCode, '\0');
-    fileStream.close();
-
-    PythonParser objPythonParser;
-    std::string suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
-
-    assert(""!=suffixCompatibleSource);
-
-    Tree tree;
-    tree.createSuffixTree(suffixCompatibleSource);
-    tree.printTree();
-
-    // --
-
-    fileName = QFileDialog::getOpenFileName(NULL, ("Open File"), "",("Files (*.*)"));
-    std::cout << fileName.toStdString() << std::endl ;
-
-    fstream fileStream2(fileName.toStdString().c_str(), fstream::in );
-    getline( fileStream2, sourceCode, '\0');
-    fileStream2.close();
-
-    suffixCompatibleSource = objPythonParser.createSuffixCompatibleSource(sourceCode);
-
-    assert(""!=suffixCompatibleSource);
-
-    tree.createSuffixTree(suffixCompatibleSource);
-    tree.printTree();
-
-    std::cout << "-- Finished --" << std::endl ;
-    // do something..
-    int nMilliseconds = myTimer.elapsed();
-    std::cout << nMilliseconds << " Milli Seconds" <<  std::endl;
+    view.show();
+    viewHolder.setView(view.rootObject());
 
     return a.exec();
 }
