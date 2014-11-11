@@ -1,0 +1,3917 @@
+
+
+--------------------------------
+
+JITENDRA KUMAR PATEL_175734_assignsubmission_file_expr_v2_MT2014044.c
+MT2014077 Nishant Goyal_175499_assignsubmission_file_expr_v2_MT2014077.c
+
+
+;
+
+char stack[10] = { };
+int postArray[10] = { };
+int stackTop = 0;
+int postArrayTop = 0;
+
+int main() {
+	char expr[100];
+	char expr2[100];
+	int value[100];
+	int result[10];
+	int i = 0, j;
+	scanf("%[^\n]s", expr2);
+	while (expr2[i] != '\0') {
+		if (expr2[i] != ' ') {
+			expr[j] = expr2[i];
+			j++;
+		}
+		i++;
+	}
+	expr[j] = '\0';
+	i = -1;
+	do {
+		i++;
+		scanf("%d", &value[i]);
+	} while (value[i] != 1000);
+	for (j = 0; j < i; j++) {
+		result[j] = evalxpr(expr, value[j]);
+	}
+	printf("%s\n", expr);
+	for (j = 0; j < i; j++) {
+		printf("%c[%d] = %d\n", expr[0], value[j], result[j]);
+	}
+	return 0;
+
+}
+
+int evalxpr(char expr[], int value) {
+	stackTop = 0;
+	postArrayTop = 0;
+	char var = expr[2];
+	int i = 5, temp = 0;
+	char c;
+	int result;
+	while ((c = expr[i]) != '\0') {
+		if (c == ' ') {
+		} else if (c >= '0' && c <= '9') {
+			temp = temp * 10 + (c - 48);
+		} else if (c == '+' || c == '-' || c == '*' || c == '/' || c == '^') {
+			postArray[postArrayTop++] = temp;
+			temp = 0;
+			while (stackTop > 0
+					&& (stack[stackTop - 1] == '*' || stack[stackTop - 1] == '/'
+							|| stack[stackTop - 1] == '^'
+							|| stack[stackTop - 1] == '+'
+							|| stack[stackTop - 1] == '-')) {
+				result = eval();
+				postArray[postArrayTop++] = result;
+			}
+			stack[stackTop++] = c;
+		} else if (c == '(') {
+			stack[stackTop++] = c;
+		} else if (c == ')') {
+			postArray[postArrayTop++] = temp;
+			temp = 0;
+			while (stack[stackTop - 1] != '(') {
+				result = eval();
+				postArray[postArrayTop++] = result;
+			}
+			temp = postArray[--postArrayTop];
+			stackTop--;
+		} else if (c == var) {
+			temp = value;
+		}
+		i++;
+	}
+	postArray[postArrayTop++] = temp;
+	temp = 0;
+	while (stackTop > 0) {
+		result = eval();
+		postArray[postArrayTop++] = result;
+	}
+	return postArray[--postArrayTop];
+}
+
+int eval() {
+	int op2 = postArray[--postArrayTop];
+	int op1 = postArray[--postArrayTop];
+	char operator = stack[--stackTop];
+	int out = 1, i;
+	if (operator == '^') {
+		for (i = 1; i <= op2; i++) {
+			out = out * op1;
+		}
+	} else if (operator == '+') {
+		out = op1 + op2;
+	} else if (operator == '-') {
+		out = op1 - op2;
+	} else if (operator == '*') {
+		out = op1 * op2;
+	} else if (operator == '/') {
+		out = op1 / op2;
+	}
+	return out;
+}
+
+
+--------------------------------
+
+MT2014001 Abhishek Sharma M_176433_assignsubmission_file_expr_v2_MT2014001.c
+MT2014097 S Kumar Baghel_156060_assignsubmission_file_expr_v2_MT2014097.c
+
+
+) ; count = count + 1)
+    {
+	 if(exp[count-1] ==var)
+         {
+              if(ob1Count != 1)
+              {
+                 ob1 = value;
+                 ob1Count = 1;
+	      }
+	      else if(ob2Count != 1)
+              {
+		 ob2 = value;
+		 ob2Count = 1;
+	      }
+         }
+         else if(exp[count-1]=='^'|| exp[count-1]=='*' || exp[count-1]=='/' || exp[count-1]=='+' || exp[count-1]=='-')
+         {
+              if(opCount == 0 && count-1 == 0 && exp[count-1] == '-')
+              {
+                  negResult = 1;
+              }
+              else if(opCount == 1 && exp[count-1] != 0 && op == '-' && exp[count-1] == '-')
+              {
+                   op = '+';
+              }
+              else if(opCount == 1 && exp[count-1] != 0 && op == '-' && exp[count-1] == '+')
+              {
+                   op = '-';
+              }
+              else if(opCount == 1 && exp[count-1] != 0 && op == '+' && exp[count-1] == '+')
+              {
+                   op = '+';
+              }
+              else if(opCount == 1 && exp[count-1] != 0 && op == '+' && exp[count-1] == '-')
+              {
+                   op = '-';
+              }
+	      else if(opCount == 1 && exp[count-1] != 0 && op == '*' && exp[count-1] == '-')
+              { 
+                   negResult = 1;
+              }
+	      else if(opCount == 1 && exp[count-1] != 0 && op == '*' && exp[count-1] == '+')
+              {
+                   negResult = 0;
+              }
+	      else if(opCount == 1 && exp[count-1] != 0 && op == '/' && exp[count-1] == '-')
+              {
+                   negResult = 1;
+              }
+	      else if(opCount == 1 && exp[count-1] != 0 && op == '/' && exp[count-1] == '+')
+              {
+                   negResult = 0;
+              }
+              else if(opCount == 0 && exp[count-1] != 0 && negResult == 1 && exp[count-1] == '-')
+              {
+                   op = '+'; opCount = 1;
+              }
+              else if(opCount == 0 && exp[count-1] != 0 && negResult == 1 && exp[count-1] == '+')
+              {
+                   op = '-'; opCount = 1;
+              }
+              else if(opCount == 0 && count-1 != 0 && negResult == 1 && exp[count-1] == '^')
+              {
+                   op = '^'; 
+                   opCount = 1;
+                   p = count;
+                   if(exp[p] == var)
+                   {
+		        isEven = value % 2;
+                        if(isEven == 0)
+                        {
+                             negResult = 0;
+                        }
+                   }
+                   if(exp[p] != var)
+                   {
+		        while(exp[p] >=48 && exp[p] <=57)
+	                {
+		             tempValue1 = exp[p];
+			     numValue1 = getNumericValueForExpression(numValue1,tempValue1);
+		             p++;
+	                }
+                        isEven = numValue1 % 2;
+                        if(isEven == 0)
+                        {
+                             negResult = 0;
+                        }
+                   }
+               }
+       	       else 
+               {
+                    op = exp[count-1];
+                    opCount = 1;
+               }
+          }
+          else
+          {
+               while(exp[count-1] >=48 && exp[count-1] <=57)
+               {
+                    tempValue = exp[count-1];
+                    numValue = getNumericValueForExpression(numValue,tempValue);
+                    count++;
+               }
+               count=count-1;
+                
+               if(ob1Count != 1)
+               {
+                    ob1 = numValue;
+                    ob1Count = 1;
+	        }
+	        else if(ob2Count != 1)
+                {
+	            ob2 = numValue;
+	            ob2Count = 1;
+	        }
+                tempValue = numValue = 0 ;
+           }
+           
+
+--------------------------------
+
+MT2014002 Abhishek Singh_163514_assignsubmission_file_expr_v2_MT2014002.c
+MT2014083 Pankaj Pandey_163172_assignsubmission_file_expr_v2_MT2014083.c
+
+
+Finding position of a closing bracket
+int finpos(char a[],int i)
+{
+ while(a[i]!=')')
+ i++;
+ return i;
+}
+
+int expcalculate(char a[256],int i,int n,int input)
+{
+char b[256];
+//int i=0;
+int c[256],k,temp =0,p=0;
+int m=0,sum=0;
+
+//There is loop to saggeragate the arithmetic symbols and integer values
+while(i<n) // Iteration
+	{
+		if(a[i]== 32)
+		{
+		  i++;
+		}
+
+		else if(a[i]=='(')
+ 		{   
+		    i++;
+		    int pos_bracket = finpos(a,i);
+		    c[p]=expcalculate(a,i,pos_bracket,input);
+		    p++;
+		    i=pos_bracket+1;
+ 		} 
+	  	else if(a[i]=='+' || a[i] =='*' || a[i]=='-'||a[i]=='/' || a[i]=='^')
+	  	{
+	   		b[m]=a[i];
+	   		m++;
+			b[m]='\0';
+	   		i++;
+	  	}
+		else 
+		{
+	  		if(a[i] == 'x')
+	  		{
+	   			c[p] = input;
+		   		p++;
+		   		i++;
+		  	}
+		  	else
+		  	{
+		   		while(a[i]>=48 && a[i]<=57 && i<n)
+		   		{
+		    			k=a[i];
+		    			sum= (sum*10)+k -'0';
+		    			i++;
+		   		}
+		   		c[p]=sum;
+		   		p++;
+		   		sum=0;
+		 	}
+       		}
+     	}
+	
+	i=0;
+	while(b[i]!='\0')
+	{	
+ 		if(b[i]=='+')
+   			c[i+1]= c[i] + c[i+1];
+
+		else if(b[i]=='*')
+   			c[i+1]= c[i] * c[i+1];
+		else if(b[i]=='-')
+   			c[i+1]= c[i] - c[i+1];
+	
+		else if(b[i]=='/')
+ 			c[i+1]=c[i] /c[i+1];
+		
+		else if(b[i]=='^')
+ 			c[i+1]=pow(c[i],c[i+1]);
+		i++;	
+	}
+		return(c[i]);
+}
+
+int main()
+{	
+	// Assigning all the variables
+	char a[256];
+	int c[50],temp=0;
+	int d[10];
+	int k,input;int i=0,j=0;
+       	gets(a);
+	while(a[i]!= '=')
+	i++;
+	int m=i+1;
+	int n = strlen(a);
+        for(i=1;i<=50;i++)
+	{
+		gets(d); //Input the variable of x value
+		c[i]=atoi(d);
+		if(c[i]==1000)
+		break;
+	}
+	temp=1;
+	for(i=0;i<n;i++)
+	printf("%c",a[i]);
+	printf("\n");
+	while(c[temp]!=1000)
+	{
+		k = expcalculate(a,m,n,c[temp]);
+		printf("P(%d)=%d\n",c[temp],k);
+		temp++;
+	}
+	return(0);
+}	
+
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+
+
+op==')')
+				{	
+					break;
+				}
+				else{
+						temp1=popoperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':p
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+)')
+				{	
+					break;
+				}
+				else{
+						temp1=popoperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':p
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+
+
+for(i=strlen(exp)-1;i>=0;i--){
+		if((exp[i]=='+')||(exp[i]=='-')||(exp[i]=='*')||(exp[i]=='/')||(exp[i]=='^')||(exp[i]==')')){
+		pushoperator(operator,exp[i]);
+		check=0;	
+		}
+		else if(exp[i]>='a' && exp[i]<='z'){
+		d=exp[i];
+		pushoperand(operand,tem);
+		}
+		else if(exp[i]=='('){	
+			q=top2;
+			for(i1=0;i1<=q;i1++){
+				op=popoperator(operator);
+				if(op==')')
+				{	
+					break;
+				}
+				else{
+						temp1=popoperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':pushoperand(operand,temp1+temp);break;
+						case '-':pushoperand(operand,temp1-temp);break;
+						case '*':pushoperand(operand,temp1*temp);break;
+						case '/':pushoperand(operand,temp1/temp);break;
+						case '^':pushoperand(operand,pow(temp1,temp));break;
+						}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(check!=0){
+			q=popoperand(operand);
+			q=q+temp1*pow(10,check);
+			pushoperand(operand,q);		
+			}
+			else{
+			pushoperand(operand,temp1);
+				}
+		check++;
+		}
+
+	}
+	q=top2;
+	for(i=0;i<=q;i++){
+		temp1=popoperand(operand);
+		temp=popoperand(operand);
+		op=popoperator(operator);
+	
+	switch(op){
+		case '+':pushoperand(operand,temp1+temp);break;
+		case '-':pushoperand(operand,temp1-temp);break;
+		case '*':pushoperand(operand,temp1*temp);break;
+		case '/':pushoperand(operand,temp1/temp);break;
+		case '^':pushoperand(operand,pow(temp1,temp));break;
+		}
+	}
+
+a
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+ushoperand(operand,temp1+temp);break;
+						case '-':pushoperand(operand,temp1-temp);break;
+						case '*':pushoperand(operand,temp1*temp);break;
+						case '/':pushoperand(operand,temp1/temp);break;
+						case '^':pushoperand(operand,pow(temp1,temp));break;
+						}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(check!=0){
+			q=popoperand(operand);
+			q=q+temp1*pow(10,check);
+			pushoperand(operand,q);		
+			}
+			else{
+			pushoperand(operand,temp1);
+				}
+		check++;
+		}
+
+	}
+	q=top2;
+	for(i=0;i<=q;i++){
+		temp1=popoperand(operand);
+		temp=popoperand(operand);
+		op=popoper
+
+--------------------------------
+
+MT2014006 Anisha Lunawat_147724_assignsubmission_file_expr_v2_MT2014006.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+for(i=strlen(exp)-1;i>=0;i--){
+		if((exp[i]=='+')||(exp[i]=='-')||(exp[i]=='*')||(exp[i]=='/')||(exp[i]=='^')||(exp[i]==')')){
+		pu
+
+--------------------------------
+
+MT2014009 Ankit Mishra_173789_assignsubmission_file_expr_v2_MT2014009.c
+MT2014039 Hemnani Mohit Mahesh_158803_assignsubmission_file_expr_v2_MT2014039.c
+
+
+
+{
+	int result=0;int j;
+	switch(z)
+
+	{
+		case '+':
+		result=x+y;
+		break;
+			
+		case '-':
+		result=x-y;
+		break;
+		
+		case '*':
+		result=x*y;
+		break;
+		
+		case '/':
+		result=x/y;
+		break;
+		
+		case '^':
+		result=x;
+		for(j=1;j<y;j++)
+		result=result*x;
+		break;
+		
+
+	}
+return result;
+
+
+}
+
+
+
+--------------------------------
+
+MT2014010 Ankit Ratnawat_153891_assignsubmission_file_expr_v2_MT2014010.c
+MT2014068 Mujahid Ali_177510_assignsubmission_file_expr_v2_MT2014068.c
+
+
+++;
+                    i++;
+                    if(st[i]==41)
+                    {
+                     break;
+                    }              
+              }
+      s1[p]=cal(st1, x,b);
+      for( h=0;h<100;h++)
+      {
+              st1[h]='\0';
+              }
+      b=0;
+      p++;
+      }            
+
+     if(st[i]=='x')
+    {
+    s1[p]=x;
+      p++;    
+      }     
+    else if(st[i]==32)
+     {
+         }
+       else if(((st[i]>=48)&&(st[i]<=57))&&((st[i]!=32)))
+   {
+       if(!((st[i+1]>=48)&&(st[i+1]<=57)))
+       {
+     s1[p]=(int)st[i];
+     s1[p]=s1[p]-48;
+     p++;                                
+    }
+    else                        
+      {
+             int k=0;
+      
+           while((st[i]>=48)&&(st[i]<=57))
+           {
+              ar2[a]=(int)st[i];                            
+              ar2[a]=st[i]-48;
+              a++;
+              i++;
+              k++;
+           }   
+           a=0;
+           t1=1,t2=0,l=0,m=0;
+           for( m=0;m<k;m++)
+           {
+            t1=1;         
+             for( l=m;l<k-1;l++)
+                    {
+                     t1=t1*10;
+                     }
+                      t1=t1*ar2[m];                     
+                     t2=t1+t2;
+                     t1=1;
+            }
+                     t2=t2+t1-1;                       
+   s1[p]=t2;
+   p++;
+   t1=1;
+   t2=0;
+   k=0;
+   m=0;
+   l=0;
+   }
+ }
+ }
+for( i=0;i<len;i++)
+ {
+         if(st[i]=='x')
+    {}
+    else if(st[i]==40)
+    {
+         while(st[i]!=41)
+         {
+         i++;
+         if(st[i]==41)
+         break;
+         }
+         }
+      else if ((!((st[i]>=48)&&(st[i]<=57)))&&((st[i])!=32))
+      
+      {
+      s2[q]=st[i];
+       q++;
+       }
+       }     
+  temp=s1[0];
+  for(i=1;i<p;i++)
+     {
+         if(s2[r]=='^')
+        {
+                       t=temp;
+                     for( j=0;j<s1[i]-1;j++)
+                     {
+                             
+                             temp=temp*t;
+                             }
+                           r++;
+                      }             
+       else if(s2[r]=='+')
+        {
+                    temp=temp+s1[i];
+              r++;
+                      }             
+   else  if(s2[r]=='-')
+        {
+                   temp=temp-s1[i];
+        
+                 r++;     }             
+   else if(s2[r]=='*')
+        {
+                 temp=temp*s1[i];
+                 r++;
+                      }             
+ else if(s2[r]=='/')
+        {
+                temp=temp/s1[i];
+                r++;
+                      }             
+                      }
+     return temp;
+      }
+
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+
+
+	
+					break;
+				}
+				else{
+						temp1=popoperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':p
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+
+
+shop(char* a,char x);
+void pshoperand(int* o, int y);
+char popoper(char* ar);
+int popoperand(int* ar);
+
+void main()
+{
+int i,ch=0,q,k=0,n,i1,m;
+char exp[50],opera[10],op,exp1[50],d;
+int operand[10],temp,temp1,j,tem,y[10],ans[10];
+scanf("%[^\n]s",exp);
+
+i=0;
+while(i<strlen(exp))
+{
+exp1[i]=exp[i];
+i++;
+}
+
+
+while(m=1){
+	scanf("%d",&tem);
+	
+	y[k]=tem;
+	if(y[k]==1000){
+		q=k;
+		break;
+		}
+		for(i=strlen(exp)-1;i>=0;i--)
+		{
+		if((exp[i]=='+')||(exp[i]=='-')||(exp[i]=='*')||(exp[i]=='/')||(exp[i]=='^')||(exp[i]==')')){
+		pshop(opera,exp[i]);
+		ch=0;	
+		}
+		else if(exp[i]>='a' && exp[i]<='z'){
+		d=exp[i];
+		pshoperand(operand,tem);
+		}
+		else if(exp[i]=='('){	
+			q=top2;
+			for(i1=0;i1<=q;i1++){
+				op=popoper(opera);
+				if(op==')')
+				{	
+					break;
+				}
+				else{
+						temp1=popoperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':pshoperand(operand,temp1+temp);break;
+						case '-':pshoperand(operand,temp1-temp);break;
+						case '*':pshoperand(operand,temp1*temp);break;
+						case '/':pshoperand(operand,temp1/temp);break;
+						case '^':pshoperand(operand,pow(temp1,temp));break;
+						}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch!=0){
+			q=popoperand(operand);
+			q=q+temp1*pow(10,ch);
+			pshoperand(operand,q);		
+			}
+			else{
+			pshoperand(operand,temp1);
+				}
+		ch++;
+		}
+
+	}
+	q=top2;
+	for(i=0;i<=q;i++){
+		temp1=popoperand(operand);
+		temp=popoperand(operand);
+		op=popoper(opera);
+	
+	switch(op){
+		case '+':pshoperand(operand,temp1+temp);break;
+		case '-':pshoperand(operand,temp1-temp);break;
+		case '*':pshoperand(operand,temp1*temp);break;
+		case '/':pshoperand(operand,temp1/temp);break;
+		case '^':pshoperand(operand,pow(temp1,temp));break;
+		}
+	}
+
+ans[k]=popoperand(operand);
+k++;
+}
+
+	i=0;
+	while(i<strlen(exp))
+	{
+	printf("%c",exp1[i]);
+	i++;
+	}
+
+	k=0;
+	while(k<q)
+	{
+	printf("\nP(%d)=%d",y[k], ans[k]);
+	k++;
+	}
+
+
+printf("\n");
+}
+			void pshop(char* a,char x)
+			{	
+				top2++;
+				a[top2]=x;
+			}
+			void pshoperand(int* o, int y)
+			{
+				top1++;
+				o[top1]=y;	
+			}
+			char popoper(char* ar)
+			{
+				top2--;
+				char k=ar[top2+1];
+			}
+			int popoperand(int* ar)
+			{
+				top1--;
+				int k=ar[top1+1];
+			}
+
+
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+i=0;
+while(i<strlen(exp))
+{
+exp1[i]=exp[i];
+i++;
+}
+
+
+while(m=1){
+	scanf("%d",&tem);
+	
+	y[k]=tem;
+	if(y[k]==1000){
+		q=k;
+		break;
+		}
+	
+
+--------------------------------
+
+MT2014011 Anshika Shukla_176389_assignsubmission_file_expr_v2_MT2014011.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+i=0;
+while(i<strlen(exp))
+{
+exp1[i]=exp[i];
+i++;
+}
+
+
+while(m=1){
+	scanf("%d",&tem);
+	
+	y[k]=tem;
+	if(y[k]==1000){
+		q=k;
+		break;
+		}
+	
+
+--------------------------------
+
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+				}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+poperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':pushoperand(operand,temp1+temp);break;
+						case '-':pushoperand(operand,temp1-temp);break;
+						case '*':pushoperand(operand,temp1*temp);break;
+						case '/':pushoperand(operand,temp1/temp);break;
+						case '^':pushoperand(operand,pow(temp1,temp));break;
+						}
+					}
+				}	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(check!=0){
+			q=popoperand(operand);
+			q=q+temp1*pow(10,check);
+			pushoperand(operand,q);		
+			}
+			else{
+			pushoperand(operand,temp1);
+				}
+		check++;
+		}
+
+	}
+	q=top2;
+	for(i=0;i<=q;i++){
+		temp1=popoperand(operand);
+		temp=popoperand(operand);
+		op=popoper
+
+--------------------------------
+
+MT2014015 Arpit Kashyap_168872_assignsubmission_file_expr_v2_MT2014015.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+for(i=strlen(exp)-1;i>=0;i--){
+		if((exp[i]=='+')||(exp[i]=='-')||(exp[i]=='*')||(exp[i]=='/')||(exp[i]=='^')||(exp[i]==')')){
+		pu
+
+--------------------------------
+
+MT2014021 Banthiya Anuja Vilas_168431_assignsubmission_file_expr_v2_MT2014021.c
+MT2014032 Divya Rao_164657_assignsubmission_file_expr_v2_MT2014032.c
+
+
+es, int x, char op)
+{
+	switch (op)
+	{	
+	case '+':return res+x;
+		break;	
+	case '-':return res-x;
+		break;
+	case '/':return res/x;
+		break;
+	case '*':return res*x;
+		break;
+	case '^':return  pow(res,x);	
+		break;
+	}
+}
+
+int findNumbers(char arr[],int n, int res,int x)
+{
+	int i=0,j,tmp;
+	char temp[10], sub[80];
+	int pos=0;
+	int check = 0;
+	char op='\0';
+
+	for(i=0;i<n;i++)
+	{
+		//first number
+		if((check==0)&&(arr[i]>='0')&&(arr[i]<='9'))
+		{
+			pos=0;
+			temp[pos]=arr[i];
+			temp[pos+1] = '\0';
+			pos++;
+			check = 1;
+		}
+		//second number 
+		else if ((check==1)&&(arr[i]>='0')&&(arr[i]<='9'))
+		{
+			temp[pos]=arr[i];
+			temp[pos+1] = '\0';
+			pos++;
+
+		}
+		//number end
+		else
+		{
+			if(pos>0) 
+				{
+				if (op=='\0') 
+					res =atoi(temp);
+				else 
+					res=sol
+
+--------------------------------
+
+MT2014023 Byom Kesh Jha_176666_assignsubmission_file_expr_v2_MT2014023.c
+MT2014041 Huleshwar Singh Chandra_176636_assignsubmission_file_expr_v2_MT2014041.c
+
+
+int sol(int,char,int);
+int solp(char *,int);
+int d[20];
+void main()
+{
+	char s[50];
+	char a[50];
+	char t[50];
+	char b[10];
+
+	int x,l,p,y;
+	int i=0;
+	int k=0;
+	int j=0;
+	int op1,op2;
+	char opr;
+	//printf("p(x)=");
+	scanf("%[^\n]s",a);
+	while(a[i]!='\0')
+	{
+	 if(a[i]==' ')
+		 i++;
+	 else
+	 {
+		 t[k]=a[i];
+		 k++;
+		 i++;
+	 }
+	}
+	t[k]='\0';
+	y=0;
+	do
+	{
+	  //printf("x=");
+	  scanf("%d",&x);
+	  d[y]=x;
+	  //printf("d[%d]=%d",y,d[y]);
+	  y++;
+	}while(x!=1000);
+	printf("%s",t);
+	i=0;
+	k=0;
+	p=0;
+	//for(i=0;i<strlen(t);i++)
+	//{
+		while(t[i]!='=')
+		{
+			b[k]=t[i];
+			i++;
+			k++;
+		}
+		b[k]=t[i];
+		i++;
+		k=0;
+		while(t[i])
+		{
+			a[k]=t[i];
+			i++;
+			k++;
+		}
+		a[k]='\0';
+		i=0;
+		k=0;
+ while(p<(y-1))
+ {
+	 i=0;
+	// l=0;
+	 if(a[i]=='(')
+	 {
+		 op1=solp(&a[i],p);
+		 while(a[i]!=')')
+		 {
+			 i++;
+		 }
+		 i++;
+	 }
+
+	 else if(a[i]=='x')
+	{
+		op1=d[p];
+		i++;
+	}
+	else {
+		char temp[6];
+		op1=(int)(a[i])-48;
+		int l=0;
+		while(a[i]>='0'&&a[i]<='9')
+		{
+			temp[l]=a[i];
+			l++;
+			i++;
+
+		}
+		temp[l]='\0';
+		op1=atoi(temp);
+	}
+	while(a[i]!='\0')
+	{
+		if(a[i]== '+' || a[i]== '-' || a[i]== '*' || a[i]== '/' || a[i]=='^')
+		{
+			opr = a[i];
+			i++;
+		}
+		if(a[i]=='(')
+			 {
+				 op2=solp(&a[i], p);
+				 while(a[i]!=')')
+				 {
+					 i++;
+				 }
+				 i++;
+			 }
+
+		else if(a[i]=='x')
+			{
+				op2=d[p];
+				i++;
+			}
+		else {
+				char temp[6];
+				op2=(int)(a[i])-48;
+				int l=0;
+				while(a[i]>='0'&&a[i]<='9')
+				{
+					temp[l]=a[i];
+					l++;
+					i++;
+
+				}
+				temp[l]='\0';
+				op2=atoi(temp);
+			}
+		op1=sol(op1,opr,op2);
+
+	}
+    printf("\np(%d)=%d",d[p],op1);
+    p++;
+ }
+
+
+}
+int sol(int x,char y,int z)
+{
+	int i;
+	int m=1;
+	switch(y)
+	{
+	case '+' :
+		x = x+z;
+		return x;
+	case '*' :
+			x = x*z;
+			return x;
+	case '-' :
+			x = x-z;
+			return x;
+	case '/' :
+			x = x/z;
+			if(z==0)
+			{
+				printf("invalid expression");
+				exit(1);
+			}
+			return x;
+	case '^' :
+		for(i=0;i<z;i++)
+		{
+			m=m*x;
+		}
+		return m;
+
+			return x;
+
+	default : printf("enter valid expression");
+	}
+
+}
+
+int solp(char *c,int p)
+{
+	int i=1;
+	int op1,op2;
+	char opr;
+		if(c[i]=='x')
+			{
+				op1=d[p];
+				i++;
+			}
+		else {
+				char temp[6];
+				op1=(int)(c[i])-48;
+				int l=0;
+				while(c[i]>='0'&&c[i]<='9')
+				{
+					temp[l]=c[i];
+					l++;
+					i++;
+
+				}
+	             temp[l]='\0';
+	             op1=atoi(temp);
+			}
+	     if(c[i]== '+' || c[i]== '-' || c[i]== '*' || c[i]== '/' || c[i]=='^')
+	 		{
+	 			opr = c[i];
+	 			i++;
+	 		}
+	 	 if(c[i]=='x')
+	 			{
+	 				op2=d[p];
+	 				i++;
+	 			}
+	 		else {
+	 				char temp[6];
+	 				op2=(int)(c[i])-48;
+	 				int l=0;
+	 				while(c[i]>='0'&&c[i]<='9')
+	 				{
+	 					temp[l]=c[i];
+	 					l++;
+	 					i++;
+
+	 				}
+	 				temp[l]='\0';
+	 				op2=atoi(temp);
+	 		}
+
+				op1=sol(op1,opr,op2);
+				return op1;
+}
+
+
+--------------------------------
+
+MT2014026 Chittibhotla Chandan Kumar_176406_assignsubmission_file_expr_v2_MT2014026.c
+MT2014072 Nagaral Shreedhar Basavaraj_170943_assignsubmission_file_expr_v2_MT2014072.c
+
+
+k++;
+		}
+
+		op[n]='\0';
+		in[m]='\0';
+
+/*		c=0;
+		while(in[c]!='\0')			// for printing integers that are in in[]
+		{	printf("%d \t ",in[c++]);
+		}
+		//printf("\n oper = %s\n",op);		// for printing the all the operators that are in op[]
+*/
+		res[0]=in[0];
+		n=0;
+		m=1;
+		b=0;
+		for(p=0;op[p]!='\0';p++)
+		{
+			switch(op[p])
+			{
+				case '+': res[b+1]=res[b]+in[m];
+					b++;
+					m++;
+					break;
+				case '-': res[b+1]=res[b]-in[m];
+					b++;
+					m++;
+					break;
+				case '*': res[b+1]=res[b]*in[m];
+					b++;
+					m++;
+					break;
+				case '/': res[b+1]=res[b]/in[m];
+					b++;
+					m++;
+					break;
+				case '^': res[b+1]=pow(res[b],in[m]);
+					b++;
+					m++;
+					break;
+			}
+		}
+		printf("%d\n",res[b]); 					// The result
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------
+
+MT2014027 Dave Jigar Satishkumar_160393_assignsubmission_file_expr_v2_MT2014027.c
+MT2014061 Lolage Nisarga Gajanan_158417_assignsubmission_file_expr_v2_MT2014061.c
+
+
+[j]=intSt[0];
+	for(l=0;l<=oprTop;l++)
+	{
+	if(oprSt[l]=='+')
+	{
+	out[j]=out[j]+intSt[l+1];
+	}
+	else if(oprSt[l]=='-')
+	{
+	out[j]=out[j]-intSt[l+1];
+	}
+	else if(oprSt[l]=='*')
+	{
+	out[j]=out[j]*intSt[l+1];
+	}
+	else if(oprSt[l]=='/')
+	{
+	out[j]=out[j]/intSt[l+1];
+	}
+	else if(oprSt[l]=='^')
+	{
+	out[j]=p
+
+--------------------------------
+
+MT2014027 Dave Jigar Satishkumar_160393_assignsubmission_file_expr_v2_MT2014027.c
+MT2014061 Lolage Nisarga Gajanan_158417_assignsubmission_file_expr_v2_MT2014061.c
+MT2014114 Shivang Vijaykumar Trivedi_156589_assignsubmission_file_expr_v2_MT2014114.c
+
+
+=0;
+	j=0;
+
+	while(1)
+	{
+	scanf("%d",&in[i]);
+	if(in[i]==1000)
+	break;
+	count++;
+	i++;
+	}
+
+	len=strlen(
+
+--------------------------------
+
+MT2014033 Gadi Hemanth Kumar Reddy_151569_assignsubmission_file_expr_v2_MT2014033.c
+MT2014050 Kasireddy Praveen Reddy_154359_assignsubmission_file_expr_v2_MT2014050.c
+
+
+1[n],r1);
+     r1=0;
+ }
+ return 0;
+}
+int ev(char *ptr,int p)
+ {   char str1[50];
+     char str[50];
+     char pt[50];
+     int str2[50];
+     int x,a,b,r=0,i=0,j=0,k=0,l=0;
+   memset(str, '\0', sizeof(str));
+   x=p;
+    strcpy(str,ptr);
+if(c==0)
+{
+ while(str[i]!='=')
+ i++;
+i++;
+c++;
+}
+   for(;str[i]!='\0';i++)
+   {  if(str[i]=='(')
+      {   i++;
+          l=0;
+         while(str[i]!=')')
+        {  pt[l]=str[i];
+           l++;
+          i++;
+        }
+        pt[l]='\0';
+      // puts(pt);
+        i++;
+        r=ev(pt,x);
+        str2[k]=r;
+        k++;
+      }
+      switch(str[i])
+      {  case '+':
+         case '-':            
+         case '*': 
+         case '/': 
+         case '^': str1[j]=str[i];
+                   j++;
+                   break;   
+         case 'x': str2[k]=x;
+                   k++;
+                   break;
+         case '0':
+         case '1': 
+         case '2': 
+         case '3': 
+         case '4': 
+         case '5': 
+         case '6':
+         case '7': 
+         case '8':  
+         case '9': str2[k]=str[i]-48;
+                    while(str[i+1]>='0'&&str[i+1]<'9')
+                    {  str2[k]=(str2[k]*10)+str[i+1]-48;
+                      i++; 
+                    }
+                   k++;
+                   break;                 
+         case ' ': 
+                   break;
+                   
+      } 
+    }
+  str1[j]='\0';
+   for(i=0,j=0,k=0;str1[j]!='\0';j++)
+     {  switch(str1[j])
+      {  case '+':a=str2[j];
+	          b=str2[j+1];
+		  r=a+b;
+		  str2[j+1]=r;
+                   k++;
+                   break;
+         case '-': a=str2[j];
+	           b=str2[j+1];
+		   r=a-b;
+		   str2[j+1]=r; 
+                   k++;                 
+                  break;           
+         case '*': a=str2[j];
+	          b=str2[j+1];
+		  r=a*b;
+		  str2[j+1]=r;         
+                   k++;
+                   break;
+         case '/': a=str2[j];
+	          b=str2[j+1];
+		  r=a/b;
+		  str2[j+1]=r;      
+                   k++;
+                   break;
+         case '^': a=str2[j];
+	          b=str2[j+1];
+		  r=pow(a,b);
+		  str2[j+1]=r;
+                  k++;           
+      }
+     }
+return r;
+}
+
+
+--------------------------------
+
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+
+
+)')
+				{	
+					break;
+				}
+				else{
+						temp1=popoperand(operand);
+						temp=popoperand(operand);					
+	
+					switch(op){
+						case '+':p
+
+--------------------------------
+
+MT2014037 Gazal Gupta_175526_assignsubmission_file_expr_v2_MT2014037.c
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+	
+		}
+		else if(exp[i]==' '){
+		continue;
+		}
+		else if(exp[i]=='=')break;
+		else {
+		temp1=exp[i]-48;
+			if(ch
+
+--------------------------------
+
+MT2014053 Kedlaya Avinash Yajnanarayana_150641_assignsubmission_file_expr_v2_MT2014053.c
+MT2014106 Satish Patreyya Kulkarni_162813_assignsubmission_file_expr_v2_MT2014106.c
+
+
+while ((ch = infix[i++]) != '\0') 
+	{
+		if(ch==' ')
+		{}
+		else if (ch == '(')
+			push3(ch);
+
+		else if (isalnum(ch))
+			postfix[k++] = ch;
+
+		else if (ch == ')')
+		{
+			while (s[top] != '(')
+				postfix[k++] = pop3();
+			elem = pop3(); // bracket removing
+		} 
+		else 
+		{	 
+			while (
+
+--------------------------------
+
+MT2014054 Konganapalli Gopal_176657_assignsubmission_file_expr_v2_MT2014054.c
+MT2014059 Kuppam Bharath_171605_assignsubmission_file_expr_v2_MT2014059.c
+
+
+
+ 		{
+			if(flagg!=0)
+			{
+			a[j]='\0';
+			res=atoi(a);
+		    }
+		    
+		}
+		else
+		{
+			res=x[input];
+			}
+ 	
+	if(str[pos]==')')
+	ch='(';
+	else
+	ch=')';
+	for(i=pos+1;strr[i]!=ch;i++)
+	{if (ch=='(')
+		{
+			if(strr[i+1]==ch)
+			return res;
+		}
+		switch(strr[i])
+		{
+				case '-':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res-atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res-x[input];
+			               }
+									
+				break;
+		case '+':
+            				
+            				if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res+atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+		
+		
+	}
+	
+	
+				}while(strr[i]!=')');
+
+				if(k==re)
+				{
+				switch(strr[pos-1])
+				{
+				case '-': return re-res;break;
+				case '+': return re+res;break;
+				case '*': return re*res;break;
+				case '/': return re/res;break;
+				case '^': return re^res;break;
+			   }
+}
+else {return res;}
+}
+
+
+
+
+
+int main()
+{ int pos,ress,res=0,count=0,c=0,resultt[100],h;
+
+
+--------------------------------
+
+MT2014054 Konganapalli Gopal_176657_assignsubmission_file_expr_v2_MT2014054.c
+MT2014059 Kuppam Bharath_171605_assignsubmission_file_expr_v2_MT2014059.c
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+
+
+		if(flag==0)
+ 		{
+			if(flagg!=0)
+			{
+			a[j]='\0';
+			res=atoi(a);
+		    }
+		    
+		}
+		else
+		{
+			res=x[input];
+			}
+ 	
+	if(str[pos]==')')
+	ch='(';
+	else
+	ch=')';
+	for(i=pos+1;strr[i]!=ch;i++)
+	{if (ch=='(')
+		{
+			if(strr[i+1]==ch)
+			return res;
+		}
+		switch(strr[i])
+		{
+				case '-':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res-atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res-x[input];
+			               }
+									
+				break;
+		case '+':
+            				
+            				if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res+atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+		
+		
+	}
+	
+	
+				}while(strr[i]!=')');
+
+				if(k==re)
+				{
+				switch(strr[pos-1])
+				{
+				case '-': return re-res;break;
+				case '+': return re+res;break;
+				case '*': return re*res;break;
+				case '/': return re/res;break;
+				case '^': return re^res;break;
+			   }
+}
+else {return res;}
+}
+
+
+
+
+
+int main()
+{ int pos,ress,res=0,count=0,c=0,resultt[100],h;
+
+
+--------------------------------
+
+MT2014054 Konganapalli Gopal_176657_assignsubmission_file_expr_v2_MT2014054.c
+MT2014059 Kuppam Bharath_171605_assignsubmission_file_expr_v2_MT2014059.c
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+MT2014135 Vijay Monic Vittamsetti_171175_assignsubmission_file_expr_v2_MT2014135.c
+
+
+if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res+atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+
+--------------------------------
+
+MT2014054 Konganapalli Gopal_176657_assignsubmission_file_expr_v2_MT2014054.c
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+
+
+	int l=1,ii;
+	for(ii=0;ii<y;ii++)
+	{
+			l=l*x;
+		}
+		return l;
+}
+int rescal(int p,int re)
+{
+	int k=0;
+	 				int pos=p,flag=0,flagg=0;
+char ch;
+	 	if(!isalnum(strr[p-1]))
+	    {
+            if(strr[p-1]=='=')
+            k=1000;
+            else
+            k=re;
+              
+	     }
+	     res=re;
+
+				
+				do
+				{
+					j=0;
+	for(i=pos+1;isalnum(strr[i]);i++)
+	{
+                if(isdigit(strr[i]))
+                {
+					a[j]=strr[i];
+					j++;
+					flagg++;
+				}
+				else
+				{
+					flag=1;
+					
+				}
+ 		}
+ 		if(flag==0)
+ 		{
+			if(flagg!=0)
+			{
+			a[j]='\0';
+			res=atoi(a);
+		    }
+		    
+		}
+		else
+		{
+			res=x[input];
+			}
+ 	
+	if(str[pos]==')')
+	ch='(';
+	else
+	ch=')';
+	for(i=pos+1;strr[i]!=ch;i++)
+	{if (ch=='(')
+		{
+			if(strr[i+1]==ch)
+			return res;
+		}
+		switch(strr[i])
+		{
+				case '-':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res-atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res-x[input];
+			               }
+									
+				break;
+		case '+':
+            				
+            				if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res+atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+		
+		
+	}
+	
+	
+				}while(strr[i]!=')');
+
+				if(k==re)
+				{
+				switch(strr[pos-1])
+				{
+				case '-': return re-res;break;
+				case '+': return re+res;break;
+				case '*': return re*res;break;
+				case '/': return re/res;break;
+				case '^': return re^res;break;
+			   }
+}
+else {return res;}
+}
+
+
+
+
+
+int main()
+{ int pos,ress,res=0,count=0,c=0,resultt[100],h;
+		scanf("%[^\n]",str);
+	
+	j=0;
+    for(i=0;str[i]!='\0';i++) 
+    {
+ 	   if(str[i]!=' ')
+        {
+ 		strr[j]=str[i];
+		j++;
+        }
+     }   
+
+     for(i=0;strr[i]!='\0';i++)
+     {
+		  if(strr[i]=='=')
+		  pos=i;
+		 }
+		
+		
+		
+do
+{
+scanf("%d",&x[input]);
+if(x[input]==1000)
+c=5;		
+		for(imain=pos+1;strr[imain]!='\0';imain++)
+		{
+			if(strr[imain]=='(')
+			{ 
+                res=rescal(imain,res);
+              
+              
+		imain=i;	
+			
+			
+			
+			if((!isalnum(strr[i+1]))&&(strr[i+1]!='\0'))
+			 { res=rescal(i,res);
+			
+				 if(strr[imain+1]=='(')
+				 
+				 {
+					 res=rescal(imain+1,res);
+				}
+			
+			
+
+			
+				}
+				}
+				
+		}
+	
+		resultt[input]=res;
+input++;		
+		
+	}while(c!=5);
+	
+	printf("%s\n",strr);
+	for(h=0;h<input-1;h++)
+printf("p(%d)=%d\n",x[h],resultt[h]);
+		return 0;
+}
+
+
+
+--------------------------------
+
+MT2014054 Konganapalli Gopal_176657_assignsubmission_file_expr_v2_MT2014054.c
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+MT2014135 Vijay Monic Vittamsetti_171175_assignsubmission_file_expr_v2_MT2014135.c
+
+
+	int l=1,ii;
+	for(ii=0;ii<y;ii++)
+	{
+			l=l*x;
+		}
+		return l;
+}
+int rescal(int p,int re)
+{
+	int k=0;
+	 				int pos=p,flag=0,flagg=0;
+char ch;
+	 	if(!isalnum(strr[p-1]))
+	    {
+            if(strr[p-1]=='=')
+            k=1000;
+            else
+            k=re;
+              
+	     }
+	     res=re;
+
+				
+				do
+				{
+					j=0;
+	for(i=pos+1;isalnum(strr[i]);i++)
+	{
+                if(isdigit(strr[i]))
+                {
+					a[j]=strr[i];
+					j++;
+					flagg++;
+				}
+				else
+				{
+					flag=1;
+					
+				}
+ 		}
+ 		if(flag==0)
+ 		{
+			if(flagg!=0)
+			{
+			a[j]='\0';
+			res=atoi(a);
+		    }
+		    
+		}
+		else
+		{
+			res=x[input];
+			}
+ 	
+
+
+--------------------------------
+
+MT2014059 Kuppam Bharath_171605_assignsubmission_file_expr_v2_MT2014059.c
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+
+
+	if(str[pos]==')')
+	ch='(';
+	else
+	ch=')';
+	for(i=pos+1;strr[i]!=ch;i++)
+	{if (ch=='(')
+		{
+			if(strr[i+1]==ch)
+			return res;
+		}
+		switch(strr[i])
+		{
+				case '-':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res-atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res-x[input];
+			               }
+									
+				break;
+		case '+':
+            				
+            				if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res+atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+		
+		
+	}
+	
+	
+				}while(strr[i]!=')');
+
+				if(k==re)
+				{
+				switch(strr[pos-1])
+				{
+				case '-': return re-res;break;
+				case '+': return re+res;break;
+				case '*': return re*res;break;
+				case '/': return re/res;break;
+				case '^': return re^res;break;
+			   }
+}
+else {return res;}
+}
+
+
+
+
+
+int main()
+{ int pos,ress,res=0,count=0,c=0,resultt[100],h;
+
+
+--------------------------------
+
+MT2014059 Kuppam Bharath_171605_assignsubmission_file_expr_v2_MT2014059.c
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+MT2014135 Vijay Monic Vittamsetti_171175_assignsubmission_file_expr_v2_MT2014135.c
+
+
++atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+
+--------------------------------
+
+MT2014061 Lolage Nisarga Gajanan_158417_assignsubmission_file_expr_v2_MT2014061.c
+MT2014114 Shivang Vijaykumar Trivedi_156589_assignsubmission_file_expr_v2_MT2014114.c
+
+
+i=0;
+	j=0;
+
+	while(1)
+	{
+	scanf("%d",&in[i]);
+	if(in[i]==1000)
+	break;
+	count++;
+	i++;
+	}
+
+	len=strlen(exp
+
+--------------------------------
+
+MT2014070 Musalikunta Jyothi Sankar Reddy_176517_assignsubmission_file_expr_v2_MT2014070.c
+MT2014135 Vijay Monic Vittamsetti_171175_assignsubmission_file_expr_v2_MT2014135.c
+
+
++atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res+x[input];
+			               }
+									
+				break;
+				case '*':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res*atoi(a);
+								
+		    		    
+		                   }
+		                   else
+		                   {
+			                  
+			                  res=res*x[input];
+			               }
+									
+				break;
+		case '/':
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=res/atoi(a);
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=res/x[input];
+			               }
+									
+				break;	
+				case '^':
+				//printf("%d",res);
+							if(isdigit(strr[i+1]))
+							{
+								j=0;
+								for(t=i+1;isdigit(strr[t]);t++)
+									{
+										a[j]=strr[t];
+										j++;
+										
+				
+									}
+                             a[j]='\0';
+								res=powerr(res,atoi(a));
+		    		    
+		                   }
+		                   else
+		                   {
+			                  res=powerr(res,x[input]);
+			               }
+									
+				break;	
+							
+		}
+
+--------------------------------
+
+MT2014076 Neha Upadhyay_175902_assignsubmission_file_expr_v2_MT2014076.c
+MT2014115 Shourya Shrivastava_176549_assignsubmission_file_expr_v2_MT2014115.c
+
+
+k;
+		break;
+		}
+	for(i=strlen(exp)-1;i>=0;i--){
+		if((exp[i]=='+')||(exp[i]=='-')||(exp[i]=='*')||(exp[i]=='/')||(exp[i]=='^')||(exp[i]==')')){
+		pu
+
+--------------------------------
+
+MT2014090 Radhika Mandil_174375_assignsubmission_file_expr_v2_MT2014090.c
+MT2014116 Shweta Mishra_174552_assignsubmission_file_expr_v2_MT2014116.c
+
+
+    void p1(char [],int);
+    int j=0,mn=0,brackets[25],e,s,c=0,d,r=0,bk,b,y=0,p,u=0,a3[20],var,expr4[25];
+    char expr3[50];
+    int sol(int f1,int x,char op)
+ {
+	int v=1;
+	switch (op)
+   {	case '+':return f1+x;
+		break;	
+	case '-':return f1-x;
+		break;
+	case '/':return f1/x;
+		break;
+	case '*':return f1*x;
+		break;
+	case '^':while(x!=0)
+                {
+		v=v*f1;
+		x--;	
+		}
+                return v;
+		break;
+   }	
+ }
+
+void main()
+{
+             int i=0,at[10],length=0;
+             char expr[50],expr1[50],q[50];
+ 
+             scanf("%[^\n]",expr3);
+
+             do
+{
+             scanf("%d",&var);
+             at[i]=var;length++;i++;
+}
+             while(var!=1000);
+
+             for(i=0;expr3[i]!='\0';i++)
+     { 
+             if(expr3[i]==' ')
+     {
+
+            for(j=i;expr3[j]!='\0';j++)
+     {
+            expr3[j]=expr[j+1];
+     }
+            expr3[j+1]='\0';i--;
+     }
+
+     }
+             printf("%s\n",expr3);
+             for(u=0;expr3[u]!='\0';u++)
+	
+		expr1[u]=expr3[u+5];
+		expr1[u]='\0';
+		printf("expr1%s",expr1);
+
+             for(j=0;j<(length-1);j++)
+        {
+	     for(b=0;expr1[b]!='\0';b++)
+	{
+		if(expr1[b]=='(')
+		{		
+
+	for(e=b+1;expr1[e]!=')';e++)
+			{
+			q[c]=expr1[e];
+			c++;
+			}
+		}	
+	q[c]='\0';
+	printf("%s",q);
+	}	
+
+f1main(q,at[j]);
+brackets[r]=mn;
+r++;
+}
+
+
+f1main(expr1,at[j]);
+//i++;
+}
+
+void f1main(char expr[],int var)
+{
+	
+	//char expr1[25];
+	int bk=0,i=0,g=0;
+	int ans;
+	int k=0,mn;
+        int f;
+	int pos=0,a[10];
+	int chk=0;
+	char temp[25],op;
+	
+	char a2[56];
+	
+	int y=0,m=0;
+	
+	
+
+
+	
+        
+	
+//puts(expr);
+
+/*for(i=0;expr[i]!='\0';i++)
+{ 
+	if(expr[i]==' ')
+ {
+
+	for(j=i;expr[j]!='\0';j++)
+ 		expr[j]=expr[j+1];
+   		expr[j+1]='\0';i--;
+ }
+
+}*/
+	pos=5;
+	//printf("ghjgfj==\n");
+	//chk=0;
+mn=0;
+
+	//for(y=5;expr[y]!='\0';y++)
+
+
+
+y=0;
+	temp[0]='\0';
+	for(k=y;expr[k]!='\0';k++)
+        {
+	if((expr[k]>='0')&&(expr[k]<='9'))
+	{
+        chk=0;
+	
+	temp[g]=expr[k];
+	temp[g+1]='\0';
+	pos++;g++;
+	
+
+	}
+ else if(expr[k]==expr[2])
+   {   chk=1;
+      a[mn]=var;mn++;
+   }	
+  else if(expr[k]='(')
+	{
+	a[mn]=brackets[bk];
+	mn++;
+	bk++;
+	while(expr[k]!=')')
+	{
+k++;
+}
+	}
+	 
+       
+	 
+    else if(expr[k]!='\0')	
+    {    op=expr[k];
+        a2[m]=op;m++;a2[m]='\0';
+
+ //printf("abbcd");
+       if(chk==0)
+       { f=atoi(temp);g=0;
+         a[mn]=f;mn++;
+       }
+	        
+     }
+	
+
+}
+f=atoi(temp);
+a[mn]=f;
+mn++;
+/*puts(a2);
+for(i=0;i<mn;i++)
+printf("%d",a[i]);*/
+i=0;j=0;
+	
+ans=a[i];
+	while(a2[j]!='\0')
+	{  
+//printf("a[i]=%d",a[i]);
+	ans=sol(ans,a[i+1],a2[j]);//printf("c=%c",a2[j]);
+ //printf("ans=%d",ans);
+
+	i++;
+	j++;
+	}
+      printf("%c%c%d%c%c%d\n",expr3[0],expr3[1],var,expr3[3],expr3[4],ans);
+}
+
+	
+
+
+
+--------------------------------
+
+MT2014090 Radhika Mandil_174375_assignsubmission_file_expr_v2_MT2014090.c
+MT2014116 Shweta Mishra_174552_assignsubmission_file_expr_v2_MT2014116.c
+MT2014130 Vandana Jain_174605_assignsubmission_file_expr_v2_MT2014130.c
+
+
+    void p1(char [],int);
+    int j=0,mn=0,brackets[25],e,s,c=0,d,r=0,bk,b,y=0,p,u=0,a3[20],var,expr4[25];
+    char expr3[50];
+    int sol(int f1,int x,char op)
+ {
+	int v=1;
+	switch (op)
+   {	case '+':return f1+x;
+		break;	
+	case '-':return f1-x;
+		break;
+	case '/':return f1/x;
+		break;
+	case '*':return f1*x;
+		break;
+	case '^':while(x!=0)
+                {
+		v=v*f1;
+		x--;	
+		}
+                return v;
+		break;
+   }	
+ }
+
+void main()
+{
+             int i=0,at[10],length=0;
+             char expr[50],expr1[50],q[50];
+ 
+             scanf("%[^\n]",expr3);
+
+             do
+{
+             scanf("%d",&var);
+             at[i]=var;length++;i++;
+}
+             while(var!=1000);
+
+             for(i=0;expr3[i]!='\0';i++)
+     { 
+             if(expr3[i]==' ')
+     {
+
+            for(j=i;expr3[j]!='\0';j++)
+     {
+            expr3[j]=expr[j+1];
+     }
+            expr3[j+1]='\0';i--;
+     }
+
+     }
+             printf("%s\n",expr3);
+             for(u=0;expr3[u]!='\0';u++)
+	
+		expr1[u]=expr3[u+5];
+		expr1[u]='\0';
+		printf("expr1%s",expr1);
+
+             for(j=0;j<(length-1);j++)
+        {
+	     for(b=0;expr1[b]!='\0';b++)
+	{
+		if(expr1[b]=='(')
+		{		
+
+	for(e=b+1;expr1[e]!=')';e++)
+			{
+			q[c]=expr1[e];
+			c++;
+			}
+		}	
+	q[c]='\0';
+	printf("%s",q);
+	}	
+
+f1main(q,at[j]);
+brackets[r]=mn;
+r++;
+}
+
+
+f1main(expr1,at[j]);
+//i++;
+}
+
+void f1main(char expr[],int var)
+{
+	
+	//char expr1[25];
+	int bk=0,i=0,g=0;
+	int ans;
+	int k=0,mn;
+        int f;
+	int pos=0,a[10];
+	int chk=0;
+	char temp[25],op;
+	
+	char a2[56];
+	
+	int y=0,m=0;
+	
+	
+
+
+	
+        
+	
+//puts(expr);
+
+/*for(i=0;expr[i]!='\0';i++)
+{ 
+	if(expr[i]==' ')
+ {
+
+	for(j=i;expr[j]!='\0';j++)
+ 		expr[j]=expr[j+1];
+   		expr[j+1]='\0';i--;
+ }
+
+}*/
+	pos=5;
+	//printf("ghjgfj==\n");
+	//chk=0;
+mn=0;
+
+	//for(y=5;expr[y]!='\0';y++)
+
+
+
+y=0;
+	temp[0]='\0';
+	for(k=y;expr[k]!='\0';k++)
+        {
+	if((expr[k]>='0')&&(expr[k]<='9'))
+	{
+        chk=0;
+	
+	temp[g]=expr[k];
+	temp[g+1]='\0';
+	pos++;g++;
+	
+
+	}
+ else if(expr[k]==expr[2])
+   {   chk=1;
+      a[mn]=var;mn++;
+   }	
+  else if(expr[k]='(')
+	{
+	a[mn]=brackets[bk];
+	mn++;
+	bk++;
+	while(expr[k]!=')')
+	{
+k++;
+}
+	}
+	 
+       
+	 
+    else if(expr[k]!='\0')	
+    {    op=expr[k];
+        a2[m]=op;m++;a2[m]='\0';
+
+ //printf("abbcd");
+       if(chk==0)
+       { f=atoi(temp);g=0;
+         a[mn]=f;mn++;
+       }
+	        
+     }
+	
+
+}
+f=atoi(temp);
+a[mn]=f;
+mn++;
+/*puts(a2);
+for(i=0;i<mn;i++)
+printf("%d",a[i]);*/
+i=0;j=0;
+	
+ans=a[i];
+	while(a2[j]!='\0')
+	{  
+//printf("a[i]=%d",a[i]);
+	ans=sol(ans,a[i+1],a2[j]);//printf("c=%c",a2[j]);
+ //printf("ans=%d",ans);
+
+	i++;
+	j++;
+	}
+      printf("%c%c%d%c%c%d\n",expr3[0],expr3[1],var,expr3[3],expr3[4],ans);
+}
+
+	
+
+
+
+--------------------------------
+
+MT2014096 Roopa Gupta_161171_assignsubmission_file_expr_v2_MT2014096.c
+MT2014105 Sarada S_146296_assignsubmission_file_expr_v2_MT2014105.c
+
+
+0;
+				tempnum[pos]=exp[j];
+				pos++;
+				while(exp[j+1]>='0' && exp[j+1]<='9')
+				{
+					if (exp[j+1]>='0' && exp[j+1]<='9')
+					{			
+						tempnum[pos]=exp[j+1];
+						pos++;
+						j++;
+					}
+				}
+						tempnum[pos]='\0';
+						digit=atoi(tempnum);
+						pos=0;
+					
+				if (operator=='\0')
+				{
+					result=digit;
+				}
+				else
+				{
+					
+
+--------------------------------
+
+MT2014101 Sandesh Prabhu_142053_assignsubmission_file_expr_v2_MT2014101.c
+MT2014109 Shah Dhruv Navinchandra_157554_assignsubmission_file_expr_v2_MT2014109.c
+
+
+Top,intTop,i=0,j=0,k=0,l=0,p=0,in[50],count=0,out[20],len;
+scanf("%[^\n]s",exp1);
+printf("%s \n",exp1);
+
+while((exp1[i]!='=')&&(i<200))
+{
+i++;
+}
+i++;
+while((exp1[i]!='\0')&&(i<200))
+{
+exp[j]=exp1[i];
+j++;
+i++;
+}
+exp[j]='\0';
+i=0;
+j=0;
+
+while(1)
+{
+scanf("%d",&in[i]);
+if(in[i]==1000)
+break;
+count++;
+i++;
+}
+
+len=strlen(exp);
+
+for(j=0;j<=count;j++)
+
+--------------------------------
+
+MT2014107 Savjani Parth Ashokbhai_142899_assignsubmission_file_expr_v2_MT2014107.c
+MT2014128 Turkar Devendrakumar Gendlal_170522_assignsubmission_file_expr_v2_MT2014128.c
+
+
++')
+		return op1+op2;
+	
+	if(op == '-')
+		return op1-op2;
+	
+	if(op == '*')
+		return op1*op2;
+	
+	if(op == '/')
+		return op1/op2;
+	
+	if(op == '^')
+		return power(op1,op2);
+	
+	return 0;
+}
+
+
+--------------------------------
+
+MT2014107 Savjani Parth Ashokbhai_142899_assignsubmission_file_expr_v2_MT2014107.c
+MT2014128 Turkar Devendrakumar Gendlal_170522_assignsubmission_file_expr_v2_MT2014128.c
+MT2014139 Yuvraj Verma_172171_assignsubmission_file_expr_v2_MT2014139.c
+
+
+	
+	if(op == '+')
+		return op1+op2;
+	
+	if(op == '-')
+		return op1-op2;
+	
+	if(op == '*')
+		return op1*op2;
+	
+	if(op == '/')
+		return op1/op2;
+	
+	if(op == '^')
+		return power(op1,op2);
+	
+	return 0;
+}
+
+
+--------------------------------
+
+MT2014107 Savjani Parth Ashokbhai_142899_assignsubmission_file_expr_v2_MT2014107.c
+MT2014139 Yuvraj Verma_172171_assignsubmission_file_expr_v2_MT2014139.c
+
+
+
+char expr[30];// To store main expression.
+int pos=0; //Parsing pinter
+
+void trim_expr(); // To remove unwanted spaces from the given input exoression.
+int evaluate(int); // To evaluate result for particular input value.
+int power(int,int);// Returns result of first ip power second ip.
+int calc(int,int,char);
+
+void main()
+{
+	int op1,op2,v=0;	
+	scanf("%[^\n]s",expr);
+	printf("%s\n",expr);
+	trim_expr();
+	//printf("P(2)=%d\n",evaluate(2));
+	//printf("%s\n",expr);
+	//scanf("%s",expr);
+	while(1)
+	{
+		scanf("%d",&v);
+		if(v==1000)
+		break;
+		pos=op1=op2= 0;
+		printf("P(%d)=%d\n",v,evaluate(v)); 
+	}
+}
+
+void trim_expr ()
+{
+	char texpr[30];
+	int i,j;
+	i=j=0;
+	
+	while(expr[i] != '=')//skip till '='
+		i++;
+	
+	i++;
+	
+	while(expr[i]!= '\0')//trim blank spaces
+	{	
+		if(expr[i] != ' ')
+		{
+			texpr[j]= expr[i];
+			j++;
+		}
+		i++;
+	}
+	texpr[j]='\0';
+	j=0;
+	
+	do //copy to original expression
+	{
+		expr[j] = texpr[j];
+		j++;
+	}while(texpr[j]!='\0');
+	
+	expr[j]='\0';
+}
+
+int get_operand()
+{
+	char temp[8];
+	int k=0;
+	
+	if((expr[pos]>='a')&&(expr[pos]<='z')) //If its variable then advance pointer and return -1
+	{
+		pos++;
+		return -1;
+	}
+	
+	while((expr[pos]>='0')&&(expr[pos]<='9')&& expr[pos] != '\0' && expr[pos] != ')')// generate a constant number(multidigit) string
+	{				
+		temp[k] = expr[pos];
+		pos++;
+		k++;
+	}
+	
+	temp[k] = '\0';
+	
+	return atoi(temp);	//convert constat number string to integer and return it
+}
+
+int evaluate(int val)
+{
+	int k =0,op1,op2,top1;	
+	char op,top;
+
+	if(expr[pos] == '(')
+		pos++;
+
+	k = get_operand(); // if k = -1 indicates variable so assign value directly.
+	if(k== -1)
+	op1  = val;
+	else
+	op1 = k;
+	
+	//printf("op1 : %d \t pos : %d\n",op1,pos);
+
+	while (expr[pos]!='\0')
+	{				
+		
+		if(expr[pos] == ')')
+			pos++;
+		if(expr[pos]=='\0')
+			break;
+		op = expr[pos];// store operation need to be performed.
+		pos++;
+		//printf("op : %c \t pos : %d\n",op,pos);
+
+		if(expr[pos] == '(')
+		{
+			pos++;
+			
+			k = get_operand(); // if k = -1 indicates variable so assign value directly.
+			if(k== -1)
+				top1  = val;
+			else
+				top1 = k;
+
+			//printf("top1 : %d \t pos : %d\n",top1,pos);
+			while(expr[pos]!=')')
+			{
+				top = expr[pos];// store operation need to be performed.
+				pos++;
+			//	printf("top : %c \t pos : %d\n",top,pos);
+				k = get_operand();
+				if(k== -1)
+					op2  = val;
+				else
+					op2 = k;
+
+			//	printf("op2 : %d \t pos : %d\n",op2,pos);
+				top1 = calc(top1,op2,top);
+			//	printf("top1 : %d \t pos : %d\n",top1,pos);
+			}
+			op2 = top1;
+			//printf("op2 : %d \t pos : %d\n",op2,pos);
+		}
+		else
+		{
+			k = get_operand();
+			if(k== -1)
+				op2  = val;
+			else
+				op2 = k;		
+			//printf("op2 : %d \t pos : %d\n",op2,pos);
+		}
+		op1 = calc(op1,op2,op);// calculate op1 op op2 and set return value to op1
+		
+		//printf("op1 : %d \t pos : %d\n",op1,pos);
+	}
+	//printf("op1 : %d \t pos : %d\n",op1,pos);
+	return op1;
+	
+}
+int calc(int op1,int op2, char op) // body says all. ;)
+{	
+	if(op == '+')
+		return op1+op2;
+	
+	if(op == '-')
+		return op1-op2;
+	
+	if(op == '*')
+		return op1*op2;
+	
+	if(op == '/')
+		return op1/op2;
+	
+	if(op == '^')
+		return power(op1,op2);
+	
+	return 0;
+}
+int power(int op1,int op2)// Basic power function
+{
+	int r=op1;
+	int i=0;
+	for(i=0;i<op2-1;i++)
+		r*=op1;
+	return r;
+}
+
+
+
+
+--------------------------------
+
+MT2014116 Shweta Mishra_174552_assignsubmission_file_expr_v2_MT2014116.c
+MT2014130 Vandana Jain_174605_assignsubmission_file_expr_v2_MT2014130.c
+
+
+    void p1(char [],int);
+    int j=0,mn=0,brackets[25],e,s,c=0,d,r=0,bk,b,y=0,p,u=0,a3[20],var,expr4[25];
+    char expr3[50];
+    int sol(int f1,int x,char op)
+ {
+	int v=1;
+	switch (op)
+   {	case '+':return f1+x;
+		break;	
+	case '-':return f1-x;
+		break;
+	case '/':return f1/x;
+		break;
+	case '*':return f1*x;
+		break;
+	case '^':while(x!=0)
+                {
+		v=v*f1;
+		x--;	
+		}
+                return v;
+		break;
+   }	
+ }
+
+void main()
+{
+             int i=0,at[10],length=0;
+             char expr[50],expr1[50],q[50];
+ 
+             scanf("%[^\n]",expr3);
+
+             do
+{
+             scanf("%d",&var);
+             at[i]=var;length++;i++;
+}
+             while(var!=1000);
+
+             for(i=0;expr3[i]!='\0';i++)
+     { 
+             if(expr3[i]==' ')
+     {
+
+            for(j=i;expr3[j]!='\0';j++)
+     {
+            expr3[j]=expr[j+1];
+     }
+            expr3[j+1]='\0';i--;
+     }
+
+     }
+             printf("%s\n",expr3);
+             for(u=0;expr3[u]!='\0';u++)
+	
+		expr1[u]=expr3[u+5];
+		expr1[u]='\0';
+		printf("expr1%s",expr1);
+
+             for(j=0;j<(length-1);j++)
+        {
+	     for(b=0;expr1[b]!='\0';b++)
+	{
+		if(expr1[b]=='(')
+		{		
+
+	for(e=b+1;expr1[e]!=')';e++)
+			{
+			q[c]=expr1[e];
+			c++;
+			}
+		}	
+	q[c]='\0';
+	printf("%s",q);
+	}	
+
+f1main(q,at[j]);
+brackets[r]=mn;
+r++;
+}
+
+
+f1main(expr1,at[j]);
+//i++;
+}
+
+void f1main(char expr[],int var)
+{
+	
+	//char expr1[25];
+	int bk=0,i=0,g=0;
+	int ans;
+	int k=0,mn;
+        int f;
+	int pos=0,a[10];
+	int chk=0;
+	char temp[25],op;
+	
+	char a2[56];
+	
+	int y=0,m=0;
+	
+	
+
+
+	
+        
+	
+//puts(expr);
+
+/*for(i=0;expr[i]!='\0';i++)
+{ 
+	if(expr[i]==' ')
+ {
+
+	for(j=i;expr[j]!='\0';j++)
+ 		expr[j]=expr[j+1];
+   		expr[j+1]='\0';i--;
+ }
+
+}*/
+	pos=5;
+	//printf("ghjgfj==\n");
+	//chk=0;
+mn=0;
+
+	//for(y=5;expr[y]!='\0';y++)
+
+
+
+y=0;
+	temp[0]='\0';
+	for(k=y;expr[k]!='\0';k++)
+        {
+	if((expr[k]>='0')&&(expr[k]<='9'))
+	{
+        chk=0;
+	
+	temp[g]=expr[k];
+	temp[g+1]='\0';
+	pos++;g++;
+	
+
+	}
+ else if(expr[k]==expr[2])
+   {   chk=1;
+      a[mn]=var;mn++;
+   }	
+  else if(expr[k]='(')
+	{
+	a[mn]=brackets[bk];
+	mn++;
+	bk++;
+	while(expr[k]!=')')
+	{
+k++;
+}
+	}
+	 
+       
+	 
+    else if(expr[k]!='\0')	
+    {    op=expr[k];
+        a2[m]=op;m++;a2[m]='\0';
+
+ //printf("abbcd");
+       if(chk==0)
+       { f=atoi(temp);g=0;
+         a[mn]=f;mn++;
+       }
+	        
+     }
+	
+
+}
+f=atoi(temp);
+a[mn]=f;
+mn++;
+/*puts(a2);
+for(i=0;i<mn;i++)
+printf("%d",a[i]);*/
+i=0;j=0;
+	
+ans=a[i];
+	while(a2[j]!='\0')
+	{  
+//printf("a[i]=%d",a[i]);
+	ans=sol(ans,a[i+1],a2[j]);//printf("c=%c",a2[j]);
+ //printf("ans=%d",ans);
+
+	i++;
+	j++;
+	}
+      printf("%c%c%d%c%c%d\n",expr3[0],expr3[1],var,expr3[3],expr3[4],ans);
+}
+
+	
+
+
+
+--------------------------------
+
+MT2014128 Turkar Devendrakumar Gendlal_170522_assignsubmission_file_expr_v2_MT2014128.c
+MT2014139 Yuvraj Verma_172171_assignsubmission_file_expr_v2_MT2014139.c
+
+
++')
+		return op1+op2;
+	
+	if(op == '-')
+		return op1-op2;
+	
+	if(op == '*')
+		return op1*op2;
+	
+	if(op == '/')
+		return op1/op2;
+	
+	if(op == '^')
+		return power(op1,op2);
+	
+	return 0;
+}
+
+
+--------------------------------
+
+MT2014137 Vikash Ranjan_130727_assignsubmission_file_expr_v2_MT2014137.c
+MT2014138 Vinita Goyal_171029_assignsubmission_file_expr_v2_MT2014138.c
+
+
+\n\tEntered expression:%s",expr);
+		i=0;
+	
+ 	do{
+	scanf("%d",&value[i]);
+	
+	  
+	}while(value[i++]!=1000);
+	i--;
+	  
+       for(ctr=0;ctr<i;ctr++)
+	{
+		//printf("\ngoing to calc fun with expr:%s and value: %d",expr,value[ctr]);
+		calc(expr,value[ctr]);
+	}
+
+
+return 0;
+}
+
+void calc(char* expr, int value)
+
+    {
+	int f=0,count=0,no_exp=0,temp_res_flag=0,temp_res=0,len=0,div_fac=0,n=0;
+	char temp,cal_expr[100],temp_char;
+        int k=0,i=0,ctr=0,res=0;
+	static int flag=0;
+        cal_expr[k++]='(';
+	i=0;
+//printf("\nIn the calc fun with expr:%s and value: %d",expr,value);
+	while(expr[i]!='\0')
+	{   
+		 
+		temp=expr[i];
+		if (expr[i]>='a'||expr[i]>='z')
+			{
+				temp_char=expr[i];
+			}
+		if(temp=='(')
+		{
+		   f=1;
+			count=0;
+		   no_exp=no_exp+1;
+		}
+
+		if(f==1)
+		{
+		  
+			disp(temp,no_exp,count);
+			count=count+1;
+		}
+
+	        if(temp==')')
+		{
+			f=0; 
+			//printf("\ngoing to calc_final fun with expr:%s and value: %d",subexpr[no_exp],value);
+			temp_res=calc_final(subexpr[no_exp],value);
+			temp_res_flag=1;
+			
+			
+		}
+		if(f==0)
+	         {
+			if(temp_res_flag==0)
+			cal_expr[k++]=temp;
+
+			if(temp_res_flag==1)
+			{
+			   
+				if(temp_res<0)
+				{
+				   cal_expr[k++]='#';
+				   temp_res=-temp_res;
+				}
+			  len=numDigits(temp_res);
+				
+			    div_fac=power(10,(len-1));
+				
+				
+			    
+			while(div_fac)
+			{       
+			  n=temp_res/div_fac;
+			
+				temp_res=temp_res%div_fac;
+			   div_fac=div_fac/10;
+						
+			   cal_expr[k++] = n+'0';   
+ 			}  
+			temp_res_flag=0;}
+                 }
+
+	i++;
+	
+	}
+      cal_expr[k++]=')';
+	cal_expr[k++]='\0';
+	//for(ctr=1;ctr<=no_exp;ctr++)	
+    
+     //printf("\nfinal expression become:%s",cal_expr);
+  	res=calc_final(cal_expr,value);
+	//system("clear");	
+	if(flag==0)
+	{
+		printf("

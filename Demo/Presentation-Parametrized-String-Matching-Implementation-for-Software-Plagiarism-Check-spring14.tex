@@ -1,0 +1,191 @@
+\documentclass[color=usenames,dvipsnames]{beamer}
+
+\mode<presentation> {
+
+\usetheme{Madrid}
+\usecolortheme{lily}
+\useoutertheme{infolines}
+}
+\usepackage{booktabs} 
+\usepackage{tikz}
+\usepackage{subfigure}
+% Thin fonts
+\usepackage{cmbright}
+\usepackage[T1]{fontenc}
+
+\definecolor{dark_grey}{gray}{0.5}
+\setbeamercolor{normal text}{fg=dark_grey,bg=white}
+\setbeamertemplate{navigation symbols}{}
+
+\setbeamercolor*{palette primary}{fg=gray!100,bg=gray!10}
+\setbeamercolor*{palette quaternary}{fg=gray!100,bg=gray!10}
+\setbeamercolor*{palette secondary}{fg=gray!100,bg=gray!20}
+\setbeamercolor*{palette tertiary}{fg=gray!100,bg=gray!10}
+\setbeamercolor*{navigation symbols}{fg=white,bg=white}
+\usefonttheme{default}
+
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{bg=gray!10}
+\setbeamercolor{block body}{fg=gray,bg=gray!10}
+%\setbeamercolor{frametitle}{fg=}
+
+\setbeamertemplate{frametitle}[default][center]
+
+\setbeamertemplate{itemize items}[default]
+\setbeamertemplate{enumerate items}[default]
+
+
+\newcommand{\F}{\mathbb{F}}
+\setbeamertemplate{caption}[numbered]
+
+\title[Software Plagiarism Check]{Parametrized String Matching Implementation for Software Plagiarism Check : \emph{CopyDog}}
+\author[]{Amit Tomar (MT2013008) \\Siddhesh Dosi  (MT2013150)\\ Srinivas R. Vaidya  (MT2013152) }
+
+%\vskip .2 cm \fontsize{.3cm}{1em}\selectfont (Under the guidance of Prof. Jaya Sreevalsan Nayar)} 
+
+\institute[IIIT-Bangalore]{International Institute of Information Technology, Bangalore}
+\date{Sep 24, 2014}
+\begin{document}
+%\usebackgroundtemplate{%
+%  \includegraphics[width=\paperwidth,height=\paperheight]{img}}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% Uncomment these lines for an automatically generated outline.
+%\begin{frame}{Outline}
+%  \tableofcontents
+%\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Objective}
+
+\begin{itemize}
+
+  \setlength{\itemsep}{10pt}
+  
+\item This project aims at developing a Parametrized String Matching Implementation for Software Plagiarism Check, that given a collection of files which contain code in some programming language, will show a set of possible duplications of parts of the code among these. 
+  
+\item Comparing pieces of software will require discounting comments (optional and language dependent), extra/blank lines and spaces, variable renaming etc. 
+  
+\item The theory of parametrized string matching will be used to implementation this project. 
+
+\item  System will have an easy-to-use UI for selecting files/folders and shall report the plagiarism related information (matches found) in the UI in a nice manner.
+
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\section{Functionality}
+
+\begin{frame}{Functionality}
+
+\begin{itemize}
+
+\setlength{\itemsep}{25pt}
+  
+\item Plagiarism check among two given files with direct \emph{copy-paste}. 
+
+\item Plagiarism check among two given files with variable renaming after \emph{copy-paste} [ for the \emph{smarter} ones ]. 
+  
+\item Pairwise plagiarism check among all the files in a given folder. 
+
+\item Ignoring a code snippet for plagiarism check.
+
+\item Checking over the internet for plagiarism.
+
+\end{itemize}
+\end{frame}
+
+\section{Technology}
+
+\begin{frame}{Trie data structure}
+
+\begin{itemize}
+  \setlength{\itemsep}{25pt}
+  
+  \item Quering multiple strings.
+  
+  \item Why do we need one - Dictionary with hash table ?
+  
+  \item Construction of Tries.
+  
+  \item Space-Time complexity of Tries.
+  
+  \item Applications - Dictionary, Phonebook, Auto complete, Spell checking.
+
+  
+\end{itemize}
+
+\end{frame}
+
+\section{Technology}
+
+\begin{frame}{Suffix Tree}
+
+\begin{itemize}
+  \setlength{\itemsep}{25pt}
+  
+  \item Quering single string.
+  
+  \item Searching a substring in a given string.
+  
+  \item Problem with brute force ?
+  
+  \item Construction of suffix tree.
+  
+  \item Space-Time complexity of suffix tree.
+  
+  \item Algorithm of the year - Knuth.
+
+  
+\end{itemize}
+
+\end{frame}
+
+ \section{Technology}
+
+\begin{frame}{CopyDog}
+
+\begin{itemize}
+  \setlength{\itemsep}{30pt}
+  
+  \item Problems : White spaces, variable renaming. 
+  
+  \item Python - Abstract syntax tree, P-Code.
+  
+  \item Demo of \emph{CopyDog}.
+  
+  \item Pending issues - Internet and ignoring strings.
+   
+  \item Results with actual usage.
+  
+\end{itemize}
+
+\end{frame}
+
+
+\section{References}
+
+\begin{frame}{References}
+
+\begin{itemize}
+
+  \setlength{\itemsep}{20pt}
+
+\fontsize{.25cm}{1em}\selectfont
+
+\item  [1]	Peter Vamplew, Julian Dermoudy, \emph{An Anti-Plagiarism Editor for Software Development Courses}, Proceeding ACE-05 Proceedings of the 7th
+Australasian conference on Computing education - Volume 42 Pages 83-
+90 , 2005.
+
+\end{itemize}
+
+\end{frame}
+
+\end{document} 

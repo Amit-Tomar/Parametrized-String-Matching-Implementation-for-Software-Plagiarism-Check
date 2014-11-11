@@ -1,0 +1,80 @@
+
+
+--------------------------------
+
+MT2014020 Azad Krishna Tripathi_185155_assignsubmission_file_change_v2_MT2014020.c
+MT2014135 Vijay Monic Vittamsetti_189109_assignsubmission_file_change_v2_MT2014135.c
+
+
+count[m]);
+		if(z<i-1){
+			printf(",");
+			z++;
+			}
+		
+		}
+	printf("\n");
+	for(m=0;m<k;m++)
+	{
+		z=0;
+		j=0;
+		while(1){
+			 if (num[m][j]!=0){ 
+				 printf("%d:%d", reqcrncy[m][j],num[m][j]); 
+				 break;
+			}
+		j++;
+		}
+		j++;
+		for (z=j;z<l;z++)
+		{
+			if(num[m][z]>0){
+				printf(",");
+				printf("%d:%d", reqcrncy[m][z],num[m][z]);
+			}
+			
+		}
+		
+		printf("\n");
+	}
+	
+	return 0;
+	
+}
+
+
+--------------------------------
+
+MT2014043 Jadav Ravikumar Lakhamanbhai_190131_assignsubmission_file_change_v2_MT2014043.c
+MT2014047 Kalaria Herat Vinodbhai_189626_assignsubmission_file_change_v2_MT2014047.c
+
+
+(i1=0;i1<k;i1++)
+		{
+			temp_count[i1]=count[i1];
+		}		
+	}
+	
+	for(i1=0;i1<k;i1++)
+	{
+		printf("%d:%d",token[i1],count[i1]);
+		if(i1!=k-1 && ans[i1]!='\0')
+				printf(",");
+	}
+	printf("\n");
+	i2=0;
+	for(i1=0;i1<l;i1++)
+	{
+		for(i=i2,j2=0;final[i]!=-1;i++,j2++)
+		{
+			if(final[i]!=0)
+			{
+				printf("%d:%d",token[j2],final[i]);
+				if(j2!=k-1 && final[i]!=-1)
+				printf(",");
+			}
+			i2++;		
+		}
+		i2++;
+		printf("\n");
+	}		

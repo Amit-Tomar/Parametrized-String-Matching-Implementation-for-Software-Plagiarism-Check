@@ -1,0 +1,280 @@
+
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013009_classheap.py
+
+
+
+                    i = self.get_parent_index(i)
+            else:
+                self.restore_subtr
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+
+
+
+            maxx = self.get_leftmostchild_index(p)
+            for j in range(self.get_leftmostchild_index(p), (self.get_rightmostchild_index(p) + 1)):
+      
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+IMT2013007_classheap.py
+
+
+
+        a = self.get_leftmostchild_index(parent_i
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+IMT2013007_classheap.py
+IMT2013006_classheap.py
+IMT2013005_classheap.py
+
+
+
+class Heap(object, ):
+
+    def __init__(self, is_min, arity_exp, co
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013008_classheap.py
+
+
+
+        p = i
+        while (self.get_rightmostchild_index(p
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013007_classheap.py
+
+
+
+            return True
+        else:
+            return False
+
+    def set_item_at(self, i, val):
+        
+
+--------------------------------
+
+IMT2013011_classheap.py
+IMT2013006_classheap.py
+
+
+
+        i = self.get_parent_index((self.size() - 1))
+        while (i >= 0):
+            self.
+
+--------------------------------
+
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+
+
+
+        self.min_top = is_min
+        self.cmp_function = compare_fn
+        self.exp2 = arity_exp
+        self.data = []
+
+    def is_favoured(self, index1, index2):
+        if self.min_top:
+            if (self.data[index2] >= self.data[index1]):
+                return 1
+            else:
+                return (-1)
+        elif (self.data[index2] <= self.data[index1]):
+            return 1
+        else:
+            return (-1)
+
+    def set_item_at(self, i, val):
+        self.data[i] = val
+
+    def size(self):
+        return len(self.data)
+
+    def arity(self):
+        return (2 ** self.exp2)
+
+    def get_item_at(self, i):
+        return self.data[i]
+
+    def get_parent_index(self, child_index):
+        if (child_index == 0):
+            return None
+        return ((child_index - 1) >> self.exp2)
+
+    def get_leftmostchild_index(self, parent_index):
+        if (((parent_index << self.exp2) + 1) < len(self.data)):
+            return ((parent_index << self.exp2) + 1)
+        return None
+
+    def get_rightmostchild_index(self, parent_index):
+        if (((parent_index << self.exp2) + 1) > (len(self.data) - 1)):
+            return None
+        elif (((parent_index + 1) << self.exp2) > (len(self.data) - 1)):
+            return (len(self.data) - 1)
+        else:
+            return ((parent_index + 1) << self.exp2)
+
+    def get_top_child(self, parent_index):
+        mins = ((parent_index << self.exp2) + 1)
+        for i in range(((
+
+--------------------------------
+
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+IMT2013007_classheap.py
+IMT2013006_classheap.py
+IMT2013005_classheap.py
+
+
+
+class Heap(object, ):
+
+    def __init__(self, is_min,
+
+--------------------------------
+
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+IMT2013006_classheap.py
+
+
+
+        self.data.append(obj)
+        self.heapify()
+
+    def import_list(se
+
+--------------------------------
+
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+IMT2013006_classheap.py
+IMT2013005_classheap.py
+
+
+
+        self.min_top = is_min
+        self.cmp_function = compare_fn
+        self.exp2 = arity_exp
+        self.data = []
+
+    de
+
+--------------------------------
+
+IMT2013009_classheap.py
+IMT2013008_classheap.py
+IMT2013005_classheap.py
+
+
+
+        self.data[i] = val
+
+    def size(self):
+        return len(self.data)
+
+    def arity(self):
+        return (2 ** self.exp2)
+
+    def get_item_at(self, i):
+        return self.data[i]
+
+    def get_pare
+
+--------------------------------
+
+IMT2013009_classheap.py
+IMT2013006_classheap.py
+
+
+
+                    (self.data[i], self.data[a]) = (self.dat
+
+--------------------------------
+
+IMT2013008_classheap.py
+IMT2013006_classheap.py
+
+
+
+                    (self.data[i], self.data[a]) = (self.data[a], self.da
+
+--------------------------------
+
+IMT2013008_classheap.py
+IMT2013006_classheap.py
+IMT2013005_classheap.py
+
+
+
+        return self.data[i]
+
+    def get_parent_index(self, chil
+
+--------------------------------
+
+IMT2013008_classheap.py
+IMT2013005_classheap.py
+
+
+
+        self.data[i] = val
+
+    def size(self):
+        return len(self.data)
+
+    def arity(self):
+        return (2 ** self.exp2)
+
+    def get_item_at(self, i):
+        return self.data[i]
+
+    def get_pare
+
+--------------------------------
+
+IMT2013007_classheap.py
+IMT2013006_classheap.py
+IMT2013005_classheap.py
+
+
+
+class Heap(object, ):
+
+    def __init__(self, is_min, arity_ex
+
+--------------------------------
+
+IMT2013006_classheap.py
+IMT2013005_classheap.py
+
+
+
+        self.min_top = is_min
+        self.cmp_function = compare_fn
+        self.exp2 = arity_exp
+        self.data = 

@@ -1,0 +1,3539 @@
+
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+
+
+TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+
+
+int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+
+
+float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+
+
+ble only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct 
+
+--------------------------------
+
+MT2014004 Akash Srivastava_383913_assignsubmission_file_match_v2_MT2014004.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct 
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+
+
+;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+int load_corpus( char *file_name, struct Corpus *corpus );
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+
+
+;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014020 Azad Krishna Tripathi_373072_assignsubmission_file_match_v2_MT2014020.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014007 Ankit Arora_372011_assignsubmission_file_match_v2_MT2014007.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014020 Azad Krishna Tripathi_373072_assignsubmission_file_match_v2_MT2014020.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014020 Azad Krishna Tripathi_373072_assignsubmission_file_match_v2_MT2014020.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014013 Anwesha Moitra_375310_assignsubmission_file_match_v2_MT2014013.c
+MT2014052 Kaustav Sen_373494_assignsubmission_file_match_v2_MT2014052.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 100
+
+
+
+--------------------------------
+
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+
+
+;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+
+--------------------------------
+
+MT2014014 Apoorv Shrivastava_377948_assignsubmission_file_match_v2_MT2014014.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+
+
+;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+;
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct 
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct 
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct 
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct 
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014057 Kulkarni Sagar Shekhar_387272_assignsubmission_file_match_v2_MT2014057.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 100
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014057 Kulkarni Sagar Shekhar_387272_assignsubmission_file_match_v2_MT2014057.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014017 Ashish Kumar Sharma_380050_assignsubmission_file_match_v2_MT2014017.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+
+
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	int num_lines;
+	float match_score;
+};
+
+
+
+--------------------------------
+
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+
+
+;
+	float match_score;
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+float term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+/*******************************************************************************/
+/*Function load_target:Open the target file and Load the content               */
+/*******************************************************************************/
+
+int load_target(struct Corpus *corpus, struct Target *tar )
+{
+	FILE *fr,*fw;
+	char line[200],*token,s[2] = ",",*c;
+	int len=0,i=0,j=0,l=0,k=0,temp=0,countLines=0,maxLine=0;
+	float matchCount=0,maxCount=0.0;
+	fr = fopen ("targets.txt", "rt");				/* open the file for reading*/
+	fw = fopen ("matches.txt","w");					/* open the file for writing*/
+
+	if (fr == NULL) {
+		fprintf(stderr, "Can't open input file targets.txt!\n");
+		return 0;
+	}
+
+	countLines=0;
+	while(fgets(line, 200, fr) != NULL)
+	{
+		len = strlen(line) - 1;
+		if (line[len] == '\n')    line[len] = '\0';
+
+		tar->target_line[countLines]=(struct TextLine *)malloc(sizeof(struct TextLine)*1);
+		strcpy((tar->target_line[countLines]->text),line);
+
+		token = strtok(line,s); 				// get token , delimiter is space
+		i=0;
+		while( token != NULL ) 
+		{
+			while((*(token))==32) token++;			/* Remove leading blanks */
+
+			c = token + strlen (token) - 1;			/* Remove trailing blanks */
+			while (c >= token)
+			{
+				if (*c == ' ')	*c = '\0'; 
+				else		break;
+				c--;
+			}
+
+			temp=0;						//code to get unique token
+			for(l=0;l<i;l++)
+			{
+				if(!(strcmp(token,(tar->target_line[countLines]->terms[l]))))
+				{
+					temp=1;
+				}
+			}
+			if(temp==1) {
+				printf("Token number %d for line %d is --%s--\n",i,countLines,token); 
+				token = strtok(NULL,s);
+				continue;
+			}						//end of code to get unique token
+
+			for(k=0;k<(corpus->vocabulary->num_terms);k++) {
+				if(!(strcmp(token,(corpus->vocabulary->terms[k]))))
+				{
+					strcpy((tar->target_line[countLines]->terms[i]),token);
+					i++;
+					break;
+				}
+
+			}						//end of code to Eliminate the non-vocabulary terms from TARGET
+
+			token = strtok(NULL,s);
+
+		} 							//end of while
+		tar->target_line[countLines]->num_terms=i;
+		countLines++;
+	}								//end of while(fgets(line, 200, fr) != NULL)
+
+
+	fclose(fr);  							/* close the file used for reading*/
+
+	matchCount=0.0;							//code to print the result
+	maxCount=0;
+	maxLine=0;
+	for(i=0;i<countLines;i++)
+	{
+		maxCount=0.0;
+		for(j=0;j<corpus->num_lines;j++)
+		{
+			matchCount=term_matcher(tar->target_line[i],corpus->corpus_lines[j]);
+			corpus->corpus_lines[j]->match_score=(matchCount/(corpus->corpus_lines[j]->num_terms + tar->target_line[i]->num_terms - matchCount));
+			if (maxCount < (corpus->corpus_lines[j]->match_score)) {
+				maxCount=(corpus->corpus_lines[j]->match_score);
+				maxLine=j;
+			}
+		}
+
+		fprintf(fw,"%s;%0.2f;%s\n",(tar->target_line[i]->text),(corpus->corpus_lines[maxLine]->match_score),(corpus->corpus_lines[maxLine]->text));
+	} 								//end of for loop
+
+	fclose(fw);  							/* close the file used for writing */
+
+	return countLines;
+} 									// end of load_target function
+
+
+
+/*******************************************************************************/
+/*Function load_corpus:Open the corpus file and Load the content	       */
+/*******************************************************************************/
+
+int load_corpus(struct Corpus *corpus ) 
+{
+	FILE *fr;
+	char line[
+
+--------------------------------
+
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014067 Mishra Rajendrakumar Premnarayan_372813_assignsubmission_file_match_v2_MT2014067.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+
+
+[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAX
+
+--------------------------------
+
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+
+
+	{
+		for(j=0;j<corpus_line->num_terms;j++)
+		{
+			if(!(strcmp(target_line->terms[i],corpus_line->terms[j])))
+			
+
+--------------------------------
+
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+
+
+
+	float match_score;
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+float term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+/*******************************************************************************/
+/*Function load_target:Open the target file and Load the content               */
+/*******************************************************************************/
+
+int load_target(struct Corpus *corpus, struct Target *tar )
+{
+	FILE *fr,*fw;
+	char line[200],*token,s[2] = ",",*c;
+	int len=0,i=0,j=0,l=0,k=0,temp=0,countLines=0,maxLine=0;
+	float matchCount=0,maxCount=0.0;
+	fr = fopen ("targets.txt", "rt");				/* open the file for reading*/
+	fw = fopen ("matches.txt","w");					/* open the file for writing*/
+
+	if (fr == NULL) {
+		fprintf(stderr, "Can't open input file targets.txt!\n");
+		return 0;
+	}
+
+	countLines=0;
+	while(fgets(line, 200, fr) != NULL)
+	{
+		len = strlen(line) - 1;
+		if (line[len] == '\n')    line[len] = '\0';
+
+		tar->target_line[countLines]=(struct TextLine *)malloc(sizeof(struct TextLine)*1);
+		strcpy((tar->target_line[countLines]->text),line);
+
+		token = strtok(line,s); 				// get token , delimiter is space
+		i=0;
+		while( token != NULL ) 
+		{
+			while((*(token))==32) token++;			/* Remove leading blanks */
+
+			c = token + strlen (token) - 1;			/* Remove trailing blanks */
+			while (c >= token)
+			{
+				if (*c == ' ')	*c = '\0'; 
+				else		break;
+				c--;
+			}
+
+			temp=0;						//code to get unique token
+			for(l=0;l<i;l++)
+			{
+				if(!(strcmp(token,(tar->target_line[countLines]->terms[l]))))
+				{
+					temp=1;
+				}
+			}
+			if(temp==1) {
+				printf("Token number %d for line %d is --%s--\n",i,countLines,token); 
+				token = strtok(NULL,s);
+				continue;
+			}						//end of code to get unique token
+
+			for(k=0;k<(corpus->vocabulary->num_terms);k++) {
+				if(!(strcmp(token,(corpus->vocabulary->terms[k]))))
+				{
+					strcpy((tar->target_line[countLines]->terms[i]),token);
+					i++;
+					break;
+				}
+
+			}						//end of code to Eliminate the non-vocabulary terms from TARGET
+
+			token = strtok(NULL,s);
+
+		} 							//end of while
+		tar->target_line[countLines]->num_terms=i;
+		countLines++;
+	}								//end of while(fgets(line, 200, fr) != NULL)
+
+
+	fclose(fr);  							/* close the file used for reading*/
+
+	matchCount=0.0;							//code to print the result
+	maxCount=0;
+	maxLine=0;
+	for(i=0;i<countLines;i++)
+	{
+		maxCount=0.0;
+		for(j=0;j<corpus->num_lines;j++)
+		{
+			matchCount=term_matcher(tar->target_line[i],corpus->corpus_lines[j]);
+			corpus->corpus_lines[j]->match_score=(matchCount/(corpus->corpus_lines[j]->num_terms + tar->target_line[i]->num_terms - matchCount));
+			if (maxCount < (corpus->corpus_lines[j]->match_score)) {
+				maxCount=(corpus->corpus_lines[j]->match_score);
+				maxLine=j;
+			}
+		}
+
+		fprintf(fw,"%s;%0.2f;%s\n",(tar->target_line[i]->text),(corpus->corpus_lines[maxLine]->match_score),(corpus->corpus_lines[maxLine]->text));
+	} 								//end of for loop
+
+	fclose(fw);  							/* close the file used for writing */
+
+	return countLines;
+} 									// end of load_target function
+
+
+
+/*******************************************************************************/
+/*Function load_corpus:Open the corpus file and Load the content	       */
+/*******************************************************************************/
+
+int load_corpus(struct Corpus *corpus ) 
+{
+	FILE *fr;
+	char line[
+
+--------------------------------
+
+MT2014019 Atul Kumar_374589_assignsubmission_file_match_v2_M2014019.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+
+
+200],input[200],*token,s[2] = ",",*c;
+	int countLines=0,len=0,flag=-1,i=0,l=0,temp=0,j=0,k=0;	
+	fr = fopen ("corpus.txt", "rt");				/* open the file for reading */
+
+	if (fr == NULL) {
+		fprintf(stderr, "Can't open input file corpus.txt!\n");
+		return 0;
+	}
+
+	while(fgets(line, 200, fr) != NULL)
+	{   
+		len = strlen(line) - 1;
+		if (line[len] == '\n')    line[len] = '\0';
+		strcpy(input,line);
+
+		if (flag == -1) 					//flag for vocabulary
+		{
+			corpus->vocabulary=(struct TextLine *)malloc(sizeof(struct TextLine)*1);
+			token = strtok(line,s); 
+			i=0;
+			while( token != NULL ) 
+			{						//code to get unique token
+				temp=0;
+				for(l=0;l<i;l++)
+				{
+					if(!(strcmp(token,(corpus->vocabulary->terms[l]))))
+					{
+						temp=1;
+					}
+				}
+				if(temp==1) {
+					token = strtok(NULL,s);
+					continue;
+				}					//end code to get unique token
+
+				while((*(token))==32) token++;		/* Remove leading blanks */
+
+				c = token + strlen (token) - 1;		/* Remove trailing blanks */
+				while (c >= token)
+				{
+					if (*c == ' ') *c = '\0';
+					else  break;
+					c--;
+				}
+
+				strcpy(corpus->vocabulary->terms[i],token);
+				i++;
+				token = strtok(NULL,s);
+			} 						//end of while
+
+			corpus->vocabulary->num_terms=i;
+			strcpy((corpus->vocabulary->text),input);	
+			flag=0;
+			continue;
+		} 							//end of if flag == -1,used for reading vocab
+
+		//----------------------------------------------
+		// Read the corpus body			--------
+		//----------------------------------------------
+
+		corpus->corpus_lines[countLines]=(struct TextLine *)malloc(sizeof(struct TextLine)*1);
+		strcpy((corpus->corpus_lines[countLines]->text),line);
+
+		token = strtok(line,s); 				// get token , delimiter is space
+		j=0;
+		while( token != NULL ) 
+		{
+			len=strlen(token);
+			temp=0;
+			for(l=0;l<j;l++)
+			{
+				if(!(strcmp(token,(corpus->corpus_lines[countLines]->terms[l]))))
+				{
+					temp=1;
+				}
+			}
+
+			if(temp==1) {
+				token = strtok(NULL,s);
+				continue;
+			}
+
+			while((*(token))==32) token++;			/* Remove leading blanks */
+
+			c = token + strlen (token) - 1;			/* Remove trailing blanks */
+			while (c >= token)
+			{
+				if (*c == ' ') *c = '\0'; 		/* This causes a bus error, why? */
+				else	break;
+				c--;
+			}
+
+			for(k=0;k<corpus->vocabulary->num_terms;k++) { 	//code to Eliminate the non-vocabulary terms from CORPUS_LINE
+				if(!(strcmp(token,(corpus->vocabulary->terms[k]))))
+				{
+					strcpy(corpus->corpus_lines[countLines]->terms[j],token);
+					j++;
+					break;
+				}
+			}					//end of code to Eliminate the non-vocabulary terms from CORPUS_LINE
+
+			token = strtok(NULL,s);
+		} 						//end of while
+
+		(corpus->corpus_lines[countLines]->num_terms)=j;
+		countLines++;
+	} 							//end of while(fgets(line, 200, fr) != NULL)
+	corpus->num_lines=countLines;
+	fclose(fr);  						/* close the file */
+
+	return countLines;
+} 								// end of load_corpus function
+
+
+float term_matcher( struct TextLine *target_line, struct TextLine *corpus_line ) 
+{
+	int i=0,j=0;
+	float count=0.0;
+
+	for(i=0;i<target_line->num_terms;i++)
+	{
+		for(j=0;j<corpus_line->num_terms;j++)
+		{
+			if(!(strcmp(target_line->terms[i],corpus_line->terms[j])))
+			{		
+				count++;
+			}
+		}
+	}
+	return count;
+}								//end of function
+
+
+struct Corpus mainCorpus;
+struct Target mainTarget;
+
+void main(void)
+{
+	char line[200];
+	int i=0,numLineTarget=0,numLineCorpus;
+	mainCorpus.num_lines=0;
+	mainCorpus.overall_match=0;
+
+	numLineCorpus=load_corpus(&mainCorpus); 	//returning the number of lines in corpus body
+
+	numLineTarget=load_target(&mainCorpus,&mainTarget);
+	for(i=0;i<numLineTarget;i++)
+	        free(mainTarget.target_line[i]);
+
+	free(mainCorpus.vocabulary);
+
+	for(i=0;i<numLineCorpus;i++)
+	        free(mainCorpus.corpus_lines[i]);
+
+} 								/*End of main*/
+
+
+
+--------------------------------
+
+MT2014020 Azad Krishna Tripathi_373072_assignsubmission_file_match_v2_MT2014020.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014020 Azad Krishna Tripathi_373072_assignsubmission_file_match_v2_MT2014020.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines;
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line;
+	int num_lines;
+	float match_score;
+};
+
+
+
+--------------------------------
+
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+
+
+_line->num_terms;i++)
+	{
+		for(j=0;j<corpus_line->num_terms;j++)
+		{
+			if(!(strcmp(target_line->terms[i],corpus_line->terms[j])))
+			
+
+--------------------------------
+
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014033 Gadi Hemanth Kumar Reddy_373938_assignsubmission_file_match_v2_MT2014033.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+
+
+	{
+		for(j=0;j<corpus_line->num_terms;j++)
+		{
+			if(!(strcmp(target_line->terms[i],corpus_line->terms[j])))
+			
+
+--------------------------------
+
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+
+
+00
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score;
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+float term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+/*******************************************************************************/
+/*Function load_target:Open the target file and Load the content               */
+/*******************************************************************************/
+
+int load_target(struct Corpus *corpus, struct Target *tar )
+{
+	FILE *fr,*fw;
+	char line[200],*token,s[2] = ",",*c;
+	int len=0,i=0,j=0,l=0,k=0,temp=0,countLines=0,maxLine=0;
+	float matchCount=0,maxCount=0.0;
+	fr = fopen ("targets.txt", "rt");				/* open the file for reading*/
+	fw = fopen ("matches.txt","w");					/* open the file for writing*/
+
+	if (fr == NULL) {
+		fprintf(stderr, "Can't open input file targets.txt!\n");
+		return 0;
+	}
+
+	countLines=0;
+	while(fgets(line, 200, fr) != NULL)
+	{
+		len = strlen(line) - 1;
+		if (line[len] == '\n')    line[len] = '\0';
+
+		tar->target_line[countLines]=(struct TextLine *)malloc(sizeof(struct TextLine)*1);
+		strcpy((tar->target_line[countLines]->text),line);
+
+		token = strtok(line,s); 				// get token , delimiter is space
+		i=0;
+		while( token != NULL ) 
+		{
+			while((*(token))==32) token++;			/* Remove leading blanks */
+
+			c = token + strlen (token) - 1;			/* Remove trailing blanks */
+			while (c >= token)
+			{
+				if (*c == ' ')	*c = '\0'; 
+				else		break;
+				c--;
+			}
+
+			temp=0;						//code to get unique token
+			for(l=0;l<i;l++)
+			{
+				if(!(strcmp(token,(tar->target_line[countLines]->terms[l]))))
+				{
+					temp=1;
+				}
+			}
+			if(temp==1) {
+				printf("Token number %d for line %d is --%s--\n",i,countLines,token); 
+				token = strtok(NULL,s);
+				continue;
+			}						//end of code to get unique token
+
+			for(k=0;k<(corpus->vocabulary->num_terms);k++) {
+				if(!(strcmp(token,(corpus->vocabulary->terms[k]))))
+				{
+					strcpy((tar->target_line[countLines]->terms[i]),token);
+					i++;
+					break;
+				}
+
+			}						//end of code to Eliminate the non-vocabulary terms from TARGET
+
+			token = strtok(NULL,s);
+
+		} 							//end of while
+		tar->target_line[countLines]->num_terms=i;
+		countLines++;
+	}								//end of while(fgets(line, 200, fr) != NULL)
+
+
+	fclose(fr);  							/* close the file used for reading*/
+
+	matchCount=0.0;							//code to print the result
+	maxCount=0;
+	maxLine=0;
+	for(i=0;i<countLines;i++)
+	{
+		maxCount=0.0;
+		for(j=0;j<corpus->num_lines;j++)
+		{
+			matchCount=term_matcher(tar->target_line[i],corpus->corpus_lines[j]);
+			corpus->corpus_lines[j]->match_score=(matchCount/(corpus->corpus_lines[j]->num_terms + tar->target_line[i]->num_terms - matchCount));
+			if (maxCount < (corpus->corpus_lines[j]->match_score)) {
+				maxCount=(corpus->corpus_lines[j]->match_score);
+				maxLine=j;
+			}
+		}
+
+		fprintf(fw,"%s;%0.2f;%s\n",(tar->target_line[i]->text),(corpus->corpus_lines[maxLine]->match_score),(corpus->corpus_lines[maxLine]->text));
+	} 								//end of for loop
+
+	fclose(fw);  							/* close the file used for writing */
+
+	return countLines;
+} 									// end of load_target function
+
+
+
+/*******************************************************************************/
+/*Function load_corpus:Open the corpus file and Load the content	       */
+/*******************************************************************************/
+
+int load_corpus(struct Corpus *corpus ) 
+{
+	FILE *fr;
+	char line[
+
+--------------------------------
+
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+
+--------------------------------
+
+MT2014028 Debaditya Raychaudhuri_377835_assignsubmission_file_match_v2_MT2014028.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014083 Pankaj Pandey_377649_assignsubmission_file_match_v2_MT2014083.c
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score;
+
+--------------------------------
+
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014032 Divya Rao_382775_assignsubmission_file_match_v2_MT2014032.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014033 Gadi Hemanth Kumar Reddy_373938_assignsubmission_file_match_v2_MT2014033.c
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+
+
+extLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+
+
+ char *file_name, struct Corpus *corpus );
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+
+
+;
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+
+
+erm_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+
+
+vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014034 Gadkari Harshad Mukund_376275_assignsubmission_file_match_v2_MT2014034.c
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+
+
+vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+
+
+ring.h>
+#include<stdlib.h>
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014074 Neelima Neelambaran_381684_assignsubmission_file_match_v2_MT2014074.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014035 Gaurav Pandey_384388_assignsubmission_file_match_v2_MT2014035.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+void 
+
+--------------------------------
+
+MT2014036 Gautham Sitaram Yaji_371899_assignsubmission_file_match_v2_MT2014036.c
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+
+
+--------------------------------
+
+MT2014041 Huleshwar Singh Chandra_389188_assignsubmission_file_match_v2_M2014041.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+
+
+
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+
+
+--------------------------------
+
+MT2014045 Joshi Abhishek Gajanan_374281_assignsubmission_file_match_v2_MT2014045.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+
+
+00
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 20
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+
+
+match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014067 Mishra Rajendrakumar Premnarayan_372813_assignsubmission_file_match_v2_MT2014067.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+
+
+struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAX
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014067 Mishra Rajendrakumar Premnarayan_372813_assignsubmission_file_match_v2_MT2014067.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+
+
+;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAX
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014063 Mansi Sethi_375190_assignsubmission_file_match_v2_MT2014063.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+
+
+MAXTERMS][TERMSIZE];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+
+--------------------------------
+
+MT2014064 Mayank Surana_388342_assignsubmission_file_match_v2_MT2014064.c
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014065 Mayur Bhole_388957_assignsubmission_file_match_V2_MT2014065_.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 
+
+--------------------------------
+
+MT2014067 Mishra Rajendrakumar Premnarayan_372813_assignsubmission_file_match_v2_MT2014067.c
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+
+
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAX
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	int num_lines;
+	
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014071 Naganand_370662_assignsubmission_file_match_v2_MT2014071.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014083 Pankaj Pandey_377649_assignsubmission_file_match_v2_MT2014083.c
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+}
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+
+
+vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+
+
+vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014069 Munale Suraj Shrishailya_378871_assignsubmission_file_match_v2_MT2014069.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014074 Neelima Neelambaran_381684_assignsubmission_file_match_v2_MT2014074.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+
+--------------------------------
+
+MT2014078 Nishant Gupta_389112_assignsubmission_file_match_maker_v2_078.c
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *
+
+--------------------------------
+
+MT2014078 Nishant Gupta_389112_assignsubmission_file_match_maker_v2_078.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+
+
+load_corpus( char *file_name, struct Corpus *corpus );
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *
+
+--------------------------------
+
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014079 Nishant S_387483_assignsubmission_file_match_v2_MT2014079.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score;
+
+--------------------------------
+
+MT2014082 Padalia Rajan Kantilal_388702_assignsubmission_file_match_v2_MT2014082.c
+MT2014085 Patani Setu Rushikesh_388878_assignsubmission_file_match_v2_MT2014085.c
+
+
+
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 100
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+
+
+--------------------------------
+
+MT2014082 Padalia Rajan Kantilal_388702_assignsubmission_file_match_v2_MT2014082.c
+MT2014107 Savjani Parth Ashokbhai_388620_assignsubmission_file_match_v2_MT2014107.c
+
+
+float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014083 Pankaj Pandey_377649_assignsubmission_file_match_v2_MT2014083.c
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014083 Pankaj Pandey_377649_assignsubmission_file_match_v2_MT2014083.c
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014100 Samudrala Mahesh_371260_assignsubmission_file_match_v2_MT2014100.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+
+
+vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+
+
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+;
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014087 Piyush Agarwal_382441_assignsubmission_file_match_v2_MT2014087.c
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+
+
+;
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+
+
+ // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+
+
+vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+
+
+int load_corpus( char *file_name, struct Corpus *corpus );
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+
+
+term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014095 Rita Grace Itticheria_372943_assignsubmission_file_match_v2_MT2014095.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+
+
+define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	float match_score;
+};
+
+int load_corpus( char *file_name, struct Corpus *corpus );
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014088 Pradarattana Panda_377043_assignsubmission_file_match_v2_MT2014088.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+
+int load_corpus( char *file_name, struct Corpus *corpus );
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+
+
+--------------------------------
+
+MT2014089 Praveen Baby_379874_assignsubmission_file_match_v2_MT2014089.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+
+
+// Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_lines[MAXTARGETS];
+	int num_lines;
+
+--------------------------------
+
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+*vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014099 Saksham Jain_384942_assignsubmission_file_match_v2_MT2014099.c
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014100 Samudrala Mahesh_371260_assignsubmission_file_match_v2_MT2014100.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+
+
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+
+
+1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+
+
+--------------------------------
+
+MT2014101 Sandesh Prabhu_372247_assignsubmission_file_match_v2_MT2014101.c
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+
+
+--------------------------------
+
+MT2014107 Savjani Parth Ashokbhai_388620_assignsubmission_file_match_v2_MT2014107.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+term_tokenizer_v1(corpus->corpus_lines[i]);
+		term_tokenizer_v2(corpus->vocabulary, corpus->corpus_lines[i]);
+		i++;
+		corpus->num_lines++;
+	
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014110 Shah Dhruvik Jitendra_380224_assignsubmission_file_match_v2_MT2014110.c
+
+
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014110 Shah Dhruvik Jitendra_380224_assignsubmission_file_match_v2_MT2014110.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+
+
+struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+
+
+loat match_score; // Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+float match_score;
+};
+
+int load_corpus( char *file_name, struct Corpus *corpus );
+int term_tokenizer_v1( struct TextLine *line );
+int term_tokenizer_v2( struct TextLine *vocabulary, struct TextLine *line );
+int term_matcher( struct TextLine *target_line, struct TextLine *corpus_line );
+void print_result(
+
+--------------------------------
+
+MT2014108 Shah Chirag Kantilal_387182_assignsubmission_file_match _v2_MT2014108.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; 
+
+--------------------------------
+
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014118 Sri Ganesh V_380331_assignsubmission_file_match_v2_MT2014118.c
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+*vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *
+
+--------------------------------
+
+MT2014123 Tanay Agrawal_382966_assignsubmission_file_match_v2_MT2014123.c
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+
+
+ Applicable only if TextLine is a TARGET_LINE
+};
+
+struct Corpus{
+	struct TextLine *vocabulary;
+	struct TextLine *corpus_lines[MAXLINES];
+	int num_lines;
+	float overall_match;
+};
+
+struct Target{
+	struct TextLine *target_line[MAXTARGETS];
+	
+
+--------------------------------
+
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+MT2014129 Vaidya Upasana Kanakbhai_381416_assignsubmission_file_match_v2_MT2014129.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014128 Turkar Devendrakumar Gendlal_385292_assignsubmission_file_match_v2_MT2014128.c
+MT2014129 Vaidya Upasana Kanakbhai_381416_assignsubmission_file_match_v2_MT2014129.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+#define LINESIZE 100
+#define MAXTERMS 20
+#define TERMSIZE 20
+#define MAXLINES 100
+#define MAXTARGETS 1
+
+--------------------------------
+
+MT2014129 Vaidya Upasana Kanakbhai_381416_assignsubmission_file_match_v2_MT2014129.c
+MT2014132 Varun Agarwal_377236_assignsubmission_file_match_v2_MT2014132.c
+
+
+struct TextLine{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score;
+
+--------------------------------
+
+MT2014134 Vignesh S_379569_assignsubmission_file_match_v2_MT2014134.c
+Vimal Kaurani MT2014051_388076_assignsubmission_file_match_v2_MT2014051.c
+
+
+{
+	char text[LINESIZE];
+	char terms[TERMSIZE][MAXTERMS];
+	int num_terms;
+	float match_score; // Applicable only if TextLine is a TARGET_LINE
